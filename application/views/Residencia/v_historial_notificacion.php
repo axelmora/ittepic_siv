@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <title>SIV :: HISTORIAL DE NOTIFICACIONES</title>
+
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>     
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">       
+        <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>    
+        <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/media/css/jquery.dataTables.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/extensions/Responsive/css/responsive.dataTables.min.css">
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper grey lighten-5 left-align">
+                <a href="#!" class="brand-logo center"><img src="<?php echo base_url(); ?>images/logochico.png" alt="Logo" /></a>
+
+                <div class="right-align hide-on-med-and-down">
+                    <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down"><?php echo $info ?>
+                            <?= anchor(base_url() . 'index.php/Logeo/logout_ci', '<span class=" amber-text  right-align hide-on-med-and-down">(Cerrar sesión)  </span>') ?></span></a>
+                </div>
+            </div>
+        </nav>
+
+
+
+        <div class="section no-pad-bot" id="index-banner">            
+            <div class="row center">
+                <h5 class="condensed light header center amber-text darken-1-text">      
+                    HISTORIAL DE NOTIFICACIONES</h5>
+            </div>             
+
+        </div>
+
+
+        <div class="container">
+            <div class="section">
+
+                <!--   Icon Section   -->
+                <?php
+                switch ($info) {
+                    case 'docente':
+                        ?>                
+                        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
+                           href="<?php echo base_url() . 'index.php/Residencia/Docente/panel_docente/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
+                           <?php
+                           break;
+                       case 'jefeacademico':
+                           ?>
+                        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
+                           href="<?php echo base_url() . 'index.php/panel_academico/residencia/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
+                           <?php
+                           break;
+                       case 'coordinadorresidencia':
+                           ?>                        
+                        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
+                           href="<?php echo base_url() . 'index.php/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
+                           <?php
+                           break;
+                   }
+                   ?>                                                 
+
+                <div class="row center-align">
+
+                    <table id="tabla_historial_notificaciones" class="display">      
+                        <thead>
+                            <tr>                                                                                                
+                                <th>Asunto</th>
+                                <th>Fecha</th>          
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($data) {
+                                foreach ($data as $row) {
+                                    ?>
+                                    <tr>                                                                                                                    
+                                        <td><?php echo $row->asunto; ?></td>
+                                        <td><?php echo $row->fecha; ?></td>          
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <?php //}   ?>
+                </div>                               
+
+            </div>
+
+        </div>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <br><br>
+        <footer class="page-footer black">
+            <div class="container">
+
+            </div>
+            <div class="footer-copyright">
+                <div>
+                    <div align="center ">Copyright 2016 - <a class=" amber-text text-lighten-3" href="http://www.ittepic.edu.mx"><span class="amber-text">
+                                ITTepic
+                            </span></a></div>
+                </div>
+            </div>
+        </footer>      
+        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>                       
+        <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/media/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+
+
+    </body>
+</html>
