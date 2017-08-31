@@ -38,6 +38,10 @@ i.icon-red {
       <div class="right-align hide-on-med-and-down">
       </div>
     </div>
+    <div class="right-align hide-on-med-and-down">
+        <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down">Bienvenido <?= $this->session->userdata('perfil') ?>
+                <?= anchor(base_url() . 'index.php/Logeo/logout_ci', '<span class=" amber-text  right-align hide-on-med-and-down">(Cerrar sesión)  </span>') ?></span></a>
+    </div>
   </nav>
   <!-- Navbar goes here -->
   <!-- Page Layout here -->

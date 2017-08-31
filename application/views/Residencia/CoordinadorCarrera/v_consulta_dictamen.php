@@ -38,22 +38,14 @@
                 cursor: pointer;        /* make the cursor like hovering over an <a> element */
                 /* make text start to the right of the image */
                 vertical-align: middle; /* align the text vertically centered */
-            }	
-
-
-
+            }
             ul.tsc_pagination { margin:4px 0; padding:0px; height:100%; overflow:hidden; font:12px 'Tahoma'; list-style-type:none; }
             ul.tsc_pagination li { float:left; margin:0px; padding:0px; margin-left:5px; }
-
             ul.tsc_pagination li a { color:black; display:block; text-decoration:none; padding:7px 10px 7px 10px; }
-
-
             ul.tsc_paginationA li a { color:#FFFFFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
-
             ul.tsc_paginationA01 li a { color:#474747; border:solid 1px #B6B6B6; padding:6px 9px 6px 9px; background:#E6E6E6; background:-moz-linear-gradient(top, #FFFFFF 1px, #F3F3F3 1px, #E6E6E6); background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0.02, #FFFFFF), color-stop(0.02, #F3F3F3), color-stop(1, #E6E6E6)); }
             ul.tsc_paginationA01 li:hover a,
             ul.tsc_paginationA01 li.current a { background:#FFFFFF; }
-
         </style>
     </head>
     <body>
@@ -89,7 +81,7 @@
                 <br>
                 <div class="row center">
 
-                    <h5 class="condensed light header center amber-text darken-1-text">      
+                    <h5 class="condensed light header center amber-text darken-1-text">
                         Consulta de autorización de dictamen de residencia</h5>
 
                 </div>
@@ -107,7 +99,7 @@
                 <a href="<?php echo base_url(); ?>index.php/Residencia/JefeResidencia/Panel_jeferesidencia">< Regresar</a>
 
                 <!-- Esto de aqui es la bolita con la estrella   -->
-                <br><p>&nbsp;</p> 
+                <br><p>&nbsp;</p>
                 <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
                     <a class="btn-floating btn-large orange darken-1">
                         <i class="large material-icons">stars</i>
@@ -135,8 +127,8 @@
                             <td>No</td>
                             <td>Si</td>
                         </tr>
-                    </tbody>                      
-                </table>                              
+                    </tbody>
+                </table>
 
 
                 <p>&nbsp;</p>

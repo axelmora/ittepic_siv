@@ -17,7 +17,7 @@
                 <a href="#!" class="brand-logo center"><img src="<?php echo base_url(); ?>images/logochico.png" alt="Logo" /></a>
 
                 <div class="right-align hide-on-med-and-down">
-                    <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down">Bienvenido <?= $this->session->userdata('perfil') ?> 
+                    <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down">Bienvenido <?= $this->session->userdata('perfil') ?>
                             <?= anchor(base_url() . 'index.php/Logeo/logout_ci', '<span class=" amber-text  right-align hide-on-med-and-down">(Cerrar sesión)  </span>') ?></span></a>
                 </div>
                 <div class="right-align hide-on-med-and-down">
@@ -42,36 +42,26 @@
 
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
-
-                <h3 class="thin header center amber-text darken-1-text">      
+                <h3 class="thin header center amber-text darken-1-text">
                     Sistema Integral de Vinculación <br></h3>
-                <p></p>      
-
-
-
-
+                <p></p>
                 <div class="row center">
-
                     Coordinador de Programa Académico - Panel de Administración
-
                 </div>
                 <div class="row center">
                     <?php /* ?><a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a><?php */ ?>
                 </div>
-
-
             </div>
         </div>
 
-        <div class="container">    
+        <div class="container">
 
             <div class="section">
-
                 <!--   Icon Section   -->
                 <div class="row">
 
                     <a href="<?php echo base_url(); ?>index.php/Residencia/CoordinadorCarrera/Panel_coordicarrera/consultar_info_procedimiento">
-                        <div class="col s12 m5 right">       
+                        <div class="col s12 m5 right">
                             <div class="card-panel grey lighten-5 z-depth-1">
                                 <div class="row valign-wrapper ">
                                     <div class="col s6">
@@ -85,7 +75,6 @@
                                 </div>
                             </div>
                         </div></a>
-
                     <a href="<?php echo base_url(); ?>index.php/Residencia/CoordinadorCarrera/Panel_coordicarrera/consultar_banco_proyectos">
                         <div class="col s12 m5 right">
 
@@ -105,7 +94,6 @@
                         </div></a>
                     <a href="<?php echo base_url(); ?>index.php/C_noticias/indexR">
                         <div class="col s12 m5 right">
-
                             <div class="card-panel grey lighten-5 z-depth-1">
                                 <div class="row valign-wrapper">
                                     <div class="col s6">
@@ -153,10 +141,9 @@
 
 
     <!--  Scripts-->
-    <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>                       
-    <script src="<?php echo base_url(); ?>js/materialize.js"></script>               
+    <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/materialize.js"></script>
 
 
 </body>
 </html>
-
