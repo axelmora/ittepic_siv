@@ -91,10 +91,6 @@ class Logeo extends CI_Controller {
             );
            $this->session->set_userdata($data);
           // var_dump($check_user);
-          // var_dump($data);
-        /* var_dump($check_user->permiso_servicio);*/
-           //var_dump('entro');
-           // echo $check_user->permiso_servicio;
           return true;
         } else {
             //$this->load->view('notienespermisos');

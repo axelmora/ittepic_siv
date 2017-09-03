@@ -52,26 +52,50 @@ class C_info_usuarios extends CI_Controller {
   public function validarEditarContrasena() {
     $this->load->library('form_validation');
     $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
-    $this->form_validation->set_rules('contraacutal', 'Contraseña Actual', 'required|min_length[1]|max_length[20]');
-    $this->form_validation->set_rules('contranueva1', 'Contraseña nueva', 'required|min_length[1]|max_length[20]');
+    $this->form_validation->set_rules('contraacutal', 'Contraseña Actual', 'required|min_length[8]|max_length[20]');
+    $this->form_validation->set_rules('contranueva1', 'Contraseña nueva', 'required|min_length[8]|max_length[20]');
     $this->form_validation->set_rules('contranueva2', 'Contraseña nueva repetida', 'required|min_length[1]|max_length[20]|matches[contranueva1]');
     $this->form_validation->set_message('required', '<i class="material-icons ">error</i>El campo no puede ir vacío');
     $this->form_validation->set_message('min_length', '<i class="material-icons ">error</i>El  campo debe tener al menos %s carácteres');
     $this->form_validation->set_message('max_length', '<i class="material-icons ">error</i>El campo no puede tener más de %s carácteres');
     $this->form_validation->set_message('matches', '<i class="material-icons ">error</i> Debe ser la misma contraseña.');
     if ($this->form_validation->run() == TRUE) {
-
-      /*    $data = array(
-      'contenido_n' => $this->input->post('cnoticia'),
-      'fecha_noticia' => date('Y-m-d H:i:s'),
-      'titulo_n' => $this->input->post('tnoticia')
-    );*/
-    //Transfering data to Model
-    /*  $this->m_noticias->form_insert_residencia($data);
-    $data['message'] = 'Los datos se insertaron correctamente';
-
-    $data['noticiasResidencia'] = $this->m_noticias->shownoticiasResidencia();
-    $this->load->view('Residencia/v_noticias_agregar_quitar', $data);*/
+    $data = array(
+      'pass'=>sha1($this->input->post('contranueva1')),
+      'passactual'=>sha1($this->input->post('contraacutal'))
+    );
+    //$this->m_usuarios->actualizarcontrasena($this->session->userdata('id_usuario'),$data);
+    if ($this->m_usuarios->actualizarcontrasena($this->session->userdata('id_usuario'),$data)==true) {
+      $data['messageseactualizocontrasena'] = 'La contraseña se actualizo correctamente';
+      if ($this->session->userdata('perfil') == FALSE) {
+        redirect(base_url() . 'index.php/logeo');
+      }
+      if ($this->session->userdata('perfil') == 'jefevinculacion' || $this->session->userdata('perfil') == 'jefeacademico' ||
+      $this->session->userdata('perfil') == 'coordinadorresidencia' || $this->session->userdata('perfil') == 'presidenteacademia' ||
+      $this->session->userdata('perfil') == 'coordinadorprogac' || $this->session->userdata('perfil') == 'jeferesidencia')
+      {
+        $data['info'] = $this->session->userdata('perfil');
+        $data['info_usuario'] = $this->m_usuarios->consulta_info_administrativo($this->session->userdata('id_usuario'));
+        $this->load->view('v_info_administrativo', $data);
+      } else {
+        $this->load->view('notienespermisos');
+      }
+    }else {
+     if ($this->session->userdata('perfil') == FALSE) {
+       redirect(base_url() . 'index.php/logeo');
+     }
+     if ($this->session->userdata('perfil') == 'jefevinculacion' || $this->session->userdata('perfil') == 'jefeacademico' ||
+     $this->session->userdata('perfil') == 'coordinadorresidencia' || $this->session->userdata('perfil') == 'presidenteacademia' ||
+     $this->session->userdata('perfil') == 'coordinadorprogac' || $this->session->userdata('perfil') == 'jeferesidencia')
+     {
+       $data['messageerror'] = '<i class="material-icons ">error</i> Las contraseñas fueron incorrectas intente de nuevo.';
+       $data['info'] = $this->session->userdata('perfil');
+       $data['info_usuario'] = $this->m_usuarios->consulta_info_administrativo($this->session->userdata('id_usuario'));
+       $this->load->view('v_info_administrativo', $data);
+     } else {
+       $this->load->view('notienespermisos');
+     }
+    }
   } else {
     if ($this->session->userdata('perfil') == FALSE) {
       redirect(base_url() . 'index.php/logeo');
@@ -87,7 +111,6 @@ class C_info_usuarios extends CI_Controller {
     } else {
       $this->load->view('notienespermisos');
     }
-    //echo "error";
   }
 }
 //DOCENTES------------------------------------------------------------------------------
@@ -106,7 +129,6 @@ public function docente() {
     $this->load->view('notienespermisos');
   }
 }
-
 function actualizar_docente() {
   $datos = array(
     //'contrasena' => sha1($this->input->post('contrasena'))
@@ -118,7 +140,6 @@ function actualizar_docente() {
     $this->load->view('notienespermisos');
   }
 }
-
 //ALUMNOS------------------------------------------------------------------------------
 public function alumno() {
   if ($this->session->userdata('logged_in')) {
