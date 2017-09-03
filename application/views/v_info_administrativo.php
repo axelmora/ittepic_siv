@@ -96,17 +96,17 @@
                 <i class="material-icons">enhanced_encryption</i> Cambiar contraseña para <?php echo $usuarionombre;?></p>
               <div class="row">
                 <div class="input-field col s12">
-                  <input placeholder="Ingresar Contraseña Actual" id="contraacutal" name="contraacutal" type="text" value="<?php echo set_value('contraacutal'); ?>" class="validate" required>
+                  <input placeholder="Ingresar Contraseña Actual"  id="contraacutal" name="contraacutal" type="password" value="<?php echo set_value('contraacutal',''); ?>" class="validate" required>
                   <label for="contraacutal">Contraseña Actual</label>
                   <div class="red-text left"><?php echo form_error('contraacutal'); ?></div>
                 </div>
                 <div class="input-field col s6">
-                  <input id="contranueva1"  name="contranueva1" placeholder="Ingresar nueva contraseña." type="text" value="<?php echo set_value('contranueva1'); ?>" class="validate" required>
+                  <input id="contranueva1"  name="contranueva1" placeholder="Ingresar nueva contraseña." type="password" value="<?php echo set_value('contranueva1',''); ?>" class="validate" required>
                   <label for="contranueva1">Nueva Contraseña</label>
                     <div class="red-text left"><?php echo form_error('contranueva1'); ?></div>
                 </div>
                 <div class="input-field col s6">
-                  <input id="contranueva2" type="text"  name="contranueva2" placeholder="Ingresar nuevamente la contraseña nueva." value="<?php echo set_value('contranueva2'); ?>" class="validate" required>
+                  <input id="contranueva2" type="password"  name="contranueva2" placeholder="Ingresar nuevamente la contraseña nueva." value="<?php echo set_value('contranueva2',''); ?>" class="validate" required>
                   <label for="contranueva2">Repetir Nueva Contraseña</label>
                     <div class="red-text left"><?php echo form_error('contranueva2'); ?></div>
                 </div>

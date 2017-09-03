@@ -55,11 +55,14 @@ class M_usuarios extends CI_Model {
         //$test1=$data['passactual'];
         if ($data['passactual']==$row->pass) {
           //echo "SON IGUALES PROCEDO A ACTUALIZAR  $row->pass------- $test1 ";
-          return true;
-          /*
+          $datoscontrasena = array(
+            'pass'=>$data['pass']  
+          );
+
           $DB2 = $this->load->database('local', TRUE);
           $DB2->where('id', $id);
-          $DB2->update('usuarios', $data);*/
+          $DB2->update('usuarios', $datoscontrasena);
+          return true;
         }
         else {
           return false;
