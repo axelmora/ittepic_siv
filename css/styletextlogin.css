@@ -1,16 +1,9 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,300,800);
-
-
-
-	
-
 .rowsa{
   position: relative;
   display: inline-block;
- 
+
 }
-
-
 .slide-up {
   display: inline-block;
   width: 432px;
@@ -25,11 +18,11 @@
   outline: 0;
   text-indent: 150px;
   transition: all .3s ease-in-out;
-  
+
 }
 .slide-up::-webkit-input-placeholder {
   color: #fff;
-   margin-left:10px; 
+   margin-left:10px;
   text-indent: 0;
   font-weight: 300;
 }
@@ -65,7 +58,7 @@
 .slide-up + label:after {
   top: 0;
   bottom: 0;
-  
+
   background: #6E6E6E;
 }
 
@@ -97,12 +90,12 @@ span:nth-child(3) .slide-up:active {
 .slide-up:focus + label,
 .slide-up:active + label {
   transform: translateY(-100%);
-  
+
   color: #000;
 }
 .slide-up:focus + label:before,
 .slide-up:active + label:before {
- 
+
   color: #000; border-radius: 5px;
 }
 .slide-up:focus + label:after,
@@ -110,4 +103,3 @@ span:nth-child(3) .slide-up:active {
   transform: translateY(100%);
   color: #000;
 }
-

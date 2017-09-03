@@ -21,7 +21,7 @@ class C_reportes extends CI_Controller {
         }
     }
 
-    public function reporte1() { //EL GENERAL 
+    public function reporte1() { //EL GENERAL
         $this->load->library('Pdf');
         $resolution = array(216, 279);
         $pdf = new Pdf('L', 'mm', $resolution, true, 'UTF-8', false);
@@ -176,9 +176,7 @@ class C_reportes extends CI_Controller {
         $html .= "<style type=text/css>";
         $html .= "th{color: #fff; font-weight: bold; background-color: #222; border: 1px solid black}";
         $html .= "td{background-color: #FFF; color: #000; border: 1px solid black}";
-
         $html .= "</style>";
-
         if ($result == 0) {
             $html .= "No hay alumnos con residencia profesional registrada con los criterios de busqueda";
         } else {

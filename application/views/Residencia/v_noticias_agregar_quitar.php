@@ -129,7 +129,8 @@
         <div class="row center">
 
           <h5 class="condensed light header center amber-text darken-1-text">
-            NOTICIAS</h5>
+            NOTICIAS
+          </h5>
           </div>
         </div>
       </div>
@@ -155,10 +156,13 @@
                 </div></div>
 
               </div>
-
-
               <div class="col s8 center-align card-panel #bdbdbd grey lighten-2"><div class="input-field">
                 <div id="buscador">
+                  <br>
+                  <button class="btn orange darken-1 right-align z-depth-0 "  id="AgregarNoticiaBoton">
+                      <div class="text-orange"><i class="material-icons right">description</i>Nueva Noticia</div>
+                  </button>
+                  <div id="formulario1" style="display: none;">
                   <?php echo form_open('c_noticias/validarR'); ?>
                   <br>&nbsp;
                   <div class="rowsa">
@@ -169,7 +173,6 @@
                   </div>
                   <br>&nbsp;
                   <br>&nbsp;
-
                   <div class="rowa">
                     <textarea style="background:white; resize: none" rows="10" class="large-textarea" name="cnoticia" id="cnoticia" type="text" value="<?php echo set_value('cnoticia'); ?>" placeholder="Introduce el contenido de la noticia"></textarea>
                     <div class="red-text left"><?php echo form_error('cnoticia'); ?></div>
@@ -178,21 +181,16 @@
                   <button class="btn orange darken-1 right-align z-depth-0 " type="submit">
                     <div class="text-orange"><i class="material-icons right">description</i>Agregar noticia</div>
                   </button>
-
-
                   <br>&nbsp;
                   <?= form_close() ?>
+                  </div>
                   <br> &nbsp;
                   <?php
                   if (!$noticiasResidencia) {
                     ?>
-
                     <div class="red-text">No hay noticias.</div>
-
                   <?php } else {
                     ?>
-
-
                     <table class="striped">
                       <tr class=" grey darken-1 right-align z-depth-0 ">
                         <td class="white-text">
@@ -208,7 +206,6 @@
                           Eliminar
                         </td>
                       </tr>
-
                       <?php foreach ($noticiasResidencia as $item): ?>
 
                         <tr class="white">
@@ -219,7 +216,7 @@
                             &nbsp;&nbsp;<?= $item->fecha_noticia; ?>
                           </td>
                           <td class="center">
-                            <a href="<?php echo base_url(); ?>index.php/Residencia/CoordinadorCarrera/Panel_coordicarrera/consultar_banco_proyectos<?= $item->id_noticia; ?>">
+                            <a href="<?php echo base_url(); ?>index.php/C_noticias/indexREdit/<?= $item->id_noticia; ?>">
                             <input type="text" name="idnot" size="1" style="visibility: hidden"  value="<?= $item->id_noticia; ?>" id="idnot" />
                             <button type="submit" style="background: transparent; border: 0; ">
                             <i class="material-icons green-text">edit</i>
@@ -289,5 +286,18 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="../../bin/materialize.js"></script>
 <script src="js/init.js"></script>
+<script>
+$(document).ready(function(){
+    /*$("#hide").click(function(){
+        $("formulario1").hide();
+    });*/
+    $("#AgregarNoticiaBoton").click(function(){
+      //  $("#formulario1").show();
+        $("#formulario1")  .slideDown( "slow", function() {
+    // Animation complete.
+      });
+    });
+});
+</script>
 </body>
 </html>
