@@ -65,7 +65,8 @@ class C_info_usuarios extends CI_Controller {
       'passactual'=>sha1($this->input->post('contraacutal'))
     );
     //$this->m_usuarios->actualizarcontrasena($this->session->userdata('id_usuario'),$data);
-    if ($this->m_usuarios->actualizarcontrasena($this->session->userdata('id_usuario'),$data)==true) {
+    /* ACTUALIZAR */
+    if ($this->m_usuarios->actualizarcontrasena($this->session->userdata('id_usuario'),$data)==true) { //Condicion que detecta si la contraseña se actualizo
       $data['messageseactualizocontrasena'] = 'La contraseña se actualizo correctamente';
       if ($this->session->userdata('perfil') == FALSE) {
         redirect(base_url() . 'index.php/logeo');
@@ -80,7 +81,8 @@ class C_info_usuarios extends CI_Controller {
       } else {
         $this->load->view('notienespermisos');
       }
-    }else {
+      /* ACTUALIZAR */
+    }else {    /* ACTUALIZAR ERROR */
      if ($this->session->userdata('perfil') == FALSE) {
        redirect(base_url() . 'index.php/logeo');
      }
@@ -95,8 +97,9 @@ class C_info_usuarios extends CI_Controller {
      } else {
        $this->load->view('notienespermisos');
      }
+     /* ACTUALIZAR ERROR */
     }
-  } else {
+  } else {     /* ACTUALIZAR ERROR VALIDACION */
     if ($this->session->userdata('perfil') == FALSE) {
       redirect(base_url() . 'index.php/logeo');
     }
@@ -111,6 +114,7 @@ class C_info_usuarios extends CI_Controller {
     } else {
       $this->load->view('notienespermisos');
     }
+     /* ACTUALIZAR ERROR VALIDACION */
   }
 }
 //DOCENTES------------------------------------------------------------------------------
