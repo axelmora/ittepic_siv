@@ -47,6 +47,9 @@
             <?php if (isset($messageerror)) { ?>
               <CENTER><p class="col s4 center-align card-panel red white-text"><?php echo "$messageerror"; ?></p></CENTER><br>
             <?php } ?>
+            <?php if (isset($messageseactualizocontrasena)) { ?>
+              <CENTER><p class="col s4 center-align card-panel green white-text"><?php echo "$messageseactualizocontrasena"; ?></p></CENTER><br>
+            <?php } ?>
             <div class="center-align col m6 card-panel grey lighten-5">
               <table class="bordered highlight responsive-table">
                 <tr>

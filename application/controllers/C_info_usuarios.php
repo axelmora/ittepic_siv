@@ -88,7 +88,7 @@ class C_info_usuarios extends CI_Controller {
      $this->session->userdata('perfil') == 'coordinadorresidencia' || $this->session->userdata('perfil') == 'presidenteacademia' ||
      $this->session->userdata('perfil') == 'coordinadorprogac' || $this->session->userdata('perfil') == 'jeferesidencia')
      {
-       $data['messageerror'] = '<i class="material-icons ">error</i> Las contraseñas fueron incorrectas intente de nuevo.';
+       $data['messageerror'] = '<i class="material-icons ">error</i> Las contraseña actuañ fue incorrecta intente de nuevo.';
        $data['info'] = $this->session->userdata('perfil');
        $data['info_usuario'] = $this->m_usuarios->consulta_info_administrativo($this->session->userdata('id_usuario'));
        $this->load->view('v_info_administrativo', $data);
