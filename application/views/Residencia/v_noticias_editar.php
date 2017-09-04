@@ -140,7 +140,7 @@
             <?php foreach ($noticiasResidenciaEditar as $item):  ?>
             <div class="col s8 center-align card-panel #bdbdbd grey lighten-2"><div class="input-field">
               <div id="buscador">
-                <?php echo form_open('c_noticias/validarR'); ?>
+                <?php echo form_open('c_noticias/validarREditar/'.$item->id_noticia); ?>
                 <br>&nbsp;
                 <div class="rowsa">
                   <div class="col s12">

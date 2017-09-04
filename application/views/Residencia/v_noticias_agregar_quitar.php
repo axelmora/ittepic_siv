@@ -228,7 +228,6 @@
                             <button type="submit" style="background: transparent; border: 0; ">
                               <img src="<?php echo base_url(); ?>images/button-bg.png" width="0" height="0"  alt="submit" /><i class="material-icons red-text">delete</i>
                             </button>
-
                             <input type="text" name="idact" size="1" style="visibility: hidden"  value="" id="idact" />
                             <?= form_close() ?>
                           </td>
@@ -254,19 +253,9 @@
       <p>&nbsp;</p>
       <p>&nbsp;</p>
     </div>
-
   </div>
-
-
-
   <br><br>
-
-
-
   <div class="section">
-
-
-
   </div>
 </div>
 </div>
