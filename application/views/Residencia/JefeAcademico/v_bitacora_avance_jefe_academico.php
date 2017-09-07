@@ -14,7 +14,7 @@
 
         <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-        <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>        
+        <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
         <!--<link href="<?php echo base_url(); ?>css/proceso.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
         <link href="<?php echo base_url(); ?>css/flow.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -33,48 +33,75 @@
         <!-- Navbar goes here -->
 
 
-        <div class="section no-pad-bot" id="index-banner">            
+        <div class="section no-pad-bot" id="index-banner">
             <div class="row center">
-                <h5 class="condensed light header center amber-text darken-1-text">      
+                <h5 class="condensed light header center amber-text darken-1-text">
                     BITÁCORAS DE AVANCE</h5>
-            </div>                
+            </div>
 
         </div>
         <div class="container">
-            <div class="section">      
-                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
-                   href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
-                <div class="left-align col s3 m6 l3 card-panel grey lighten-5">
-                    <div class="input-field">
-<!--                        <form method="post" action="<?php echo base_url() . "index.php/c_alumnos_ds/cambiar_estado/" ?>">-->
-                        <form id="frm_sel_residente" method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/consulta_bitacora_residente" ?>">                          
-                            <?php if ($residentes) { ?>
-                                <label>Selecciona un alumno</label>
-                                <br>
-                                <br>
-                                <select  id="id_participantes" name="id_participantes">
-                                    <?php foreach ($residentes as $value) { ?>
-                                        <option value="<?= $value->id ?>"><?= $value->nombre ?></option>
-                                    <?php } ?>                                
-                                </select>
-                                <br>
-                                <br>
-                                <button id="btn_sel_residente" class="btn orange darken-1 right-align z-depth-0">
-                                    Seleccionar</button>                                                            
-                            <?php } else { ?>
-                                <p style="text-align: center;" class="blue-text">No hay alumnos</p>
-                            <?php } ?>                            
-                        </form>
-                    </div>
-                </div>
+            <div class="section">
 
-                <div id="info" class="row" hidden>                                
+                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
+                   href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
+                   <div  class="row" >
+                     <div class="left-align col s12 m6 card-panel grey lighten-5">
+                         <div class="input-field">
+     <!--                        <form method="post" action="<?php echo base_url() . "index.php/c_alumnos_ds/cambiar_estado/" ?>">-->
+                             <form id="frm_sel_residente" method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/consulta_bitacora_residente" ?>">
+                                 <?php if ($residentes) { ?>
+                                     <label>Selecciona un alumno</label>
+                                     <br>
+                                     <br>
+                                     <select  id="id_participantes" name="id_participantes">
+                                         <?php foreach ($residentes as $value) { ?>
+                                             <option value="<?= $value->id ?>"><?= $value->nombre ?></option>
+                                         <?php } ?>
+                                     </select>
+                                     <br>
+                                     <br>
+                                     <button id="btn_sel_residente" class="btn orange darken-1 right-align z-depth-0">
+                                         Seleccionar</button>
+                                 <?php } else { ?>
+                                     <p style="text-align: center;" class="blue-text">No hay alumnos</p>
+                                 <?php } ?>
+                             </form>
+                         </div>
+                     </div>
+
+                     <div class="left-align col s12 m6 card-panel grey lighten-5">
+                         <div class="input-field">
+     <!--                        <form method="post" action="<?php echo base_url() . "index.php/c_alumnos_ds/cambiar_estado/" ?>">-->
+                             <form id="frm_sel_residente" method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/consulta_bitacora_residente" ?>">
+                                 <?php if ($residentes) { ?>
+                                     <label>Selecciona un alumno</label>
+                                     <br>
+                                     <br>
+                                     <select  id="id_participantes" name="id_participantes">
+                                         <?php foreach ($residentes as $value) { ?>
+                                             <option value="<?= $value->id ?>"><?= $value->nombre ?></option>
+                                         <?php } ?>
+                                     </select>
+                                     <br>
+                                     <br>
+                                     <button id="btn_sel_residente" class="btn orange darken-1 right-align z-depth-0">
+                                         Seleccionar</button>
+                                 <?php } else { ?>
+                                     <p style="text-align: center;" class="blue-text">No hay alumnos</p>
+                                 <?php } ?>
+                             </form>
+                         </div>
+                     </div>
+             </div>
+
+                <div id="info" class="row" hidden>
                     <div class="col s5 center-align card-panel grey lighten-5">
                         <div class="input-field left-align">
                             <div id="buscador">
                                 DATOS DEL ALUMNO
-                                <hr>                                
-                                <b>Nombre completo: </b><span id="nombre"></span> 
+                                <hr>
+                                <b>Nombre completo: </b><span id="nombre"></span>
                                 <br>
                                 <b>No. de control: </b><span id="num_con"></span>
                                 <br>
@@ -91,27 +118,27 @@
                                 <br>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="col s2"><br></div>
                     <div class="col s5 right-align card-panel grey lighten-5 ">
                         <div class="input-field left-align">
                             DATOS DEL PROYECTO
-                            <hr>                            
+                            <hr>
                             <b>Nombre del Proyecto: </b><span id="np"></span>
                             <br>
                             <b>Empresa: </b><span id="empresa"></span>
-                            <br> 
+                            <br>
                             <b>Departamento del anteproyecto: </b><span id="dep"></span>
                             <br>
                             <b>Origen de anteproyecto: </b><span id="origen"></span>
-                            <br>                            
+                            <br>
                             <b>Proyecto opción para titulación: </b><span id="tit"></span>
                             <br>
                             <br>
                             <div id="dic" hidden>
                                 <b style="color: red;">Recepción de documentos finales con el Jefe de Residencia Profesional: <span id="documentosR"></span></b>
                             </div>
-                            <br>                            
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -135,7 +162,7 @@
                     <br>
                     <br>
                     <div id="steps3" align="center">
-                        
+
                     </div>
                 </div>
 
@@ -145,56 +172,56 @@
                         <caption class="amber-text">ARCHIVOS DE AVANCE DEL ALUMNO</caption>
                         <thead>
 
-                            <tr>                                
+                            <tr>
                                 <th>Nombre del archivo</th>
                                 <th>Descripción</th>
                                 <th>Tipo de documento</th>
                                 <th>Estado</th>
                                 <th>Fecha de guardado</th>
                                 <th>Fecha límite de revisión</th>
-                                <th>Descargar</th>                                
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>                      
-                    </table>                              
-
-                    <br>
-                    <br>    
-                </div>
-                <div id="a_rev_ase" class="center-align col s12 card-panel grey lighten-5" hidden>
-                    <table id="archivos_asesor" class="bordered highlight responsive-table">      
-                        <caption class="amber-text">REVISIONES ASESOR</caption>
-                        <thead>                    
-                            <tr>
-                                <th>Nombre del archivo</th>
-                                <th>Descripción</th>
-                                <th>Tipo de documento</th>                                
-                                <th>Fecha de guardado</th>                                                                
-                                <th>Revisión de archivo</th>  
                                 <th>Descargar</th>
                             </tr>
                         </thead>
-                        <tbody>                            
+                        <tbody>
                         </tbody>
-                    </table>  
+                    </table>
+
+                    <br>
+                    <br>
+                </div>
+                <div id="a_rev_ase" class="center-align col s12 card-panel grey lighten-5" hidden>
+                    <table id="archivos_asesor" class="bordered highlight responsive-table">
+                        <caption class="amber-text">REVISIONES ASESOR</caption>
+                        <thead>
+                            <tr>
+                                <th>Nombre del archivo</th>
+                                <th>Descripción</th>
+                                <th>Tipo de documento</th>
+                                <th>Fecha de guardado</th>
+                                <th>Revisión de archivo</th>
+                                <th>Descargar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                     <br>
                 </div>
                 <div id="a_ase" class="center-align col s12 card-panel grey lighten-5" hidden>
-                    <table id="archivos_asesor" class="bordered highlight responsive-table">      
+                    <table id="archivos_asesor" class="bordered highlight responsive-table">
                         <caption class="amber-text">ARCHIVOS DE CIERRE DE PROYECTO</caption>
-                        <thead>                    
-                            <tr>                                                                                                
+                        <thead>
+                            <tr>
                                 <th>Nombre del archivo</th>
-                                <th>Descripción</th>                                
+                                <th>Descripción</th>
                                 <th>Tipo de documento</th>
-                                <th>Fecha de guardado</th>                                
-                                <th>Descargar</th>                                
+                                <th>Fecha de guardado</th>
+                                <th>Descargar</th>
                             </tr>
                         </thead>
-                        <tbody>                            
+                        <tbody>
                         </tbody>
-                    </table>  
+                    </table>
                     <br>
                 </div>
 
@@ -215,8 +242,8 @@
                                 <input type="checkbox" class="filled-in" id="autorizacion_dictamen"/>
                                 <label for="autorizacion_dictamen">Autorizar dictamen</label>
                                 <br>
-                                <br>                            
-                            </div>                        
+                                <br>
+                            </div>
                             <div class="col s6 align-right">
                                 <br>
                                 <a id="cancelar_residencia" class="waves-effect">
@@ -257,9 +284,9 @@
                 </div>
             </div>
         </footer>
-        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>               
-        <script src="<?php echo base_url(); ?>js/materialize.js"></script>               
-        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/modals.js"></script>        
+        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/modals.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/bitacora_jefe_academico.js"></script>
         <!--<script src="http://malsup.github.com/jquery.form.js"></script>-->
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/jquery.form.min.js"></script>

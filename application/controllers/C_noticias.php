@@ -150,5 +150,4 @@ class C_noticias extends CI_Controller {
     }
 
 }
-
 ?>
