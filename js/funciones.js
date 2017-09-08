@@ -577,15 +577,11 @@ Fecha de la vacante: ' + fecha_vacante + '\n\
 <br>\n\
 </div>'
                     );
-
     $("#modal_detalles_vacantes").openModal();
-
 }
-
 function btn_asignar(idp, base) {
     if ($('#rfc_asesor').attr('value') != '' && $('#rfc_revisor1').attr('value') != ''
             && $('#rfc_revisor2').attr('value') != '' && valida_ae()) {
-
         jQuery.ajax({
             type: "POST",
             url: base + 'index.php/Residencia/c_asignar_asesor/tiene_asesor/',

@@ -23,8 +23,8 @@ WHERE PP.ANTEPROYECTO_FK = A.ANTEPROYECTO_PK AND A.DEPARTAMENTO_ANTEPROYECTO = \
 
         $query = $DB2->query('
             SELECT PP.*,A.*,AP.*,S.SEMESTRE, C.CARRERA, E.EMPRESA_PK, E.NOMBRE_EMPRESA
-            FROM PARTICIPANTES_PROYECTO PP,ALUMNOS A, ANTEPROYECTO AP, SEMESTRE S, CARRERAS C, EMPRESA E 
-            WHERE PP.ID = ' . $id_participantes . ' AND PP.NUMERO_CONTROL = A.NUMERO_CONTROL AND AP.ANTEPROYECTO_PK = PP.ANTEPROYECTO_FK AND A.ID_SEMESTRE = S.ID_SEMESTRE AND A.ID_CARRERA = C.ID_CARRERA AND E.EMPRESA_PK = AP.EMPRESA_FK');
+            FROM PARTICIPANTES_PROYECTO PP,ALUMNOS A, ANTEPROYECTO AP, SEMESTRE S, CARRERAS C, EMPRESA E
+            WHERE PP.ID ='. $id_participantes .' AND PP.NUMERO_CONTROL = A.NUMERO_CONTROL AND AP.ANTEPROYECTO_PK = PP.ANTEPROYECTO_FK AND A.ID_SEMESTRE = S.ID_SEMESTRE AND A.ID_CARRERA = C.ID_CARRERA AND E.EMPRESA_PK = AP.EMPRESA_FK');
 
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -32,7 +32,18 @@ WHERE PP.ANTEPROYECTO_FK = A.ANTEPROYECTO_PK AND A.DEPARTAMENTO_ANTEPROYECTO = \
             return false;
         }
     }
-
+    function consulta_bitacora_residente_control($id_participantes) {
+        $DB2 = $this->load->database('local', TRUE);
+        $query = $DB2->query("
+        Select PP.ID from ALUMNOS A,PARTICIPANTES_PROYECTO PP where
+          A.NUMERO_CONTROL=PP.NUMERO_CONTROL AND PP.NUMERO_CONTROL='".$id_participantes."  ' ;
+          ");
+        if ($query->num_rows() > 0) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
     function consulta_tabla_bitacora_avance($nc) {
         $DB2 = $this->load->database('local', TRUE);
 
@@ -95,7 +106,7 @@ AND O.ARCHIVO_ALUMNO_ID = AAL.ARCHIVOS_PK ORDER BY AA.FECHA_GUARDADO_DOCUMENTO D
         $DB2 = $this->load->database('local', TRUE);
 
         $query = $DB2->query('
-            SELECT D.* FROM DICTAMEN_ANTEPROYECTO D, PARTICIPANTES_PROYECTO PP 
+            SELECT D.* FROM DICTAMEN_ANTEPROYECTO D, PARTICIPANTES_PROYECTO PP
 WHERE D.NUMERO_CONTROL = PP.NUMERO_CONTROL AND D.ANTEPROYECTO = PP.ANTEPROYECTO_FK AND PP.ID = ' . $id_participantes . '');
 
         if ($query->num_rows() > 0) {
@@ -181,7 +192,7 @@ WHERE D.NUMERO_CONTROL = PP.NUMERO_CONTROL AND D.ANTEPROYECTO = PP.ANTEPROYECTO_
     }
     function cr_update_anteproyecto($aid,$datos) {
         $DB2 = $this->load->database('local', TRUE);
-        $DB2->where('anteproyecto_pk', $aid);        
+        $DB2->where('anteproyecto_pk', $aid);
         $DB2->update('anteproyecto',$datos);
     }
 
@@ -197,7 +208,7 @@ WHERE D.NUMERO_CONTROL = PP.NUMERO_CONTROL AND D.ANTEPROYECTO = PP.ANTEPROYECTO_
             return false;
         }
     }
-    
+
     function consulta_banco($ida) {
         $DB2 = $this->load->database('local', TRUE);
         $DB2->select('banco,lugares_disponibles,residentes_requeridos');
@@ -213,9 +224,9 @@ WHERE D.NUMERO_CONTROL = PP.NUMERO_CONTROL AND D.ANTEPROYECTO = PP.ANTEPROYECTO_
     function consulta_archivos_viejos_alumno($fecha) {
         $DB2 = $this->load->database('local', TRUE);
         $DB2->select('ruta_archivo');
-        $DB2->from('archivo_alumno');       
-        $DB2->where('fecha_guardado_documento <',$fecha);        
-        
+        $DB2->from('archivo_alumno');
+        $DB2->where('fecha_guardado_documento <',$fecha);
+
         $query = $DB2->get();
         if ($query->num_rows() > 0) {
             return $query->result();
@@ -223,13 +234,13 @@ WHERE D.NUMERO_CONTROL = PP.NUMERO_CONTROL AND D.ANTEPROYECTO = PP.ANTEPROYECTO_
             return false;
         }
     }
-    
+
     function consulta_archivos_viejos_docente($fecha) {
         $DB2 = $this->load->database('local', TRUE);
         $DB2->select('ruta_archivo_asesor');
-        $DB2->from('archivo_asesor');       
+        $DB2->from('archivo_asesor');
         $DB2->where('fecha_guardado_documento <',$fecha);
-        
+
         $query = $DB2->get();
         if ($query->num_rows() > 0) {
             return $query->result();

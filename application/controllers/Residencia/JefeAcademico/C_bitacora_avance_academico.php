@@ -30,7 +30,7 @@ class C_bitacora_avance_academico extends CI_Controller {
     }
 
     public function consulta_bitacora_residente() {
-        //$data['info'] = $this->session->userdata('perfil');        
+        //$data['info'] = $this->session->userdata('perfil');
         $data['info_residente'] = $this->m_bitacora_avance_academico->consulta_bitacora_residente($this->input->post('id_participantes'));
         $tmp = '';
         foreach ($data['info_residente'] as $value) {
@@ -59,6 +59,28 @@ class C_bitacora_avance_academico extends CI_Controller {
             echo json_encode(array('msj' => 'Error en actualización'));
         }
     }
+/*         BUSCAR PRO NUMERO DE CONTROL   07/09/2017                             */
+public function consulta_bitacora_residente_nocontrol() {
+    //$data['info'] = $this->session->userdata('perfil');
+    $data1['info_residente1'] = $this->m_bitacora_avance_academico->consulta_bitacora_residente_control($this->input->post('numero_control'));
+    $aa=$this->input->post('numero_control');
+    $tmp1 = '';
+    foreach ($data1['info_residente1'] as $value) {
+        $tmp1 = $value->id;
+    }
+    $data['info_residente'] = $this->m_bitacora_avance_academico->consulta_bitacora_residente($tmp1);
+    $tmp = '';
+    foreach ($data['info_residente'] as $value) {
+        $tmp = $value->numero_control;
+    }
+    $data['avance'] = $this->m_bitacora_avance_academico->consulta_tabla_bitacora_avance($tmp);
+    $data['archivos_residente'] = $this->m_bitacora_avance_academico->consulta_archivos_residente($tmp1);
+    $data['archivos_asesor'] = $this->m_bitacora_avance_academico->consulta_archivos_asesor($tmp1);
+    $data['archivos_revision_asesor'] = $this->m_bitacora_avance_academico->consulta_revisiones_asesor($tmp1);
+    $data['dictamen'] = $this->m_bitacora_avance_academico->consulta_dictamen($tmp1);
+    $data['base_url'] = base_url();
+    echo json_encode($data);
+}
 
 //****************************ASESOR************************************************
     public function consulta_info_asesorados() {
@@ -134,7 +156,7 @@ class C_bitacora_avance_academico extends CI_Controller {
 //		/banco_proyectos
 //		/bases_concertacion
 //	/docentes
-//		/rfc	
+//		/rfc
         $tmp = $this->m_bitacora_avance_docente->consulta_rfc_asesor($id_asesor);
         $rfc = '';
         foreach ($tmp as $value) {
@@ -205,14 +227,14 @@ class C_bitacora_avance_academico extends CI_Controller {
         $this->m_bitacora_avance_academico->cr_atencion($this->input->post('nc'));
 
         if ($this->input->post('asesor_id') == '' || $this->input->post('asesor_id') == null || $this->input->post('asesor_id') == false || $this->input->post('asesor_id') == 'undefinided') {
-            
+
         } else {
             $this->m_bitacora_avance_academico->cr_observacion($this->input->post('asesor_id'));
-            //eliminar archivos de asesor    
+            //eliminar archivos de asesor
             $this->eliminar_archivos_asesor($this->input->post('asesor_id'));
             $this->m_bitacora_avance_academico->cr_archivo_asesor($this->input->post('asesor_id'));
         }
-        //eliminar archivos de alumno    
+        //eliminar archivos de alumno
         delete_files('./uploads/residentes/' . $this->input->post('nc'), TRUE);
         $this->m_bitacora_avance_academico->cr_archivo_alumno($this->input->post('nc'));
 
@@ -220,7 +242,7 @@ class C_bitacora_avance_academico extends CI_Controller {
         $this->m_bitacora_avance_academico->cr_participantes_proyecto($this->input->post('participantes_id'));
         //elimina registros de asignacion de asesores y revisores.
         if ($this->input->post('asesor_id') == '' || $this->input->post('asesor_id') == null || $this->input->post('asesor_id') == false || $this->input->post('asesor_id') == 'undefinided') {
-            
+
         } else {
             $this->m_bitacora_avance_academico->cr_asesor_revisor($this->input->post('asesor_id'));
             $this->m_bitacora_avance_academico->cr_asesor_revisor($this->input->post('revisor1_id'));
@@ -318,7 +340,7 @@ class C_bitacora_avance_academico extends CI_Controller {
         $this->m_historial->insertar_historial($a);
 
         //var_dump('Se envió');
-        //       
+        //
         //con esto podemos ver el resultado
         //var_dump($this->email->print_debugger());
     }
