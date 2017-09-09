@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>SIV :: ITTEPIC</title>
         <!-- Bootstrap -->
-        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>bootstrap/js/jquery.validate.min.js"></script>
@@ -67,11 +67,11 @@
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <header id="branding" role="banner">
-                    <h1 id="site-title"> 
+                    <h1 id="site-title">
                         <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                         <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo $nombre; ?>  
-                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo $nombre; ?>
+                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
                     <div class="social">
                         <ul>
                             <li><a href="#" target="_blank"><img src="<?php echo base_url(); ?>images/icon-facebook.png" alt="Facebook" /></a></li>
@@ -105,11 +105,11 @@
                                 <li><a href="#">Centro de Idiomas</a></li>
                                 <li><a href="#">Servicio Externo</a></li>
                                 <li><a href="#">Visitas a Empresas</a></li>
-                                
+
                             </ul>
                         </div>
                     </nav>
-                    <!-- #access --> 
+                    <!-- #access -->
                 </header>
                 <!-- #branding -->
                 <div id="main">
@@ -121,7 +121,7 @@
                             <h2>&nbsp;</h2>
                         <?php } else { ?>
                             <br>
-                            <h3>Datos del anteproyecto</h3>                               
+                            <h3>Datos del anteproyecto</h3>
                             <form method="post" action="<?php echo base_url(); ?>index.php/Residencia/Alumno/c_proponer/insertar" enctype="multipart/form-data" class="form-horizontal" id="formid">
                                 <div class="form-group">
                                     <label class="control-label col-xs-3" title="Insertar el nombre del proyecto que desarrollaras">Nombre del proyecto:</label><br>
@@ -152,9 +152,9 @@
                                 <div class="form-group">
                                     <label class="control-label col-xs-3" title="Adjunta el archivo de tu proyecto">Adjuntar Archivo:</label><br>
                                     <div class="col-xs-6">
-                                        <input type="file" accept=".pdf,.docx,.doc" name="ruta_archivo" class="form-control">                               
-                                    </div>                           
-                                </div>                        
+                                        <input type="file" accept=".pdf,.docx,.doc" name="ruta_archivo" class="form-control">
+                                    </div>
+                                </div>
                                 <!-- Aqui esta el modal -->
                                 <input id="empresa_fk" name="empresa_fk" type="text" value="" hidden="true">
                                 <input id="valida_empresa" name="valida_empresa" type="text" value="false" hidden="true">
@@ -190,7 +190,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-3" title="RFC de la empresa en la que realizaras tu proyecto">RFC:</label><br>
                                         <div class="col-xs-6 has-feedback">
-                                            <input type="text"  oninput="maxLengthCheck(this)" length="13" minlength="13" maxlength="13"  class="form-control" name="rfc" id="rfc" value="<?php echo set_value('rfc'); ?>" placeholder="RFC">
+                                            <input type="text"  oninput="maxLengthCheck(this)" length="13" minlength="12" maxlength="13"  class="form-control" name="rfc" id="rfc" value="<?php echo set_value('rfc'); ?>" placeholder="RFC">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -226,7 +226,7 @@
                                     <div class="form-group">
                                         <label class="control-label col-xs-3" title="Puesto del titular de la empresa en la que realizaras tu proyecto Ej. Director, CEO, etc.">Puesto del titular:</label><br>
                                         <div class="col-xs-6">
-                                            <input type="text"  class="form-control" name="puesto_titular" id="puesto_titular" value="<?php echo set_value('puesto_titular'); ?>" placeholder="Puesto del Titular">                                  
+                                            <input type="text"  class="form-control" name="puesto_titular" id="puesto_titular" value="<?php echo set_value('puesto_titular'); ?>" placeholder="Puesto del Titular">
                                         </div>
                                     </div>
                                 </div>
@@ -341,10 +341,10 @@
                                                         foreach ($empresas as $item2):
                                                             ?>
                                                             <tr>
-                                                                <td><?= $item2->nombre_empresa; ?></td>                                   
-                                                                <td><?= $item2->ciudad; ?></td>                                   
-                                                                <td><?= $item2->domicilio; ?></td> 
-                                                                <td><?= $item2->sector; ?></td> 
+                                                                <td><?= $item2->nombre_empresa; ?></td>
+                                                                <td><?= $item2->ciudad; ?></td>
+                                                                <td><?= $item2->domicilio; ?></td>
+                                                                <td><?= $item2->sector; ?></td>
                                                                 <td> <button type="button" class="btn btn-warning btn-sm" onclick="
                                                                                     document.getElementById('empresa_fk').value =<?php echo $item2->empresa_pk; ?>;
                                                                                     document.getElementById('valida_empresa').value = 'true';
@@ -352,7 +352,7 @@
                                                                                     document.getElementById('ciudad2').value = '<?php echo $item2->ciudad; ?>';
                                                                                     document.getElementById('sector2').value = '<?php echo $item2->sector; ?>';
                                                                                     document.getElementById('domicilio2').value = '<?php echo $item2->domicilio; ?>';
-                                                                                    esconde_empresa();">Aceptar</button></td>                                   
+                                                                                    esconde_empresa();">Aceptar</button></td>
                                                             </tr>
                                                             <?php
                                                         endforeach;
@@ -421,23 +421,30 @@
         </script>
 
         <script>
-
             function valida_rfc() {
                 var entrante = document.getElementById('rfc').value;
-                var rfc = '^(([A-Z]|[a-z]|\s){1})(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
-                var validaRfc = new RegExp(rfc);
-                var matchArray = entrante.match(validaRfc);
-                if (matchArray === null) {
-                    return false;
-                } else {
-                    return true;
+                if (entrante.length==13) {
+                  var rfc = '^(([A-Z]|[a-z]|\s){1})(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
+                  var validaRfc = new RegExp(rfc);
+                  var matchArray = entrante.match(validaRfc);
+                  if (matchArray === null) {
+                      return false;
+                  } else {
+                      return true;
+                  }
+                }else{
+                  var rfc = '^(([A-Z]|[a-z]){3})([0-9]{6})((([A-Z]|[a-z]|[0-9]){3}))';
+                  var validaRfc = new RegExp(rfc);
+                  var matchArray = entrante.match(validaRfc);
+                  if (matchArray === null) {
+                      return false;
+                  } else {
+                      return true;
+                  }
                 }
             }
-
             $.validator.addMethod("validaRFC", valida_rfc, "No es un RFC válido");
-
             $(document).ready(function () {
-
                 $.validator.setDefaults({
                     errorElement: 'span',
                     errorClass: 'error-message',
@@ -449,7 +456,6 @@
                         }
                     }
                 });
-
                 $('#formid').validate(
                         {
                             rules: {
@@ -470,7 +476,8 @@
                                     required: true
                                 },
                                 rfc: {
-                                    minlength: 13,
+                                    minlength: 12,
+                                    maxlength: 13,
                                     validaRFC: true,
                                     required: true
                                 },
@@ -551,6 +558,6 @@
             }); // end document.ready
         </script>
 <script type="text/javascript" src="<?php echo base_url(); ?>js/scripts.js"></script>
-        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>js/jquery.mask.min.js"></script>   
+        <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>js/jquery.mask.min.js"></script>
     </body>
 </html>
