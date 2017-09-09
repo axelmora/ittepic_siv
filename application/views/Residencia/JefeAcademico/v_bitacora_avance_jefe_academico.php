@@ -94,7 +94,7 @@
                 </div>
               </div>
               <div id="info" class="row" hidden>
-                <div class="col s5 center-align card-panel grey lighten-5 daz">
+                <div class="col m5  s12 center-align card-panel grey lighten-5 daz">
                   <div class="input-field left-align">
                     <div id="buscador">
                       DATOS DEL ALUMNO
@@ -118,7 +118,7 @@
                   </div>
                 </div>
                 <div class="col s2"><br></div>
-                <div class="col s5 right-align card-panel grey lighten-5 daz">
+                <div class="col m5  s12 right-align card-panel grey lighten-5 daz">
                   <div class="input-field left-align">
                     DATOS DEL PROYECTO
                     <hr>

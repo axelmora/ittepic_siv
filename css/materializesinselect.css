@@ -3,6 +3,10 @@
  * Copyright 2014-2015 Materialize
  * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
  */
+ .brand-logo img {
+     width: 100%;
+     height: auto;
+ }
 .materialize-red.lighten-5 {
   background-color: #fdeaeb !important; }
 
@@ -1130,7 +1134,7 @@
 
 .yellow-text.text-darken-4 {
   color: #f57f17 !important; }
- 
+
 .yellow.accent-1 {
   background-color: #ffff8d !important; }
 
