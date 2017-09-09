@@ -63,23 +63,27 @@ class C_bitacora_avance_academico extends CI_Controller {
 public function consulta_bitacora_residente_nocontrol() {
     //$data['info'] = $this->session->userdata('perfil');
     $data1['info_residente1'] = $this->m_bitacora_avance_academico->consulta_bitacora_residente_control($this->input->post('numero_control'));
-    $aa=$this->input->post('numero_control');
-    $tmp1 = '';
-    foreach ($data1['info_residente1'] as $value) {
-        $tmp1 = $value->id;
+    if (  $data1['info_residente1']==false) {
+       $data['mensajeerror'] = 'No se encontro ningun residente.';
+    }else {
+      $aa=$this->input->post('numero_control');
+      $tmp1 = '';
+      foreach ($data1['info_residente1'] as $value) {
+          $tmp1 = $value->id;
+      }
+      $data['info_residente'] = $this->m_bitacora_avance_academico->consulta_bitacora_residente($tmp1);
+      $tmp = '';
+      foreach ($data['info_residente'] as $value) {
+          $tmp = $value->numero_control;
+      }
+      $data['avance'] = $this->m_bitacora_avance_academico->consulta_tabla_bitacora_avance($tmp);
+      $data['archivos_residente'] = $this->m_bitacora_avance_academico->consulta_archivos_residente($tmp1);
+      $data['archivos_asesor'] = $this->m_bitacora_avance_academico->consulta_archivos_asesor($tmp1);
+      $data['archivos_revision_asesor'] = $this->m_bitacora_avance_academico->consulta_revisiones_asesor($tmp1);
+      $data['dictamen'] = $this->m_bitacora_avance_academico->consulta_dictamen($tmp1);
+      $data['base_url'] = base_url();
+      echo json_encode($data);
     }
-    $data['info_residente'] = $this->m_bitacora_avance_academico->consulta_bitacora_residente($tmp1);
-    $tmp = '';
-    foreach ($data['info_residente'] as $value) {
-        $tmp = $value->numero_control;
-    }
-    $data['avance'] = $this->m_bitacora_avance_academico->consulta_tabla_bitacora_avance($tmp);
-    $data['archivos_residente'] = $this->m_bitacora_avance_academico->consulta_archivos_residente($tmp1);
-    $data['archivos_asesor'] = $this->m_bitacora_avance_academico->consulta_archivos_asesor($tmp1);
-    $data['archivos_revision_asesor'] = $this->m_bitacora_avance_academico->consulta_revisiones_asesor($tmp1);
-    $data['dictamen'] = $this->m_bitacora_avance_academico->consulta_dictamen($tmp1);
-    $data['base_url'] = base_url();
-    echo json_encode($data);
 }
 
 //****************************ASESOR************************************************

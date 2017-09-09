@@ -46,7 +46,7 @@
           <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
           href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
           <div  class="row" >
-            <div class="left-align col s12 m5 card-panel grey lighten-5">
+            <div class="left-align col s12 m5 card-panel grey lighten-5 lol">
               <div class="input-field">
                 <!--                        <form method="post" action="<?php echo base_url() . "index.php/c_alumnos_ds/cambiar_estado/" ?>">-->
                 <form id="frm_sel_residente" method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/consulta_bitacora_residente" ?>">
@@ -72,25 +72,28 @@
               </div>
               <div class=" col s1 m2 card">
               </div>
-              <div class="left-align col s12 m5 card-panel grey lighten-5">
+              <div class="left-align col s12 m5 card-panel grey lighten-5 lol">
                 <div class="input-field">
                   <!--                        <form method="post" action="<?php echo base_url() . "index.php/c_alumnos_ds/cambiar_estado/" ?>">-->
-                  <form id="frm_sel_residente" method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/consulta_bitacora_residente_nocontrol" ?>">
+                  <form id="frm_sel_residente2" method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/consulta_bitacora_residente_nocontrol" ?>">
                     <?php if ($residentes) { ?>
-                      <p>Selecciona un alumno</p>
-                      <input type="number" placeholder="Numero de Control" name="numero_control" id="numero_control" />
-                      <button id="btn_sel_residente" class="btn orange darken-1 right-align z-depth-0" style="margin-bottom: 10px;">
-                        Seleccionar</button>
+                      <p><i class="material-icons">search</i> Buscar por numero de control:</p>
+                      <input type="number" required placeholder="Numero de Control" name="numero_control" id="numero_control" />
+                      <button id="btn_sel_residente2" class="btn orange darken-1 right-align z-depth-0" style="margin-bottom: 10px;">
+                        Buscar</button>
                       <?php } else { ?>
                         <p style="text-align: center;" class="blue-text">No hay alumnos</p>
                       <?php } ?>
                       <br>
+                      <?php if (isset($mensajeerror)) { ?>
+                        <CENTER><p class="col s4 center-align card-panel red white-text"><?php  echo "$mensajeerror";?></p></CENTER><br>
+                      <?php } ?>
                     </form>
                   </div>
                 </div>
               </div>
               <div id="info" class="row" hidden>
-                <div class="col s5 center-align card-panel grey lighten-5">
+                <div class="col s5 center-align card-panel grey lighten-5 daz">
                   <div class="input-field left-align">
                     <div id="buscador">
                       DATOS DEL ALUMNO
@@ -114,7 +117,7 @@
                   </div>
                 </div>
                 <div class="col s2"><br></div>
-                <div class="col s5 right-align card-panel grey lighten-5 ">
+                <div class="col s5 right-align card-panel grey lighten-5 daz">
                   <div class="input-field left-align">
                     DATOS DEL PROYECTO
                     <hr>
@@ -281,7 +284,8 @@
             <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/jquery.form.min.js"></script>
             <script>
             $(function() {
-              $('.card-panel').matchHeight();
+              $('.lol').matchHeight();
+            //  $('.daz').matchHeight();
             });
             </script>
           </body>
