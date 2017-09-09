@@ -65,6 +65,8 @@ public function consulta_bitacora_residente_nocontrol() {
     $data1['info_residente1'] = $this->m_bitacora_avance_academico->consulta_bitacora_residente_control($this->input->post('numero_control'));
     if (  $data1['info_residente1']==false) {
        $data['mensajeerror'] = 'No se encontro ningun residente.';
+    //   echo json_encode($data);
+      // echo '{"error": {"error"}}';
     }else {
       $aa=$this->input->post('numero_control');
       $tmp1 = '';
