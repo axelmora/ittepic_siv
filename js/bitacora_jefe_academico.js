@@ -18,7 +18,6 @@ $(document).ready(function () {
         //complete: this function is called when the form upload is completed.  //
         $('#info').attr('hidden', false);
         var a = jQuery.parseJSON(response.responseText);
-        alert(a);
         //info alumno
         $('#nombre').html(a.info_residente[0].nombre);
         $('#num_con').html(a.info_residente[0].numero_control);
@@ -148,7 +147,6 @@ $(document).ready(function () {
         $('#a_rev_ase tbody').html(trHTML);
 
         $('#id_opciones').attr('hidden', false);
-
         //alert(a.base_url);
       },
       error: function ()
@@ -309,6 +307,12 @@ $(document).ready(function () {
         }
         catch(err) {
             $('#info').attr('hidden', true);
+            $('#dic').attr('hidden', true);
+            $('#a_residente').attr('hidden', true);
+            $('#a_ase').attr('hidden', true);
+            $('#a_rev_ase').attr('hidden', true);
+            $('#id_opciones').attr('hidden', true);
+            $('#progreso').attr('hidden', true);
             alert('Numero de control invalido o no existe residente.');
         }
       },

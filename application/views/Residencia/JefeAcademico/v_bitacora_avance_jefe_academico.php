@@ -32,7 +32,7 @@
     </nav>
     <!-- Navbar goes here -->
 
-
+  <div class="card-panel lighten-5">
     <div class="section no-pad-bot" id="index-banner">
       <div class="row center">
         <h5 class="condensed light header center amber-text darken-1-text">
@@ -41,6 +41,7 @@
 
       </div>
       <div class="container">
+
         <div class="section">
 
           <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
@@ -260,7 +261,7 @@
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
               </div>
-
+</div>
             </div>
             <br><br>
             <footer class="page-footer black">
