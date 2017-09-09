@@ -270,7 +270,6 @@ $(document).ready(function () {
              $('#a_rev_ase').attr('hidden', false);
 
              var trHTML = '';
-
              $.each(a.archivos_asesor, function (i, item) {
                trHTML += '<tr><td>' + a.archivos_asesor[i].nombre_archivo +
                '</td><td>' + a.archivos_asesor[i].descripcion_archivo +
@@ -279,9 +278,7 @@ $(document).ready(function () {
                '</td><td style="text-align: center;"><a href="' + a.base_url + '' + a.archivos_asesor[i].ruta_archivo_asesor + '"><img src="' + a.base_url + 'images/download_tiny.png"></a>' +
                '</td></tr>';
              });
-
              $('#a_ase tbody').html(trHTML);
-
              trHTML = '';
              $.each(a.archivos_residente, function (i, item) {
 
