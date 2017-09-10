@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class Panel_servicio extends CI_Controller {
 
@@ -21,9 +21,10 @@ class Panel_servicio extends CI_Controller {
         if ($this->session->userdata('perfil') == 'jefevinculacion' || $this->session->userdata('perfil') == 'jefeservicio') {
             $data['titulo'] = 'Bienvenido Jefe de servicio';
             $this->load->view('iniciojefeservicio', $data);
+        }else{
+            $this->load->view('notienespermisos');
         }
 
-        $this->load->view('notienespermisos');
     }
 
 }
