@@ -341,7 +341,7 @@ class C_proponer extends CI_Controller {
                                 $dir = set_realpath('./uploads/residentes/' . $session_data['username'] . '/');
                                 //$dir = set_realpath('./uploads/residentes/10400312/');
                                if (!is_dir($dir)) {
-                                  mkdir($dir, 0777); // el segundo parametro es para el permiso de mas amplio acceso posible
+                                  mkdir($dir, 0777, true); // el segundo parametro es para el permiso de mas amplio acceso posible
                                   //  mkdir($dir);
                                 }
                                 $config['upload_path'] = $dir;

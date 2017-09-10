@@ -135,10 +135,10 @@ class C_asignar_asesor extends CI_Controller {
                     $proyecto = $value->nombre_proyecto;
                 }
 
-                $this->enviar_correo($NC, $correoAlu, 'Asignación de asesor y revisores', 'Tu asesor y revisores han sido asignados, ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a asesor
-                $this->enviar_correo($this->input->post('rfc_asesor'), $correoA, 'Asignación en anteproyecto', 'Ha sido asignado como asesor de '.$nombreAlu.' en el anteproyecto: '.$proyecto.', ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a asesor
-                $this->enviar_correo($this->input->post('rfc_revisor1'), $correoR1, 'Asignación en anteproyecto', 'Ha sido asignado como revisor de '.$nombreAlu.' en el anteproyecto: '.$proyecto.', ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a revisor1
-                $this->enviar_correo($this->input->post('rfc_revisor2'), $correoR2, 'Asignación en anteproyecto', 'Ha sido asignado como revisor de '.$nombreAlu.' en el anteproyecto: '.$proyecto.', ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a revisor2
+              //  $this->enviar_correo($NC, $correoAlu, 'Asignación de asesor y revisores', 'Tu asesor y revisores han sido asignados, ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a asesor
+              //  $this->enviar_correo($this->input->post('rfc_asesor'), $correoA, 'Asignación en anteproyecto', 'Ha sido asignado como asesor de '.$nombreAlu.' en el anteproyecto: '.$proyecto.', ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a asesor
+              //  $this->enviar_correo($this->input->post('rfc_revisor1'), $correoR1, 'Asignación en anteproyecto', 'Ha sido asignado como revisor de '.$nombreAlu.' en el anteproyecto: '.$proyecto.', ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a revisor1
+            //    $this->enviar_correo($this->input->post('rfc_revisor2'), $correoR2, 'Asignación en anteproyecto', 'Ha sido asignado como revisor de '.$nombreAlu.' en el anteproyecto: '.$proyecto.', ingresa a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a revisor2
 
             redirect('Residencia/C_asignar_asesor');
         } catch (Exception $ex) {
@@ -152,7 +152,7 @@ class C_asignar_asesor extends CI_Controller {
     }
 
     private function enviar_correo($id_usuario, $to, $subject, $message) {
-        if ($to != null || $to != '') {
+      /*  if ($to != null || $to != '') {
             //cargamos la libreria email de ci
             $this->load->library("email");
             //configuracion para gmail
@@ -179,12 +179,13 @@ class C_asignar_asesor extends CI_Controller {
                 'asunto' => $subject,
                 'fecha' => date('Y-m-d'),
             );
-            $this->m_historial->insertar_historial($a);
+            $this->m_historial->insertar_historial($a); */
+
             //var_dump('Se envió');
             //
             //con esto podemos ver el resultado
             //var_dump($this->email->print_debugger());
-        }
+      //  }
     }
 
 }

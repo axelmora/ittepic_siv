@@ -50,7 +50,7 @@ $(document).ready(function () {
 
     $('#titulacion').change(function (event) {
         event.preventDefault();
-        //var titu = $(this).attr('checked');        
+        //var titu = $(this).attr('checked');
         var ante_id = $("#anteproyecto_id").val();
         if ($(this).is(':checked')) {
             titu = 'TRUE';
@@ -81,11 +81,11 @@ $(document).ready(function () {
         var options = {
             beforeSend: function ()
             {
-                //beforeSend : this function called before form submission  
+                //beforeSend : this function called before form submission
             },
             uploadProgress: function (event, position, total, percentComplete)
             {
-                //uploadProgress : this function called when the upload is in progress        
+                //uploadProgress : this function called when the upload is in progress
             },
             success: function ()
             {
@@ -93,10 +93,10 @@ $(document).ready(function () {
             },
             complete: function (response)
             {
-                //complete: this function is called when the form upload is completed.  
+                //complete: this function is called when the form upload is completed.
 //                $('#tipo_documento_revision').attr('value', '');
 //                $('#id_archivo_alu').attr('value', '');
-//                $('#id_asesor').attr('value', '');                
+//                $('#id_asesor').attr('value', '');
                 var a = jQuery.parseJSON(response.responseText);
                 $('#anteproyecto_id').attr('value', a.info_asesorado[0].anteproyecto_pk);
                 $('#anteproyecto_id2').attr('value', a.info_asesorado[0].anteproyecto_pk);
@@ -163,8 +163,8 @@ $(document).ready(function () {
 
                 $('#doc_asesorado').attr('hidden', false);
 
-                var trHTML = '';                
-                $.each(a.archivos_residente, function (i, item) {                    
+                var trHTML = '';
+                $.each(a.archivos_residente, function (i, item) {
                     trHTML += '<tr><td>' + a.archivos_residente[i].nombre_archivo +
                             '</td><td>' + tipo_documento_residente(a.archivos_residente[i].tipo_documento) +
                             '</td><td>' + estado(a.archivos_residente[i].estado) +
@@ -177,13 +177,13 @@ $(document).ready(function () {
                 });                                                                                                                                                                             //nombre_archivo,id_archivo_alumno,id_asesor,tipo_doc,estado,base/
 
                 $('#tabla_asesorado tbody').html(trHTML);
-                
+
                 $('#btn_agregar_revision').attr('idp', a.id_participantes);
                 $('#btn_agregar_revision').attr('base', a.base_url);
                 $('#btn_agregar_archivo').attr('idp', a.id_participantes);
                 $('#btn_agregar_archivo').attr('base', a.base_url);
-                
-                if (a.avance[0].estado > 3) {                    
+
+                if (a.avance[0].estado > 3) {
                     $('#doc_rev_ase').attr('hidden', false);
                     trHTML = '';
 
@@ -214,7 +214,7 @@ $(document).ready(function () {
 
                     $('#archivos_asesor tbody').html(trHTML);
                     //alert(response.responseText);
-                } else {                    
+                } else {
                     $('#doc_rev_ase').attr('hidden', true);
                     $('#doc_asesor').attr('hidden', true);
                 }
@@ -234,11 +234,11 @@ $(document).ready(function () {
         var options = {
             beforeSend: function ()
             {
-                //beforeSend : this function called before form submission  
+                //beforeSend : this function called before form submission
             },
             uploadProgress: function (event, position, total, percentComplete)
             {
-                //uploadProgress : this function called when the upload is in progress        
+                //uploadProgress : this function called when the upload is in progress
             },
             success: function ()
             {
@@ -246,7 +246,7 @@ $(document).ready(function () {
             },
             complete: function (response)
             {
-                //complete: this function is called when the form upload is completed.  
+                //complete: this function is called when the form upload is completed.
 //                $('#tipo_documento_revision').attr('value', '');
 //                $('#id_archivo_alu').attr('value', '');
 //                $('#id_asesor').attr('value', '');
@@ -287,11 +287,11 @@ $(document).ready(function () {
         var options = {
             beforeSend: function ()
             {
-                //beforeSend : this function called before form submission  
+                //beforeSend : this function called before form submission
             },
             uploadProgress: function (event, position, total, percentComplete)
             {
-                //uploadProgress : this function called when the upload is in progress        
+                //uploadProgress : this function called when the upload is in progress
             },
             success: function ()
             {
@@ -299,7 +299,7 @@ $(document).ready(function () {
             },
             complete: function (response)
             {
-                //complete: this function is called when the form upload is completed.  
+                //complete: this function is called when the form upload is completed.
 
                 $('#userfile').val('');
                 $('#descripcion_archivo').val('');
@@ -386,7 +386,7 @@ function modal_detalles_revisiones_asesor(nombre, tipo_archivo, descripcion, fec
      Registro Asesoria Residencias Profesionales(RAR)
      Formato de Evaluacion y Seguimiento de Residencia(FES) (anexo 29)
      Formato de Evalucion de Reporte de Residencia(RER) (anexo 30)
-     Carta de Liberacion de Residencia Profesional(CLR) 
+     Carta de Liberacion de Residencia Profesional(CLR)
      */
     switch (tipo_archivo) {
         case 'FRA':
@@ -440,7 +440,7 @@ function modal_detalles_asesor(nombre, tipo_archivo, descripcion, fecha_guardado
      Registro Asesoria Residencias Profesionales(RAR)
      Formato de Evaluacion y Seguimiento de Residencia(FES) (anexo 29)
      Formato de Evalucion de Reporte de Residencia(RER) (anexo 30)
-     Carta de Liberacion de Residencia Profesional(CLR) 
+     Carta de Liberacion de Residencia Profesional(CLR)
      */
     switch (tipo_archivo) {
         case 'FRA':
@@ -497,7 +497,7 @@ function agregar_revision(nombre_archivo, id_archivo_alumno, id_asesor, tipo_doc
             $('#modal_agregar_revision #estado_a').attr('hidden', false);
             $('#modal_agregar_revision #lbl_adj_archivo').html('Adjuntar Formato de Revisión de Anteproyecto');
             $('#modal_agregar_revision #descargar_formato').html('Descargar Formato de Revisión de Anteproyecto<img src="' + base + 'images/download_tiny.png">');
-            $('#modal_agregar_revision #descargar_formato').attr('href', base + '');//AGREGAR RUTA DE LOS FORMATOS
+            $('#modal_agregar_revision #descargar_formato').attr('href', base + 'uploads/docentes/ITTEPIC%20FRA.docx');//AGREGAR RUTA DE LOS FORMATOS
             $('#modal_agregar_revision #tipo_documento_revision').attr('value', 'FRA');
             switch (estado) {
                 case 'A  '://Aprobado
