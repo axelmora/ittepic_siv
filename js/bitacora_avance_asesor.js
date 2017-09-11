@@ -1,6 +1,5 @@
 $(document).ready(function () {
     //v_bitacora_avance_asesor
-
     $('#revision_anteproyecto').click(function () {
         $('#modal_agregar_revision #nombre_archivo_r').html($(this).attr('nombre_archivo'));
         $('#modal_agregar_revision #id_archivo_alu').attr('value', $(this).attr('id_archivo_alumno'));
@@ -165,7 +164,10 @@ $(document).ready(function () {
 
                 var trHTML = '';
                 $.each(a.archivos_residente, function (i, item) {
-                    trHTML += '<tr><td>' + a.archivos_residente[i].nombre_archivo +
+                  var nombrearchivo="";
+                  if(a.archivos_residente[i].nombre_archivo.length > 15)  nombrearchivo= a.archivos_residente[i].nombre_archivo.substring(0,15);
+
+                    trHTML += '<tr><td>' + nombrearchivo +
                             '</td><td>' + tipo_documento_residente(a.archivos_residente[i].tipo_documento) +
                             '</td><td>' + estado(a.archivos_residente[i].estado) +
                             '</td><td>' + a.archivos_residente[i].fecha_guardado_documento +
