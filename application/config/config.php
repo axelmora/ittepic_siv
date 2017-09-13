@@ -85,7 +85,8 @@ $config['language']	= 'spanish';
 |
 */
 $config['charset'] = 'UTF-8';
-
+$db['local']['dbcollat'] = 'utf8_general_ci';
+$db['local']['default'] = 'utf8_general_ci';
 /*
 |--------------------------------------------------------------------------
 | Enable/Disable System Hooks
