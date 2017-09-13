@@ -62,12 +62,12 @@
 
 
 
-            .small-textarea textarea { 
+            .small-textarea textarea {
                 height: 4.4em; /* a bit less than four lines to demonstrate scrolling */
                 width: 300px;
             }
 
-            .medium-textarea textarea { 
+            .medium-textarea textarea {
                 height: 6em;
                 width: 400px;
             }
@@ -152,7 +152,7 @@
                 <br>
                 <div class="row center">
 
-                    <h5 class="condensed light header center amber-text darken-1-text">      
+                    <h5 class="condensed light header center amber-text darken-1-text">
                         NOTICIAS</h5>
                 </div>
                 <div class="row center">
@@ -164,26 +164,20 @@
 
         <div class="container">
             <?php if (isset($message)) { ?>
-                <CENTER><p class="col s4 center-align card-panel green white-text">La noticia se agrego correctamente</p></CENTER><br> 
+                <CENTER><p class="col s4 center-align card-panel green white-text">La noticia se agrego correctamente</p></CENTER><br>
             <?php } ?>
 
             <?php if (isset($messages)) { ?>
-                <CENTER><p class="col s4 center-align card-panel red white-text">La noticia se ha eliminado</p></CENTER><br> 
+                <CENTER><p class="col s4 center-align card-panel red white-text">La noticia se ha eliminado</p></CENTER><br>
             <?php } ?>
             <div class="row"> <a href="<?php echo base_url(); ?>index.php/">< Regresar</a>
-
-
                 <div class="section">
-
-
                     <div class="col s2 left-aling"><div class="input-field">
                             <div id="buscador">
                                 &nbsp;&nbsp;
                             </div></div>
 
                     </div>
-
-
                     <div class="col s8 center-align card-panel #bdbdbd grey lighten-2"><div class="input-field">
                             <div id="buscador">
 
@@ -263,7 +257,7 @@
                                         <?php endforeach; ?>
                                         <?php
                                     }
-                                    ?>      
+                                    ?>
                                 </table>
                                 <br>&nbsp;
                             </div></div>
@@ -284,7 +278,7 @@
 
 
 
-        </div>  
+        </div>
 
 
         <p>&nbsp;</p>
@@ -295,16 +289,9 @@
     </div>
 
 </div>
-
-
-
 <br><br>
 
-
-
 <div class="section">
-
-
 
 </div>
 </div>
@@ -321,13 +308,9 @@
         </div>
     </div>
 </footer>
-
-
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="../../bin/materialize.js"></script>
 <script src="js/init.js"></script>
-
-
 </body>
 </html>

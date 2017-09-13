@@ -38,7 +38,7 @@
                 cursor: pointer;        /* make the cursor like hovering over an <a> element */
                 /* make text start to the right of the image */
                 vertical-align: middle; /* align the text vertically centered */
-            }	
+            }
 
 
 
@@ -66,23 +66,23 @@
                             <?= anchor(base_url() . 'index.php/Logeo/logout_ci', '<span class=" amber-text  right-align hide-on-med-and-down">(Cerrar sesión)  </span>') ?></span></a>
                 </div>
             </div>
-        </nav>        
+        </nav>
 
         <div class="section no-pad-bot" id="index-banner">
-            <div class="container">             
+            <div class="container">
                 <div class="row center">
-                    <h5 class="condensed light header center amber-text darken-1-text">      
+                    <h5 class="condensed light header center amber-text darken-1-text">
                         Consulta de autorización de dictamen de residencia</h5>
-                </div>                
+                </div>
             </div>
         </div>
 
         <div class="container">
             <div class="section">
                 <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" href="<?php echo base_url(); ?>index.php">
-                    <img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a> 
+                    <img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                 <!--   Icon Section   -->
-                <br><p>&nbsp;</p> 
+                <br><p>&nbsp;</p>
                 <?php if ($problema) { ?>
                     <h4><?php echo $problema; ?></h4>
                 <?php } ?>
@@ -140,6 +140,7 @@
                     </button>
                 </form>
                 <br>
+                <!-- accept-charset="utf-8"   -->
                 <form method="post" action="<?php echo base_url(); ?>index.php/Residencia/c_consulta_dictamen/buscar2" class="form-horizontal">
                     <label for="nombre">Nombre del alumno</label>
                     <input type="text" id="nombre_alumno" name="nombre_alumno" class="col-lg-3" required/>

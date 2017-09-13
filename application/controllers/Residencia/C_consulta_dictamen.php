@@ -300,7 +300,8 @@ class C_consulta_dictamen extends CI_Controller {
     }
     public function buscar2() {
         error_reporting(0);
-        $temporal = $this->m_dictamen->mostrar_alumno3(mb_strtoupper(trim($this->input->post('nombre_alumno'), 'UTF-8')));
+        //echo "".utf8_encode(mb_strtoupper(trim($this->input->post('nombre_alumno'), 'UTF-8'))); //POSIBLE SOLUCION AL SERVIDOR UTF-8
+        $temporal = $this->m_dictamen->mostrar_alumno3(utf8_encode(mb_strtoupper(trim($this->input->post('nombre_alumno'), 'UTF-8'))));
         if ($temporal) {
             foreach ($temporal as $row) {
                 $nc = $row->numero_control;

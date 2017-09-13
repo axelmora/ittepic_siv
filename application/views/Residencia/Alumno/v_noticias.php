@@ -11,8 +11,6 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>type/soberanasanslight.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>type/merriweather.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/queries.css" media="all" />
-
-
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -37,20 +35,15 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>js/selectnav.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/twitter.min.js"></script>
     </head>
-
     <body>
-
-
-
-
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <header id="branding" role="banner">
-                    <h1 id="site-title"> 
+                    <h1 id="site-title">
                         <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                         <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                    </h1><div class="right-align"> Bienvenido (a): <?php echo $nombre; ?>  
-                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                    </h1><div class="right-align"> Bienvenido (a): <?php echo $nombre; ?>
+                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
 
                     <div class="social">
                         <ul>
@@ -86,19 +79,16 @@
                                 <li><a href="#">Centro de Idiomas</a></li>
                                 <li><a href="#">Servicio Externo</a></li>
                                 <li><a href="#">Visitas a Empresas</a></li>
-                                
+
                             </ul>
                         </div>
-
                         </nav>
-                        <!-- #access --> 
+                        <!-- #access -->
                 </header>
                 <!-- #branding -->
-
                 <div id="main">
                     <div id="primary">
                         <div id="content" role="main">
-
                             <ul class="collapsible" data-collapsible="expandable">
                                 <?php
                                 if ($noticias == null) {?>
@@ -114,8 +104,7 @@
                                                 <div class="collapsible-header active  grey lighten-4 amber-text "><i class="material-icons amber-text">bookmark_border</i><?= $item->titulo_n; ?><div class="right"><font color="black">Fecha de publicación: </font><?= $item->fecha_noticia; ?></div></div>
 
                                             <?php } ?>
-
-                                            <div class="collapsible-body"><p><?= $item->contenido_n; ?></p></div>
+                                            <div class="collapsible-body"><?= $item->contenido_n; ?></div>
                                         </li>
                                     <?php endforeach;
                                 } ?>
@@ -127,7 +116,6 @@
                                 <p>&nbsp;</p>
                                 <p></p>
                         </div>
-
                         <!-- begin article -->
                         <!-- begin article -->
                         <!-- end article -->
@@ -149,7 +137,6 @@
             <!-- #colophon -->
         </div><!-- #wrapper -->
     </div><!-- #page -->
-
     <script type="text/javascript" src="<?php echo base_url(); ?>js/scripts.js"></script>
 </body>
 </html>
