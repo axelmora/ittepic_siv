@@ -17,7 +17,7 @@
                 <a href="#!" class="brand-logo center"><img src="<?php echo base_url(); ?>images/logochico.png" alt="Logo" /></a>
 
                 <div class="right-align hide-on-med-and-down">
-                    <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down">Bienvenido  <?= $this->session->userdata('perfil') ?> 
+                    <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down">Bienvenido  <?= $this->session->userdata('perfil') ?>
                             <?= anchor(base_url() . 'index.php/Logeo/logout_ci', '<span class=" amber-text  right-align hide-on-med-and-down">(Cerrar sesión)  </span>') ?></span></a>
                 </div>
                 <div class="right-align hide-on-med-and-down">
@@ -43,9 +43,9 @@
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
 
-                <h3 class="thin header center amber-text darken-1-text">      
+                <h3 class="thin header center amber-text darken-1-text">
                     Sistema Integral de Vinculación <br></h3>
-                <p></p>      
+                <p></p>
 
 
 
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="container">    
+        <div class="container">
 
             <div class="section">
 
@@ -71,7 +71,7 @@
                 <div class="row">
 
                     <a href="<?php echo base_url(); ?>index.php/Residencia/JefeResidencia/Panel_jeferesidencia/banco_proyecto">
-                        <div class="col s12 m4 center">       
+                        <div class="col s12 m4 center">
                             <div class="card-panel grey lighten-5 z-depth-1">
                                 <div class="row valign-wrapper ">
                                     <div class="col s6">
@@ -135,7 +135,7 @@
                             </div>
                         </div></a>
 
-                    <a href="<?php echo base_url(); ?>index.php/Residencia/C_vacantes_residencia">            
+                    <a href="<?php echo base_url(); ?>index.php/Residencia/C_vacantes_residencia">
                         <div class="col s12 m4 center">
                             <div class="card-panel grey lighten-5 z-depth-1">
                                 <div class="row valign-wrapper ">
@@ -150,7 +150,7 @@
                                 </div>
                             </div>
                         </div></a>
-                    <a href="<?php echo base_url(); ?>index.php/Residencia/C_reportes">            
+                    <a href="<?php echo base_url(); ?>index.php/Residencia/C_reportes">
                         <div class="col s12 m4 center">
                             <div class="card-panel grey lighten-5 z-depth-1">
                                 <div class="row valign-wrapper ">
@@ -165,18 +165,30 @@
                                 </div>
                             </div>
                         </div></a>
+                        <a href="<?php echo base_url(); ?>index.php/Residencia/C_reportes">
+                            <div class="col s12 m4 center">
+                                <div class="card-panel grey lighten-5 z-depth-1">
+                                    <div class="row valign-wrapper ">
+                                        <div class="col s6">
+                                            <img src="<?php echo base_url(); ?>images/reportes.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
+                                        </div>
+                                        <div class="col s6">
+                                            <span class="black-text">
+                                                <h5 class="light">Lista Informe Final</h5>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></a>
                 </div>
             </div>
         </div>
         <br><br>
         <div class="section">
-
         </div>
     </div>
-
     <footer class="page-footer black">
         <div class="container">
-
         </div>
         <div class="footer-copyright">
             <div>
@@ -186,14 +198,9 @@
             </div>
         </div>
     </footer>
-
-
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="../../bin/materialize.js"></script>
-    <script src="js/init.js"></script>
-
-
+    <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+    <script src="<?php echo base_url(); ?>js/init.js"></script>
 </body>
 </html>
-

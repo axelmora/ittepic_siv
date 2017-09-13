@@ -257,7 +257,7 @@ class C_consulta_dictamen extends CI_Controller {
         $bitacora = array(
             'estado' => 3);
         $b = $this->m_dictamen->actualiza_bitacora($numero, $bitacora);
-        
+
         if ($d and $b) {
             $this->enviar_correo_a_coordinador_carrera($numero);
         }
@@ -298,10 +298,9 @@ class C_consulta_dictamen extends CI_Controller {
             $this->load->view('Residencia/v_consulta_dictamen', $data);
         }
     }
-
     public function buscar2() {
         error_reporting(0);
-        $temporal = $this->m_dictamen->mostrar_alumno3(mb_strtoupper($this->input->post('nombre_alumno'), 'UTF-8'));
+        $temporal = $this->m_dictamen->mostrar_alumno3(mb_strtoupper(trim($this->input->post('nombre_alumno'), 'UTF-8')));
         if ($temporal) {
             foreach ($temporal as $row) {
                 $nc = $row->numero_control;
@@ -426,7 +425,7 @@ class C_consulta_dictamen extends CI_Controller {
         $this->email->message('<h2>' . $message . '</h2>');
         $this->email->send();
         //var_dump('Se envió');
-        //       
+        //
         //con esto podemos ver el resultado
         //var_dump($this->email->print_debugger());
     }

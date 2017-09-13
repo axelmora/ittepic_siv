@@ -4,7 +4,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
         <title>SIV :: PANEL ADMINISTRATIVO :</title>
-
         <!-- CSS  -->
         <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,29 +22,19 @@
             </div>
         </nav>
         <!-- Navbar goes here -->
-
-        <!-- Page Layout here -->       
-
+        <!-- Page Layout here -->
         <div class="section no-pad-bot" id="index-banner">
             <div class="container">
-
-                <h3 class="thin header center amber-text darken-1-text">      
-                    Residencia Profesional </h3>                
-
+                <h3 class="thin header center amber-text darken-1-text">
+                    Residencia Profesional </h3>
                 <div class="row center">
-
                     <?= $this->session->userdata('alias') ?> - Panel de administración de residencias
-
                 </div>
-
-
             </div>
         </div>
-
-
         <div class="container">
             <div class="section">
-                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
+                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
                    href="<?php echo base_url() . 'index.php/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                 <!--   Icon Section   -->
                 <div class="row">
@@ -66,7 +55,7 @@
                                 </div>
                             </div></a>
 
-                
+
 
                 <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/info_participantes">
                     <div class="col s12 m4 l4 center">
@@ -171,7 +160,7 @@
 
         </div>
 
-        <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/vacantes">            
+        <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/vacantes">
             <div class="col s12 m4 center">
                 <div class="card-panel grey lighten-5 z-depth-1">
                     <div class="row valign-wrapper ">
@@ -221,11 +210,11 @@
                     </div>
                 </div>
 
-            </div>            
+            </div>
         </a>
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/c_base">
-            <div class="col s12 m4 center">       
+            <div class="col s12 m4 center">
                 <div class="card-panel grey lighten-5 z-depth-1">
                     <div class="row valign-wrapper ">
                         <div class="col s4">
@@ -258,18 +247,14 @@
     </div>
     <div class="footer-copyright">
         <div>
-            <div align="center ">Copyright 2016 - <a class=" amber-text text-lighten-3" href="http://www.ittepic.edu.mx"><span class="amber-text">
+            <div align="center ">Copyright 2017 - <a class=" amber-text text-lighten-3" href="http://www.ittepic.edu.mx"><span class="amber-text">
                         ITTepic
                     </span></a></div>
         </div>
     </div>
 </footer>
-
-
 <!--  Scripts-->
-<script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>               
-<script src="<?php echo base_url(); ?>js/materialize.js"></script>               
-
-
+<script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
+<script src="<?php echo base_url(); ?>js/materialize.js"></script>
 </body>
 </html>

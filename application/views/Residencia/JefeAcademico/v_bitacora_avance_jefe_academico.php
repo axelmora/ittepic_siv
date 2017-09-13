@@ -38,12 +38,9 @@
         <h5 class="condensed light header center amber-text darken-1-text">
           BITÁCORAS DE AVANCE</h5>
         </div>
-
       </div>
       <div class="container">
-
         <div class="section">
-
           <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
           href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
           <div  class="row" >
@@ -222,8 +219,6 @@
                 </table>
                 <br>
               </div>
-
-
               <div id="id_opciones" class="center-align col s12 card-panel grey lighten-5" hidden>
                 <div class="row">
                   <h6 class="amber-text">OPERACIONES PARA RESIDENCIA</h6>

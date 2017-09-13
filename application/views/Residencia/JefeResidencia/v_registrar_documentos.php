@@ -40,21 +40,13 @@
     /* make text start to the right of the image */
     vertical-align: middle; /* align the text vertically centered */
   }
-
-
-
   ul.tsc_pagination { margin:4px 0; padding:0px; height:100%; overflow:hidden; font:12px 'Tahoma'; list-style-type:none; }
   ul.tsc_pagination li { float:left; margin:0px; padding:0px; margin-left:5px; }
-
   ul.tsc_pagination li a { color:black; display:block; text-decoration:none; padding:7px 10px 7px 10px; }
-
-
   ul.tsc_paginationA li a { color:#FFFFFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
-
   ul.tsc_paginationA01 li a { color:#474747; border:solid 1px #B6B6B6; padding:6px 9px 6px 9px; background:#E6E6E6; background:-moz-linear-gradient(top, #FFFFFF 1px, #F3F3F3 1px, #E6E6E6); background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0.02, #FFFFFF), color-stop(0.02, #F3F3F3), color-stop(1, #E6E6E6)); }
   ul.tsc_paginationA01 li:hover a,
   ul.tsc_paginationA01 li.current a { background:#FFFFFF; }
-
   </style>
 </head>
 <body>
@@ -197,29 +189,19 @@
                   }
                 }
                 ?>
-
               </tbody>
             </table>
           </div>
-
           <p>&nbsp;</p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
         </div>
-
       </div>
-
-
       <br><br>
-
-
-
-
       <footer class="page-footer black">
         <div class="container">
-
         </div>
         <div class="footer-copyright">
           <div>
@@ -229,8 +211,6 @@
           </div>
         </div>
       </footer>
-
-
       <!--  Scripts-->
       <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
       <script src="<?php echo base_url(); ?>js/materialize.js"></script>
@@ -238,7 +218,5 @@
       <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>
       <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/jefe_residencia.js"></script>
       <script src="js/init.js"></script>
-
-
     </body>
     </html>

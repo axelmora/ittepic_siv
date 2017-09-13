@@ -160,7 +160,7 @@ $db['local']['autoinit'] = TRUE;
 $db['local']['stricton'] = FALSE;
 
 
-$db['default']['hostname'] = "sii.ittepic.edu.mx";
+$db['default']['hostname'] = "172.28.0.2";
 $db['default']['username'] = "siv";
 $db['default']['password'] = "di51vdi51v";
 $db['default']['database'] = "bd_siv";

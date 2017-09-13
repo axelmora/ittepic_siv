@@ -18,7 +18,6 @@ class C_banco_proyectos extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-
         $this->load->database('local');
         $this->load->model('Residencia/m_banco_proyectos');
         $this->load->helper(array('form', 'url'));
@@ -156,7 +155,7 @@ class C_banco_proyectos extends CI_Controller {
                 break;
             case '11':
                 $departamento = 'DEPARTAMENTO DE INGENIERIA ELECTRICA Y ELECTRONICA';
-                break;            
+                break;
             case '19':
                 $departamento = 'DEPARTAMENTO DE INGENIERIA ELECTRICA Y ELECTRONICA';
                 break;
@@ -213,9 +212,9 @@ class C_banco_proyectos extends CI_Controller {
     }
 
     public function do_upload_JefeAcademico() {//recibir el numero de control y perfil para ver donde se guardara el archivo
-////set_realpath('./uploads/peliculas/'.$idp."/");  
+////set_realpath('./uploads/peliculas/'.$idp."/");
 //retorna el directorio en el servidor /var/www/proyecto/[B]uploads/peliculas/10[/B]
-//para dentro de application //set_realpath('./application/uploads/peliculas/'.$idp."/");  
+//para dentro de application //set_realpath('./application/uploads/peliculas/'.$idp."/");
 //    /uploads
 //	/residentes
 //		/numero_control
@@ -223,7 +222,7 @@ class C_banco_proyectos extends CI_Controller {
 //		/banco_proyectos
 //		/bases_concertacion
 //	/docentes
-//		/rfc	
+//		/rfc
 //$dir = set_realpath('./uploads/administrativos/banco_proyectos/');
 //
 //        if (!is_dir($dir)) {

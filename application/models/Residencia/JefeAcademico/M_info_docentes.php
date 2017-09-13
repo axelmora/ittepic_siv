@@ -1,21 +1,17 @@
 <?php
 
 class M_info_docentes extends CI_Model {
-
     function __construct() {
         parent::__construct();
     }
-
     public function consulta_docentes($departamento) {
         $DB2 = $this->load->database('local', TRUE);
         $DB2->select('*');
         $DB2->from('docentes');
         $DB2->where('departamento', $departamento);
         $DB2->order_by('nombres', $departamento);
-
         $query = $DB2->get();
 //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
         if ($query->num_rows() > 0) {
             return $query->result();
         } else {
@@ -26,7 +22,7 @@ class M_info_docentes extends CI_Model {
         $DB2 = $this->load->database('local', TRUE);
         $DB2->select('*');
         $DB2->from('docente_prestado');
-        $DB2->where('rfc', $rfc);        
+        $DB2->where('rfc', $rfc);
 
         $query = $DB2->get();
 //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -58,9 +54,9 @@ class M_info_docentes extends CI_Model {
         return $DB2->insert('docente_prestado', $datos);
     }
     public function borrar_docente_prestado($id){
-        $DB2 = $this->load->database('local', TRUE);        
+        $DB2 = $this->load->database('local', TRUE);
         $DB2->where('id',$id);
-        $DB2->delete('docente_prestado');        
+        $DB2->delete('docente_prestado');
     }
     public function actualizar_info_docentes($rfc, $datos) {
         $DB2 = $this->load->database('local', TRUE);
@@ -71,7 +67,7 @@ class M_info_docentes extends CI_Model {
         return false;
     }
 
-//******************************BORRAR DE AQUI PARA ABAJO*******************************************    
+//******************************BORRAR DE AQUI PARA ABAJO*******************************************
 
     function insertar_empresa($datos) {
         $DB2 = $this->load->database('local', TRUE);
@@ -140,7 +136,7 @@ class M_info_docentes extends CI_Model {
             return false;
         }
     }
-    
+
     function consulta_id_empresa_por_fecha() {
 
         $DB2 = $this->load->database('local', TRUE);
