@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class Panel_coordiresidencia extends CI_Controller {
 
@@ -16,7 +16,7 @@ class Panel_coordiresidencia extends CI_Controller {
     }
 
     public function index() {
-        
+
 
           if($this->session->userdata('perfil') == FALSE)
           {
@@ -30,52 +30,61 @@ class Panel_coordiresidencia extends CI_Controller {
 
           $this->load->view('notienespermisos');
           }
-         
+
     }
 
     public function asignacion() {
         redirect(base_url().'index.php/Residencia/C_asignar_asesor');
     }
-    
+
     public function info_procedimiento() {
         $data['info'] = $this->session->userdata('perfil');
         $this->load->view('Residencia/v_info_procedimiento',$data);
     }
-    
+
     public function consulta() {
-        $data['info'] = $this->session->userdata('perfil');        
+        $data['info'] = $this->session->userdata('perfil');
         $data['proyectos'] = $this->m_coordi_res->docentes_por_departamento($this->getDepartamento($this->session->userdata('id_usuario')));
+        $data['proyectoscompartidos'] = $this->m_coordi_res->docentes_por_departamentocompartido($this->getDepartamento($this->session->userdata('id_usuario')));
         $this->load->view('Residencia/CoordinadorResidencia/v_consulta_asesor_revisor',$data);
     }
-    
+
     public function participaciones_docente() {//para v_consulta_asesor_revisor
+        //echo "DEPARTAMENTO:  ".$this->getDepartamento($this->session->userdata('id_usuario'));
         $data['parti_asesor'] = $this->m_coordi_res->parti_asesor($this->input->post('rfc_docente'),$this->getDepartamento($this->session->userdata('id_usuario')));
         $data['parti_revisor1'] = $this->m_coordi_res->parti_revisor1($this->input->post('rfc_docente'),$this->getDepartamento($this->session->userdata('id_usuario')));
         $data['parti_revisor2'] = $this->m_coordi_res->parti_revisor2($this->input->post('rfc_docente'),$this->getDepartamento($this->session->userdata('id_usuario')));
         echo json_encode($data);
     }
+    public function participaciones_docentecompartido() {//para v_consulta_asesor_revisor
+        //echo "DEPARTAMENTO:  ".$this->getDepartamento($this->session->userdata('id_usuario'));
+        $data['parti_asesor'] = $this->m_coordi_res->parti_asesorc($this->input->post('rfc_docente'),$this->getDepartamento($this->session->userdata('id_usuario')));
+        $data['parti_revisor1'] = $this->m_coordi_res->parti_revisor1c($this->input->post('rfc_docente'),$this->getDepartamento($this->session->userdata('id_usuario')));
+        $data['parti_revisor2'] = $this->m_coordi_res->parti_revisor2c($this->input->post('rfc_docente'),$this->getDepartamento($this->session->userdata('id_usuario')));
+        echo json_encode($data);
+    }
 
     private function getDepartamento($id_usuario) {
         $departamento ='SIN DEPARTAMENTO';
-        switch ($id_usuario) {            
+        switch ($id_usuario) {
                 case '15':
                     $departamento = 'DEPARTAMENTO DE CIENCIAS DE LA TIERRA';
-                    break;                
+                    break;
                 case '16':
                     $departamento = 'DEPARTAMENTO DE SISTEMAS Y COMPUTACION';
-                    break;                
+                    break;
                 case '17':
                     $departamento = 'DEPARTAMENTO DE QUIMICA Y BIOQUIMICA';
-                    break;                
+                    break;
                 case '18':
                     $departamento = 'DEPTO. DE INGENIERIA INDUSTRIAL';
-                    break;                
+                    break;
                 case '19':
                     $departamento = 'DEPARTAMENTO DE INGENIERIA ELECTRICA Y ELECTRONICA';
-                    break;                                
+                    break;
                 case '20':
                     $departamento = 'DEPARTAMENTO DE INGENIERIAS';
-                    break;                                
+                    break;
                 case '21':
                     $departamento = 'DEPARTAMENTO DE CIENCIAS ECONOMICO ADMINISTRATIVAS';
                     break;
