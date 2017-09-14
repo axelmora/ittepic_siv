@@ -19,38 +19,6 @@ class M_coordi_res extends CI_Model {
       return false;
     }
   }
-  function docentes_por_departamentocompartido($departamento){
-    $rfcdocentescompartidos;
-    $DB2 = $this->load->database('local', TRUE);
-    $query1 =  $DB2->query("SELECT DISTINCT id_docente FROM ASESOR_REVISOR AR;");
-    if ($query1->num_rows() > 0) {
-      foreach ($query1->result() as $row)
-      {
-      //  echo "1<BR>";
-      //  echo ":c  ".$row->id_docente;
-        $query2 =  $DB2->query("SELECT * FROM DOCENTES WHERE RFC='".$row->id_docente."' AND DEPARTAMENTO !='".$departamento."';");
-        if ($query2->num_rows() > 0) {
-          foreach ($query2->result() as $row1)
-          {
-            //echo "string";
-            $rfcdocentescompartidos[] =(object) array( "rfc" => $row1->rfc, "nombres" => $row1->nombres, "apellidos" => $row1->apellidos);
-          }
-        } else {
-        //  echo "2<BR>";
-        }
-      }
-        if (count($query1) > 0) {
-      //    echo $rfcdocentescompartidos->rfc;
-          return $rfcdocentescompartidos;
-        }
-        else {
-        return false;
-        }
-    } else {
-      return false;
-    }
-  }
-
   function parti_asesor($rfc,$departamento) {
     $DB2 = $this->load->database('local', TRUE);
     $query = $DB2->query('
@@ -98,7 +66,34 @@ class M_coordi_res extends CI_Model {
       return false;
     }
   }
-/* docente compartido!*/
+  /* docente compartido!*/
+  function docentes_por_departamentocompartido($departamento){
+    $rfcdocentescompartidos;
+    $DB2 = $this->load->database('local', TRUE);
+    $query1 =  $DB2->query("SELECT DISTINCT id_docente FROM ASESOR_REVISOR AR;");
+    if ($query1->num_rows() > 0) {
+      foreach ($query1->result() as $row)
+      {
+        $query2 =  $DB2->query("SELECT * FROM DOCENTES WHERE RFC='".$row->id_docente."' AND DEPARTAMENTO !='".$departamento."';");
+        if ($query2->num_rows() > 0) {
+          foreach ($query2->result() as $row1)
+          {
+            $rfcdocentescompartidos[] =(object) array( "rfc" => $row1->rfc, "nombres" => $row1->nombres, "apellidos" => $row1->apellidos);
+          }
+        } else {
+          //  echo "2<BR>";
+        }
+      }
+      if (count($query1) > 0) {
+        return $rfcdocentescompartidos;
+      }
+      else {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
   function parti_asesorc($rfc,$departamento) {
     $DB2 = $this->load->database('local', TRUE);
     $query = $DB2->query('
@@ -144,7 +139,7 @@ class M_coordi_res extends CI_Model {
       return false;
     }
   }
-/* fin docente compartido*/
+  /* fin docente compartido*/
 
   //++++++++++++++++borrar+++++++++++++++++++++
   function info_proyectos_jacademico($departamento) {
