@@ -102,7 +102,7 @@ class M_coordi_res extends CI_Model {
       }
     }
 
-    function obtener_departamento($id_carrera) {
+/*    function obtener_departamento($id_carrera) {
       if ($id_carrera == 2 || $id_carrera == 7 || $id_carrera == 15) {
         return 'DEPARTAMENTO DE SISTEMAS Y COMPUTACION';
       }
@@ -126,7 +126,7 @@ class M_coordi_res extends CI_Model {
       }
       return 'Sin Departamento';
     }
-
+*/
     function parti_asesorc($rfc,$departamento) {
       $DB2 = $this->load->database('local', TRUE);
       $query = $DB2->query('

@@ -5,18 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <!-- Aqui debe cambiar dependiendo quien entre  -->
   <title>SIV :: REGISTRAR DOCUMENTOS FINALES</title>
-
   <!-- CSS  -->
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src=" http://code.jquery.com/jquery-1.9.1.js"></script>
-
-
   <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/media/css/jquery.dataTables.css">
-
   <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
   <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
   <script>
   function confirmar()
@@ -28,7 +23,6 @@
     });
   }
   </script>
-
   <style>
   input.button-add {
     background-image: url(/images/buttons/add.png); /* 16px x 16px */
@@ -53,7 +47,6 @@
   <nav>
     <div class="nav-wrapper grey lighten-5 left-align">
       <a href="#!" class="brand-logo center"><img src="<?php echo base_url(); ?>images/logochico.png" alt="Logo" /></a>
-
       <div class="right-align hide-on-med-and-down">
         <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down">Bienvenido <?= $this->session->userdata('perfil') ?>
           <?= anchor(base_url() . 'index.php/Logeo/logout_ci', '<span class=" amber-text  right-align hide-on-med-and-down">(Cerrar sesión)  </span>') ?></span></a>
@@ -78,145 +71,146 @@
           </div>
           <!--
           <div class="row center">
-            <?php /* ?><a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a><?php */ ?><br>
-          </div> -->
-        </div>
+          <?php /* ?><a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a><?php */ ?><br>
+        </div> -->
       </div>
-      <div class="container">
-        <div class="section">
-          <!--   Icon Section   -->
-          <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" href="<?php echo base_url(); ?>index.php/Residencia/JefeResidencia/Panel_jeferesidencia"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
-          <div class="col s6 center-align card-panel grey lighten-5">
-            <table id="table_id" class="display">
-              <thead>
-                <tr>
-                  <th>Alumno</th>
-                  <th>Carta de liberacion asesor interno</th>
-                  <th>Carta de liberacion asesor externo</th>
-                  <th>Evaluación asesor externo/interno</th>
-                  <th>Evidencias</th>
-                  <!--<th style="text-align: center;">Documentos Finales</th>-->
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                if ($dictamen) {
-                  foreach ($dictamen as $value) {
-                    ?>
-                    <form>
-                      <tr>
-                        <td><?= $value->numero_control.' - '.$value->nombre; ?></td>
-                        <td style="text-align: center;">
-                          <div class="switch">
-                            <label>
-                              No
-                              <input type="checkbox" onchange="if ($(this).is(':checked')) {
-                                registrar(1, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }
-                              else {
-                                registrar(1, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }" <?php
-                              if ($value->liberacion_interno == 't') {
-                                echo 'checked = "checked"';
-                              }
-                              ?>>
-                              <span class="lever"></span>
-                              Si
-                            </label>
-                          </div>
-                        </td>
-                        <td style="text-align: center;">
-                          <div class="switch">
-                            <label>
-                              No
-                              <input type="checkbox" onchange="if ($(this).is(':checked')) {
-                                registrar(2, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }
-                              else {
-                                registrar(2, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }" <?php
-                              if ($value->liberacion_externo == 't') {
-                                echo 'checked = "checked"';
-                              }
-                              ?>>
-                              <span class="lever"></span>
-                              Si
-                            </label>
-                          </div>
-                          <!--<input type="checkbox" id="clae" numero_c="<?php echo $value->numero_control; ?>"/><label for="clae"></label>-->
-                        </td>
-                        <td style="text-align: center;">
-                          <div class="switch">
-                            <label>
-                              No
-                              <input type="checkbox" onchange="if ($(this).is(':checked')) {
-                                registrar(3, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }
-                              else {
-                                registrar(3, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }" <?php
-                              if ($value->calificaciones == 't') {
-                                echo 'checked = "checked"';
-                              }
-                              ?>>
-                              <span class="lever"></span>
-                              Si
-                            </label>
-                          </div>
-                        </td>
-                        <td style="text-align: center;">
-                          <div class="switch">
-                            <label>
-                              No
-                              <input type="checkbox" onchange="if ($(this).is(':checked')) {
-                                registrar(4, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }
-                              else {
-                                registrar(4, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
-                              }" <?php
-                              if ($value->evidencias == 't') {
-                                echo 'checked = "checked"';
-                              }
-                              ?>>
-                              <span class="lever"></span>
-                              Si
-                            </label>
-                          </div>
-                        </td>
-                      </tr>
-                    </form>
-                    <?php
-                  }
+    </div>
+    <div class="container">
+      <div class="section">
+        <!--   Icon Section   -->
+        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" href="<?php echo base_url(); ?>index.php/Residencia/JefeResidencia/Panel_jeferesidencia"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
+        <div class="col s6 center-align card-panel grey lighten-5">
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th>Alumno</th>
+                <th>Carta de liberacion asesor interno</th>
+                <!--<th>Carta de liberacion asesor externo</th>-->
+                <th>Carta de liberación de la empresa</th>
+                <th>Evaluación asesor externo/interno</th>
+                <th>Evidencias</th>
+                <!--<th style="text-align: center;">Documentos Finales</th>-->
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              if ($dictamen) {
+                foreach ($dictamen as $value) {
+                  ?>
+                  <form>
+                    <tr>
+                      <td><?= $value->numero_control.' - '.$value->nombre; ?></td>
+                      <td style="text-align: center;">
+                        <div class="switch">
+                          <label>
+                            No
+                            <input type="checkbox" onchange="if ($(this).is(':checked')) {
+                              registrar(1, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }
+                            else {
+                              registrar(1, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }" <?php
+                            if ($value->liberacion_interno == 't') {
+                              echo 'checked = "checked"';
+                            }
+                            ?>>
+                            <span class="lever"></span>
+                            Si
+                          </label>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">
+                        <div class="switch">
+                          <label>
+                            No
+                            <input type="checkbox" onchange="if ($(this).is(':checked')) {
+                              registrar(2, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }
+                            else {
+                              registrar(2, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }" <?php
+                            if ($value->liberacion_externo == 't') {
+                              echo 'checked = "checked"';
+                            }
+                            ?>>
+                            <span class="lever"></span>
+                            Si
+                          </label>
+                        </div>
+                        <!--<input type="checkbox" id="clae" numero_c="<?php echo $value->numero_control; ?>"/><label for="clae"></label>-->
+                      </td>
+                      <td style="text-align: center;">
+                        <div class="switch">
+                          <label>
+                            No
+                            <input type="checkbox" onchange="if ($(this).is(':checked')) {
+                              registrar(3, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }
+                            else {
+                              registrar(3, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }" <?php
+                            if ($value->calificaciones == 't') {
+                              echo 'checked = "checked"';
+                            }
+                            ?>>
+                            <span class="lever"></span>
+                            Si
+                          </label>
+                        </div>
+                      </td>
+                      <td style="text-align: center;">
+                        <div class="switch">
+                          <label>
+                            No
+                            <input type="checkbox" onchange="if ($(this).is(':checked')) {
+                              registrar(4, 'true',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }
+                            else {
+                              registrar(4, 'false',<?php echo $value->numero_control; ?>, '<?php echo base_url(); ?>');
+                            }" <?php
+                            if ($value->evidencias == 't') {
+                              echo 'checked = "checked"';
+                            }
+                            ?>>
+                            <span class="lever"></span>
+                            Si
+                          </label>
+                        </div>
+                      </td>
+                    </tr>
+                  </form>
+                  <?php
                 }
-                ?>
-              </tbody>
-            </table>
-          </div>
-          <p>&nbsp;</p>
-          <p>&nbsp;</p>
-          <p>&nbsp;</p>
-          <p>&nbsp;</p>
-          <p>&nbsp;</p>
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <br><br>
+    <footer class="page-footer black">
+      <div class="container">
+      </div>
+      <div class="footer-copyright">
+        <div>
+          <div align="center ">Copyright 2016 - <a class=" amber-text text-lighten-3" href="http://www.ittepic.edu.mx"><span class="amber-text">
+            ITTepic
+          </span></a></div>
         </div>
       </div>
-      <br><br>
-      <footer class="page-footer black">
-        <div class="container">
-        </div>
-        <div class="footer-copyright">
-          <div>
-            <div align="center ">Copyright 2016 - <a class=" amber-text text-lighten-3" href="http://www.ittepic.edu.mx"><span class="amber-text">
-              ITTepic
-            </span></a></div>
-          </div>
-        </div>
-      </footer>
-      <!--  Scripts-->
-      <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
-      <script src="<?php echo base_url(); ?>js/materialize.js"></script>
-      <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/media/js/jquery.dataTables.js"></script>
-      <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>
-      <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/jefe_residencia.js"></script>
-      <script src="js/init.js"></script>
-    </body>
-    </html>
+    </footer>
+    <!--  Scripts-->
+    <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>
+    <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/jefe_residencia.js"></script>
+    <script src="js/init.js"></script>
+  </body>
+  </html>
