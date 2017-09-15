@@ -140,20 +140,17 @@ class C_proponer extends CI_Controller {
             'periodo' => mb_strtoupper($this->input->post('periodo'), 'UTF-8'),
             'residentes_requeridos' => $this->input->post('residentes_requeridos'),
             'lugares_disponibles' => ($this->input->post('residentes_requeridos') - 1));
-
             if ($this->input->post('valida_vacante') == 'true') {
               $anteproyecto['id_vacante'] = $this->input->post('id_vacante');
             } else {
               $anteproyecto['id_vacante'] = 0;
             }
-
             $this->m_propuesta->insertar_anteproyecto($anteproyecto);
 
             $nuevo3 = $this->m_propuesta->obtener_anteproyecto_agregado();
             foreach ($nuevo3 as $value3) {
               $tmp3 = $value3->anteproyecto_pk;
             }
-
             $asesor_externo = array(
               'nombre' => mb_strtoupper($this->input->post('nombre_asesor'), 'UTF-8'),
               'correo' => $this->input->post('correo'),
@@ -161,23 +158,17 @@ class C_proponer extends CI_Controller {
               'anteproyecto_fk' => $tmp3,
               'puesto' => mb_strtoupper($this->input->post('puesto'), 'UTF-8'),
               'area' => mb_strtoupper($this->input->post('area'), 'UTF-8'));
-
               $this->m_propuesta->insertar_asesor_externo($asesor_externo);
-
               $solicitud = array(
                 'numero_control' => $session_data['username'],
                 'anteproyecto_id' => $tmp3,
                 'estado_solicitud' => 'P',
                 'fecha_solicitud' => date('Y-m-d'));
-
                 $this->m_propuesta->insertar_solicitud($solicitud);
-
                 $bitacora = array(
                   'numero_control' => $session_data['username'],
                   'estado' => 1);
-
                   $this->m_propuesta->insertar_bitacora($bitacora);
-
                   $dictamen = array(
                     'numero_control' => $session_data['username'],
                     'jefe_academico' => false,
@@ -191,9 +182,7 @@ class C_proponer extends CI_Controller {
                     'calificaciones' => false,
                     'evidencias' => false
                   );
-
                   $this->m_propuesta->insertar_dictamen($dictamen);
-
                   $atencion = array(
                     'numero_control' => $session_data['username'],
                     'atencion_medica' => mb_strtoupper($this->input->post('atencion_medica'), 'UTF-8'),

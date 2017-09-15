@@ -82,7 +82,6 @@
                 </div>
               </div>
             </div></a>
-
             <a href="<?php echo base_url(); ?>index.php/Residencia/JefeResidencia/Panel_jeferesidencia/registrar_documentos">
               <div class="col s12 m4 center">
                 <div class="card-panel grey lighten-5 z-depth-1 caro">

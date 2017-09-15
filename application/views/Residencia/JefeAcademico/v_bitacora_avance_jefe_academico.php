@@ -2,20 +2,14 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SIV :: BITÁCORAS DE AVANCE</title>
-
   <!-- CSS  -->
-
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-
   <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
   <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
   <!--<link href="<?php echo base_url(); ?>css/proceso.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
   <link href="<?php echo base_url(); ?>css/flow.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
@@ -160,13 +154,10 @@
 
                 </div>
               </div>
-
-
               <div id="a_residente" class="center-align col s12 card-panel grey lighten-5" hidden>
-                <table id="archivos_asesorado" class="bordered highlight responsive-table">
+                <table id="archivos_asesorado" class="responsive-table bordered highlight ">
                   <caption class="amber-text">ARCHIVOS DE AVANCE DEL ALUMNO</caption>
                   <thead>
-
                     <tr>
                       <th>Nombre del archivo</th>
                       <th>Descripción</th>
@@ -180,7 +171,6 @@
                   <tbody>
                   </tbody>
                 </table>
-
                 <br>
                 <br>
               </div>
@@ -261,7 +251,6 @@
             <br><br>
             <footer class="page-footer black">
               <div class="container">
-
               </div>
               <div class="footer-copyright">
                 <div>
