@@ -1,14 +1,13 @@
 $(document).ready(function () {
     $('#btn_sel_proyecto').click(function () {
-
         var options = {
             beforeSend: function ()
             {
-                //beforeSend : this function called before form submission  
+                //beforeSend : this function called before form submission
             },
             uploadProgress: function (event, position, total, percentComplete)
             {
-                //uploadProgress : this function called when the upload is in progress        
+                //uploadProgress : this function called when the upload is in progress
             },
             success: function ()
             {
@@ -16,11 +15,10 @@ $(document).ready(function () {
             },
             complete: function (response)
             {
-                //complete: this function is called when the form upload is completed.  
+                //complete: this function is called when the form upload is completed.
                 $('#tabla_participantes_proy').attr('hidden', false);
                 $('#tabla_part').attr('hidden', false);
                 $('#oficios_comision').attr('hidden', false);
-
                 var a = jQuery.parseJSON(response.responseText);
                 $('#id_participantes').attr('value', a.asesor[0].id);
                 cargar_tabla(a);
@@ -36,7 +34,7 @@ $(document).ready(function () {
 
     $('#ar').change(function (event) {
         event.preventDefault();
-        //var titu = $(this).attr('checked');        
+        //var titu = $(this).attr('checked');
         //var ante_id = $("#anteproyecto_id").val();
         if ($(this).is(':checked')) {
             ase_rev = 'TRUE';//true es revisor
@@ -81,17 +79,15 @@ $(document).ready(function () {
 
     });
 });
-
 function reemplazar(ppid, docente) {
     //alert(docente);
     $('#rol').attr('value', docente);
     $('#modal_cambiar').openModal();
 }
-
 function cambiar(rfc_docente, base) {
-    //var titu = $(this).attr('checked');        
+    //var titu = $(this).attr('checked');
     //var ante_id = $("#anteproyecto_id").val();
-    //alert(rfc);        
+    //alert(rfc);
     var rol = $('#rol').attr('value');
     var participantes = $('#id_participantes').attr('value');
     jQuery.ajax({
@@ -116,11 +112,10 @@ function reemplazar2(ppid, docente) {
     $('#rol').attr('value', docente);
     $('#modal_cambiar2').openModal();
 }
-
 function cambiar2(rfc_docente, base) {//CREO QUE ESTA FUNCION NO SE NECESITA
-    //var titu = $(this).attr('checked');        
+    //var titu = $(this).attr('checked');
     //var ante_id = $("#anteproyecto_id").val();
-    //alert(rfc);        
+    //alert(rfc);
     var rol = $('#rol2').attr('value');
     var participantes = $('#id_participantes').attr('value');
     jQuery.ajax({
@@ -147,7 +142,7 @@ function cargar_tabla(a) {
         trHTML += '<tr><td>Residente ' + a.residente[i].numero_control +
                 '</td><td>' + a.residente[i].nombre +
                 '</td><td>' + a.residente[i].correo +
-                '</td><td>' +
+                '</td><td colspan="2">' +
                 '</td></tr>';
     });
     $.each(a.asesor, function (i, item) {
@@ -187,13 +182,18 @@ function cargar_tabla(a) {
     });
     cad = '';
     $.each(a.asesore, function (i, item) {
-
         trHTML += '<tr><td>Asesor externo' +
-                '</td><td>' + a.asesore[i].nombre +
+                '</td><td id="asxnombre">' + a.asesore[i].nombre +
                 '</td><td>' + a.asesore[i].correo +
-                '</td><td>' +
+                '</td><td colspan="2"><a class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick="editarasesorexterno(\'' + a.asesore[i].asesor_externopk + '\',\'' + a.asesore[i].nombre + '\')"> <i class="large material-icons">edit</i>EDITAR NOMBRE</a>' +
                 '</td></tr>';
     });
 
     $('#tabla_participantes_proy tbody').html(trHTML);
+}
+
+function editarasesorexterno(idacesor,nombre) {
+    $('#idasesorexterno').attr('value', idacesor);
+    $('#nombreasesorexternoactual').attr('value', nombre);
+    $('#modalexterno').openModal();
 }

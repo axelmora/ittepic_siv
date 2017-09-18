@@ -31,7 +31,6 @@ class C_info_participantes_proyecto extends CI_Controller {
             $data['docentes'] = $this->m_info_participantes_proyecto->consulta_docentes($this->getDepartamento($this->session->userdata('id_usuario')));
             $data['docentes_otros'] = $this->m_info_participantes_proyecto->consulta_docentes_otros_departamentos();
         }
-
         $this->load->view('Residencia/v_info_participantes_proyecto', $data);
     }
 
@@ -53,10 +52,8 @@ class C_info_participantes_proyecto extends CI_Controller {
         $data['revisor2'] = $this->m_info_participantes_proyecto->info_revisor2($this->input->post('ppid'));
         $data['asesore'] = $this->m_info_participantes_proyecto->info_asesor_externo($this->input->post('ppid'));
         $data['residente'] = $this->m_info_participantes_proyecto->info_residente($this->input->post('ppid'));
-
         echo json_encode($data);
     }
-
     public function cambiar_asesor_revisor() {
         //$asesor_revisor;
         switch ($this->input->post('puesto')) {
@@ -68,8 +65,8 @@ class C_info_participantes_proyecto extends CI_Controller {
                 break;
         }
         $ar = $this->m_info_participantes_proyecto->insertar_asesor_revisor($asesor_revisor);
-        
-        
+
+
         $tmp;
         foreach ($ar as $value) {
             $tmp = $value->ultimo;
@@ -129,5 +126,11 @@ class C_info_participantes_proyecto extends CI_Controller {
         }
         return $departamento;
     }
-
+    public function editarasesorexternofun()
+    {
+      $id = $this->input->post('idasesorexterno');
+      $nombre = $this->input->post('nombreasesorexternoactual');
+      $resultado=$this->m_info_participantes_proyecto->actualizardatosasesorexterno($id,$nombre);
+      return $resultado;
+    }
 }
