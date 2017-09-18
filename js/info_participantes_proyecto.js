@@ -188,7 +188,6 @@ function cargar_tabla(a) {
     } else {
     valorboton="block";
     }
-
     trHTML += '<tr><td>Asesor externo' +
     '</td><td id="asxnombre">' + a.asesore[i].nombre +
     '</td><td>' + a.asesore[i].correo +
@@ -198,7 +197,6 @@ function cargar_tabla(a) {
 
   $('#tabla_participantes_proy tbody').html(trHTML);
 }
-
 function editarasesorexterno(idacesor,nombre) {
   $('#idasesorexterno').attr('value', idacesor);
   $('#nombreasesorexternoactual').attr('value', nombre);
@@ -207,5 +205,4 @@ function editarasesorexterno(idacesor,nombre) {
   } else {
     $('#modalexterno').openModal();
   }
-
 }
