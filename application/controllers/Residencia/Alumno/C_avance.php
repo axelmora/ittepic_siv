@@ -265,7 +265,7 @@ class C_avance extends CI_Controller {
                     Número de Afiliación al servicio médico: <u>$numero_afiliacion</u>
                 </td>
             </tr>
-        </table>   
+        </table>
 EOD;
 
         $pdf->writeHTML($tbl, true, false, false, false, '');
@@ -281,7 +281,7 @@ EOD;
                     Periodo proyectado: <u>$periodo </u> Número de residentes: <u>$residentes_requeridos</u>
                 </td>
             </tr>
-        </table>   
+        </table>
 EOD;
 
         $pdf->writeHTML($tbl, true, false, false, false, '');
@@ -299,7 +299,7 @@ EOD;
                     Nombre del titular de la empresa: <u>$titular_empresa</u> Puesto <u>$puesto_titular</u><br>
                     Nombre del asesor externo: <u>$nombre_externo</u> Puesto: <u>$puesto_externo</u><br>
                     Nombre de la persona que firmará el acuerdo de trabajo. <br>
-                    Estudiante-Escuela-Empresa: <u>________________________________</u> <br> 
+                    Estudiante-Escuela-Empresa: <u>________________________________</u> <br>
                     Puesto: <u>_____________________</u>
                 </td>
             </tr>
@@ -416,11 +416,11 @@ EOD;
 //		/banco_proyectos
 //		/bases_concertacion
 //	/docentes
-//		/rfc	                
+//		/rfc
 
         $dir = './uploads/residentes/' . $nc;
         if (!is_dir($dir)) {
-            mkdir($dir, 0777);
+            mkdir($dir, 0777, true);
         }
         $config['upload_path'] = $dir;
         $config['allowed_types'] = 'doc|docx|pdf';
@@ -484,7 +484,7 @@ EOD;
         );
         $this->m_historial->insertar_historial($a);
         //var_dump('Se envió');
-        //       
+        //
         //con esto podemos ver el resultado
         //var_dump($this->email->print_debugger());
     }

@@ -168,7 +168,7 @@ public function consulta_bitacora_residente_nocontrol() {
         }
         $dir = './uploads/docentes/' . $rfc;
         if (!is_dir($dir)) {
-            mkdir($dir, 0777);
+            mkdir($dir, 0777, true);
         }
         $config['upload_path'] = $dir; //'./uploads/docentes/'.$rfc;
         $config['allowed_types'] = 'doc|docx|pdf';

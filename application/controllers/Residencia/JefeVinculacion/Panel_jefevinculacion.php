@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class Panel_jefevinculacion extends CI_Controller {
     private $error='';
@@ -15,12 +15,12 @@ class Panel_jefevinculacion extends CI_Controller {
         $this->load->model('Residencia/Alumno/m_propuesta');
         $this->load->helper(array('form', 'url'));
         $this->load->helper('download');
-        $this->load->helper('path');        
+        $this->load->helper('path');
         if ($this->session->userdata('perfil') == FALSE) {
             redirect(base_url() . 'index.php/logeo');
         }
         if ($this->session->userdata('perfil') == 'jefevinculacion') {
-            
+
         } else {
             $this->load->view('notienespermisos');
         }
@@ -64,9 +64,9 @@ class Panel_jefevinculacion extends CI_Controller {
             foreach ($r as $value) {
                 unlink('./' . $value->ruta_archivo_convenio);
             }
-        }                
+        }
         $this->m_propuesta->eliminar_convenio($id_convenio);
-        
+
         redirect('Residencia/JefeVinculacion/Panel_jefevinculacion/base_concertacion');
     }
 
@@ -85,7 +85,7 @@ class Panel_jefevinculacion extends CI_Controller {
             $this->m_propuesta->insertar_convenio($convenio);
             redirect('Residencia/JefeVinculacion/Panel_jefevinculacion/base_concertacion');
         }
-        
+
 //        $this->base_concertacion();
     }
 
@@ -97,12 +97,12 @@ class Panel_jefevinculacion extends CI_Controller {
 //		/banco_proyectos
 //		/bases_concertacion
 //	/docentes
-//		/rfc	
+//		/rfc
 //        $session_data = $this->session->userdata('logged_in');
         $dir = set_realpath('./uploads/administrativos/bases_concertacion/');
 
         if (!is_dir($dir)) {
-            mkdir($dir, 0777); // el segundo parametro es para el permiso de mas amplio acceso posible
+            mkdir($dir, 0777, true); // el segundo parametro es para el permiso de mas amplio acceso posible
         }
         $config['upload_path'] = $dir;
         $config['allowed_types'] = 'doc|docx|pdf';
@@ -121,7 +121,7 @@ class Panel_jefevinculacion extends CI_Controller {
                 'nombre_archivo' => $this->upload->data('file_name')
             );
 
-//$data = array('ruta' => 'uploads/residentes/10400312/'. $this->upload->data('file_name'));            
+//$data = array('ruta' => 'uploads/residentes/10400312/'. $this->upload->data('file_name'));
             return $data;
             //$this->load->view('upload_success', $data);
         }

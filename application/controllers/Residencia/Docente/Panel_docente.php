@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class Panel_docente extends CI_Controller {
 private $error='';
@@ -14,7 +14,7 @@ private $error='';
         $this->load->helper(array('url'));
         $this->load->database('local');
         $this->load->model('Residencia/Docente/m_bitacora_avance_docente');
-        
+
         if ($this->session->userdata('rfc') == FALSE) {
             redirect(base_url() . 'index.php/logeo');
         }
@@ -29,13 +29,13 @@ private $error='';
 //    public function bitacora() {
 //        $data['nombres'] = $this->session->userdata('nombres');
 //        $data['apellidos'] = $this->session->userdata('apellidos');
-//        $data['asesorados'] = $this->m_bitacora_avance_docente->consulta_asesorados($this->session->userdata('rfc'));        
+//        $data['asesorados'] = $this->m_bitacora_avance_docente->consulta_asesorados($this->session->userdata('rfc'));
 //        $this->load->view('Residencia/Docente/v_bitacora_avance_asesor',$data);
 //    }
     public function asesorados() {
         $data['nombres'] = utf8_decode($this->session->userdata('nombres'));
         $data['apellidos'] = utf8_decode($this->session->userdata('apellidos'));
-        $data['asesorados'] = $this->m_bitacora_avance_docente->consulta_asesorados($this->session->userdata('rfc'));        
+        $data['asesorados'] = $this->m_bitacora_avance_docente->consulta_asesorados($this->session->userdata('rfc'));
         $this->load->view('Residencia/Docente/v_bitacora_avance_asesor',$data);
     }
     //+++++++++++++++revisor+++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -52,7 +52,7 @@ private $error='';
         $data['alu_info'] = $this->m_bitacora_avance_docente->consulta_info_asesorado($this->input->post('id_participantes'));
         $data['alu_archivos'] = $this->m_bitacora_avance_docente->consulta_archivos_alumno($this->input->post('id_participantes'));
         $data['base_url'] = base_url();
-        
+
         echo json_encode($data);
     }
 //    public function consultar_proyectos() {
@@ -60,7 +60,7 @@ private $error='';
 //        $data['apellidos'] = $this->session->userdata('apellidos');
 //        $this->load->view('Residencia/Docente/v_consultar_proyectos',$data);
 //    }
-    
+
     //-------------------------------------------------------------------------
     public function participantes_proyectos() {
         redirect('Residencia/C_info_participantes_proyecto');
@@ -75,7 +75,7 @@ private $error='';
         $data['apellidos'] = utf8_decode($this->session->userdata('apellidos'));
         $this->load->view('Residencia/Docente/v_docente_registro_aprobacion_anteproyecto',$data);
     }
-    
+
     public function informe() {
         $data['nombres'] = utf8_decode($this->session->userdata('nombres'));
         $data['apellidos'] = utf8_decode($this->session->userdata('apellidos'));
@@ -88,24 +88,24 @@ private $error='';
         if (array_key_exists('error', $archivo)) {
              $this->informe();
         } else {
-            $data = array(                
+            $data = array(
                 'rfc' => $this->input->post('rfc'),
                 'nombre_archivo' => mb_strtoupper($archivo['nombre_archivo'],'UTF-8'),
                 'fecha_guardado' => date('Y-m-d'),
-                'ruta_archivo' => $archivo['ruta']                              
+                'ruta_archivo' => $archivo['ruta']
             );
 
-            if ($this->m_bitacora_avance_docente->insertar_archivo_informe($data)) {                
+            if ($this->m_bitacora_avance_docente->insertar_archivo_informe($data)) {
                 redirect('Residencia/Docente/panel_docente');
             } else {
                 $this->error['error'] = 'Error al guardar informacion de informe.';
                 $this->informe();
             }
-        
+
         //$this->load->view('Residencia/Docente/v_adjuntar_informe',$data);
     }
     }
-    
+
     private function do_upload_informe($rfc) {
 //    /uploads
 //	/residentes
@@ -114,11 +114,11 @@ private $error='';
 //		/banco_proyectos
 //		/bases_concertacion
 //	/docentes
-//		/rfc	
-       
+//		/rfc
+
         $dir = './uploads/docentes/' . $rfc;
         if (!is_dir($dir)) {
-            mkdir($dir,0777);
+            mkdir($dir,0777, true);
         }
         $config['upload_path'] = $dir; //'./uploads/docentes/'.$rfc;
         $config['allowed_types'] = 'doc|docx|pdf';
@@ -137,11 +137,11 @@ private $error='';
             return $data;
         }
     }
-    
-    public function info_procedimiento() {        
+
+    public function info_procedimiento() {
         $this->load->view('Residencia/v_info_procedimiento');
     }
-    
-    
+
+
 
 }

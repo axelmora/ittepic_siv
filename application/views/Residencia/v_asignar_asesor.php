@@ -37,46 +37,46 @@
         <!-- Navbar goes here keyboard_return_tiny-->
 
 
-        <div class="section no-pad-bot" id="index-banner">            
+        <div class="section no-pad-bot" id="index-banner">
 
             <div class="row center">
 
-                <h5 class="condensed light header center amber-text darken-1-text">      
+                <h5 class="condensed light header center amber-text darken-1-text">
                     ASIGNAR ASESOR Y REVISORES</h5>
-            </div>                
+            </div>
 
         </div>
 
         <div class="container">
-            <div class="section">             
+            <div class="section">
                 <?php if ($info == 'jefeacademico') { ?>
-                    <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
-                       href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>    
+                    <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
+                       href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                    <?php } else if ($info == 'coordinadorresidencia') {
                        ?>
-                    <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
-                       href="<?php echo base_url() . 'index.php/Residencia/CoordinadorResidencia/Panel_coordiresidencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>        
+                    <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
+                       href="<?php echo base_url() . 'index.php/Residencia/CoordinadorResidencia/Panel_coordiresidencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                    <?php }
                    ?>
 
                 <div class="left-align col s3 m6 l3 card-panel grey lighten-5">
                     <div class="input-field">
                         <?php if ($residentes) { ?>
-                            <form method="post" action="<?php echo base_url() . "index.php/Residencia/c_asignar_asesor/info_residente_sin_asesor"; ?>">                          
+                            <form method="post" action="<?php echo base_url() . "index.php/Residencia/c_asignar_asesor/info_residente_sin_asesor"; ?>">
                                 <label>Selecciona un alumno</label>
                                 <br>
                                 <br>
-                                <select  id="participantes_id" name="participantes_id">                                
+                                <select  id="participantes_id" name="participantes_id">
                                     <?php
                                     if ($residente_info) {
                                         foreach ($residentes as $value) {
                                             foreach ($residente_info as $val) {
                                                 if ($val->id == $value->id) {
                                                     ?>
-                                                    <option value="<?= $value->id; ?>" selected><?= $value->nombre; ?></option>        
+                                                    <option value="<?= $value->id; ?>" selected><?= $value->nombre; ?></option>
                                                 <?php } else {
                                                     ?>
-                                                    <option value="<?= $value->id; ?>"><?= $value->nombre; ?></option>        
+                                                    <option value="<?= $value->id; ?>"><?= $value->nombre; ?></option>
                                                     <?php
                                                 }
                                             }
@@ -88,28 +88,28 @@
                                             <?php
                                         }
                                     }
-                                    ?>                                                                                             
+                                    ?>
                                 </select>
                                 <br>
                                 <br>
                                 <button class="btn orange waves-effect darken-1 right-align z-depth-0" type="submit">
-                                    Seleccionar</button>                                                            
+                                    Seleccionar</button>
 
                             </form>
                         <?php } else { ?>
                             <p style="text-align: center;" class="blue-text"><?php echo 'No hay asignaciones pendientes.'; ?></p>
                         <?php } ?>
-                    </div>                    
+                    </div>
                 </div>
                 <p style="text-align: center;" class="blue-text"><?php echo $mensajes; ?></p>
                 <?php if ($residente_info) { ?>
-                    <div class="row">                                
+                    <div class="row">
                         <div class="col s5 center-align card-panel grey lighten-5">
                             <div class="input-field left-align">
                                 <?php foreach ($residente_info as $value) { ?>
                                     <div id="buscador">
                                         DATOS DEL ALUMNO
-                                        <hr>                                
+                                        <hr>
                                         <b>Nombre completo:</b> <?= $value->nombre ?>
                                         <br>
                                         <b>No. de control:</b> <?= $value->numero_control ?>
@@ -127,14 +127,14 @@
                                         <br>
                                     </div>
                                 </div>
-                            </div>                    
+                            </div>
                             <div class="col s2"><br></div>
                             <div class="col s5 right-align card-panel grey lighten-5 ">
                                 <div class="input-field left-align">
                                     DATOS DEL PROYECTO
-                                    <hr>                            
+                                    <hr>
                                     <b>Nombre del Proyecto:</b> <?= $value->nombre_proyecto ?>
-                                    <br>                                
+                                    <br>
                                     <b>Departamento del anteproyecto:</b> <?= $value->departamento_anteproyecto ?>
                                     <br>
                                     <b>Origen de anteproyecto:</b> <?php
@@ -146,7 +146,7 @@
                                     ?>
                                     <br>
                                     <b>Nombre de la empresa:</b> <?= $value->nombre_empresa ?>
-                                    <br>                            
+                                    <br>
                                     <b>Proyecto opción para titulación:</b> <?php
                                     if ($value->titulacion) {
                                         echo 'Si';
@@ -154,8 +154,8 @@
                                         echo 'No';
                                     }
                                     ?>
-                                    <br>                            
-                                    <br>                            
+                                    <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
@@ -163,10 +163,8 @@
                     }
                     ?>
 
-
                     <div class="center-align col m6 card-panel grey lighten-5">
-
-                        <form id="frm_asignar" method="post" action="<?php echo base_url() . "index.php/Residencia/c_asignar_asesor/asignar/" ?>">                                                                        
+                        <form id="frm_asignar" method="post" action="<?php echo base_url() . "index.php/Residencia/c_asignar_asesor/asignar/" ?>">
                             <b>ASIGNAR ASESOR Y REVISORES</b>
                             <br>
                             <br>
@@ -191,9 +189,9 @@
                                 if ($value->banco=='t') {
                                     ?>
                                     Asesor externo: <label id="ae">Sin asesor</label>     <a href="#modal_asignar_asesorE" class="waves-effect modal-trigger tooltipped" data-position="right" data-delay="50" data-tooltip="Asignar asesor">
-                                        <img src="<?php echo base_url(); ?>images/queue_tiny.png"></a>                                                                                  
+                                        <img src="<?php echo base_url(); ?>images/queue_tiny.png"></a>
                                     <br>
-                                    <br>                                    
+                                    <br>
                                     <input id="id_empresa" name="id_empresa" type="text" value="" hidden="true">
                                     <input id="id_anteproyecto" name="id_anteproyecto" type="text" value="" hidden="true">
                                     <input id="nombre_asesore" name="nombre_asesore" type="text" value="" hidden="true">
@@ -207,23 +205,22 @@
                                     <input id="banco" name="banco" type="text" value="f" hidden="true">
                                 <?php }
                             }
-                            ?>                                                              
+                            ?>
                             <input id="id_participantes" name="id_participantes" type="text" value="<?php echo $id_participantes; ?>" hidden="true">
                             <input id="rfc_asesor" name="rfc_asesor" type="text" value="" bandera="0" nombres="" hidden="true">
                             <input id="rfc_revisor1" name="rfc_revisor1" type="text" value="" bandera="0" nombres="" hidden="true">
                             <input id="rfc_revisor2" name="rfc_revisor2" type="text" value="" bandera="0" nombres="" hidden="true">
 
                         <a id="btn_asignar" class="btn orange waves-effect darken-1 right-align z-depth-0" onclick="btn_asignar('<?php echo $id_participantes; ?>','<?php echo base_url();?>');">
-                                GUARDAR</a>                                                                                  
+                                GUARDAR</a>
                             <a id="cancelar_asignacion" class="btn red waves-effect darken-1 right-align z-depth-0">
-                                CANCELAR</a>                                                                                   
+                                CANCELAR</a>
                         </form>
-                        
-                    </div> 
+
+                    </div>
                     <?php
                 }
                 ?>
-
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
                 <p>&nbsp;</p>
@@ -242,7 +239,7 @@
                             <tr>
                                 <th>Nombres</th>
                                 <th>Departamento</th>
-                                <th>Especialidad</th>                            
+                                <th>Especialidad</th>
                                 <th style="text-align: center;">Seleccionar</th>
                             </tr>
                         </thead>
@@ -254,7 +251,7 @@
                                     <tr>
                                         <td><?= utf8_decode($value->nombres . ' ' . $value->apellidos); ?></td>
                                         <td><?= $value->departamento; ?></td>
-                                        <td><?= $value->especialidad; ?></td>                            
+                                        <td><?= $value->especialidad; ?></td>
                                         <td style="text-align: center;"><a class = "modal-close" onclick="asignar_asesor_revisores('<?php echo $value->rfc; ?>', '<?php echo $value->nombres . ' ' . $value->apellidos; ?>');"><img src="<?php echo base_url(); ?>images/done_tiny.png"></a>
                                         </td>
                                     </tr>
@@ -265,11 +262,11 @@
 
                         </tbody>
                     </table>
-                </div>            
+                </div>
                 <div class="modal-footer">
                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn orange">Cancelar</a>
                 </div>
-            </div> 
+            </div>
             <!-- Modal Structure -->
             <div id="modal_seleccionar_asesor-revisores2" class="modal modal-fixed-footer">
                 <div class="modal-content">
@@ -279,7 +276,7 @@
                             <tr>
                                 <th>Nombres</th>
                                 <th>Departamento</th>
-                                <th>Especialidad</th>                            
+                                <th>Especialidad</th>
                                 <th style="text-align: center;">Seleccionar</th>
                             </tr>
                         </thead>
@@ -291,7 +288,7 @@
                                     <tr>
                                         <td><?= utf8_decode($value->nombres . ' ' . $value->apellidos); ?></td>
                                         <td><?= $value->departamento; ?></td>
-                                        <td><?= $value->especialidad; ?></td>                            
+                                        <td><?= $value->especialidad; ?></td>
                                         <td style="text-align: center;"><a class = "modal-close" onclick="asignar_asesor_revisores('<?php echo $value->rfc; ?>', '<?php echo $value->nombres . ' ' . $value->apellidos; ?>');"><img src="<?php echo base_url(); ?>images/done_tiny.png"></a>
                                         </td>
                                     </tr>
@@ -302,11 +299,11 @@
 
                         </tbody>
                     </table>
-                </div>            
+                </div>
                 <div class="modal-footer">
                     <a href="#!" class=" modal-action modal-close waves-effect waves-green btn orange">Cancelar</a>
                 </div>
-            </div> 
+            </div>
 
             <?php
             foreach ($residente_info as $value) {
@@ -315,14 +312,14 @@
                     <!-- Modal Structure -->
                     <div id="modal_asignar_asesorE" class="modal modal-fixed-footer">
                         <div class="modal-content">
-                            <h4>Asignar asesor externo</h4>                                                
+                            <h4>Asignar asesor externo</h4>
                             <input id="id_empresa_modal" name="nombre_ae_modal" type="text" hidden="true"value="<?php echo $value->empresa_pk; ?>">
                             <input id="id_anteproyecto_modal" name="id_anteproyecto_modal" type="text" hidden="true"value="<?php echo $value->anteproyecto_pk; ?>">
                             <div class="row">
                                 <div class="input-field col s6">
                                     <input id="nombre_ae_modal" type="text" name="nombre_ae_modal" class="validate">
                                     <label for="nombre_ae_modal">Nombre completo</label>
-                                </div>                                                                                          
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
@@ -344,11 +341,11 @@
                             </div>
                             <a id = "aceptar_modal_asig_ae" class="btn orange waves-effect">Aceptar</a>
                             <br>
-                        </div>            
+                        </div>
                         <div class="modal-footer">
                             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn orange">Cancelar</a>
                         </div>
-                    </div> 
+                    </div>
                     <?php
                 }
             }
@@ -357,14 +354,12 @@
 
 
         <!--
-        
+
         -->
 
         <br><br><br>
-
         <footer class="page-footer black">
             <div class="container">
-
             </div>
             <div class="footer-copyright">
                 <div>
@@ -374,10 +369,8 @@
                 </div>
             </div>
         </footer>
-
-        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>                       
-        <script src="<?php echo base_url(); ?>js/materialize.js"></script>               
-
+        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/materialize.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/media/js/jquery.dataTables.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>

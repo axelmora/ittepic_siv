@@ -136,9 +136,9 @@ class C_bitacora_avance_docente extends CI_Controller {
                 foreach ($consulta_correo as $value) {
                     $correo_dest = $value->correo;
                 }
-                
+
                     $this->enviar_correo($this->input->post('ncontrol2'), $correo_dest, 'Actividad de asesor', 'Tu asesor ha adjuntado un documento, para mas informacion visita http://siv.ittepic.edu.mx/');
-                
+
                 echo 'Archivo adjuntado correctamente.';
             } else {
                 echo 'Error al adjuntar archivo.';
@@ -166,7 +166,7 @@ class C_bitacora_avance_docente extends CI_Controller {
 //		/banco_proyectos
 //		/bases_concertacion
 //	/docentes
-//		/rfc	
+//		/rfc
         $tmp = $this->m_bitacora_avance_docente->consulta_rfc_asesor($id_asesor);
         $rfc = '';
         foreach ($tmp as $value) {
@@ -174,7 +174,7 @@ class C_bitacora_avance_docente extends CI_Controller {
         }
         $dir = './uploads/docentes/' . $rfc;
         if (!is_dir($dir)) {
-            mkdir($dir, 0777);
+            mkdir($dir, 0777, true);
         }
         $config['upload_path'] = $dir; //'./uploads/docentes/'.$rfc;
         $config['allowed_types'] = 'doc|docx|pdf';
@@ -211,7 +211,7 @@ class C_bitacora_avance_docente extends CI_Controller {
                 $this->m_bitacora_avance_docente->actualizar_bitacora($nc, array('estado' => '4'));
                 break;
 
-            case 'FER'://Formato de Evalución de Reporte de Residencia                
+            case 'FER'://Formato de Evalución de Reporte de Residencia
                 $this->m_bitacora_avance_docente->actualizar_archivo_asesorado($id_archivo, array('estado' => 'R  '));
                 $this->m_bitacora_avance_docente->actualizar_bitacora($nc, array('estado' => '5'));
                 break;
@@ -259,10 +259,10 @@ class C_bitacora_avance_docente extends CI_Controller {
             $alumno = $value->nombre;
             $proyecto = $value->nombre_proyecto;
         }
-        
-            $this->enviar_correo($destinatarios['ja'], $destinatarios['correo_ja'], 'Registro de dictamen', 'Tiene un registro de dictamen pendiente del alumno ' . $alumno . ' para el anteproyecto: ' . $proyecto . ', ingrese a http://siv.ittepic.edu.mx/ para más información.');                
-            $this->enviar_correo($destinatarios['pa'], $destinatarios['correo_pa'], 'Registro de dictamen', 'Tiene un registro de dictamen pendiente del alumno ' . $alumno . ' para el anteproyecto: ' . $proyecto . ', ingrese a http://siv.ittepic.edu.mx/ para más información.');        
-            $this->enviar_correo('subdirectorac', $destinatarios['correo_sa'], 'Registro de dictamen', 'Tiene un registro de dictamen pendiente del alumno ' . $alumno . ' para el anteproyecto: ' . $proyecto . ', ingrese a http://siv.ittepic.edu.mx/ para más información.');        
+
+            $this->enviar_correo($destinatarios['ja'], $destinatarios['correo_ja'], 'Registro de dictamen', 'Tiene un registro de dictamen pendiente del alumno ' . $alumno . ' para el anteproyecto: ' . $proyecto . ', ingrese a http://siv.ittepic.edu.mx/ para más información.');
+            $this->enviar_correo($destinatarios['pa'], $destinatarios['correo_pa'], 'Registro de dictamen', 'Tiene un registro de dictamen pendiente del alumno ' . $alumno . ' para el anteproyecto: ' . $proyecto . ', ingrese a http://siv.ittepic.edu.mx/ para más información.');
+            $this->enviar_correo('subdirectorac', $destinatarios['correo_sa'], 'Registro de dictamen', 'Tiene un registro de dictamen pendiente del alumno ' . $alumno . ' para el anteproyecto: ' . $proyecto . ', ingrese a http://siv.ittepic.edu.mx/ para más información.');
     }
 
     private function enviar_correo($id_usuario, $to, $subject, $message) {
@@ -313,7 +313,7 @@ class C_bitacora_avance_docente extends CI_Controller {
             }
 
             //var_dump('Se envió');
-            //       
+            //
             //con esto podemos ver el resultado
             //var_dump($this->email->print_debugger());
         }

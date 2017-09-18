@@ -14,10 +14,10 @@ class Adjuntar_descargar extends CI_Controller {
     }
 
     public function do_upload($perfil, $datos) {//recibir el numero de control y perfil para ver donde se guardara el archivo
-        ////set_realpath('./uploads/peliculas/'.$idp."/");  
+        ////set_realpath('./uploads/peliculas/'.$idp."/");
         //retorna el directorio en el servidor /var/www/proyecto/[B]uploads/peliculas/10[/B]
-        //para dentro de application //set_realpath('./application/uploads/peliculas/'.$idp."/");  
-        
+        //para dentro de application //set_realpath('./application/uploads/peliculas/'.$idp."/");
+
 //    /uploads
 //	/residentes
 //		/numero_control
@@ -25,8 +25,8 @@ class Adjuntar_descargar extends CI_Controller {
 //		/banco_proyectos
 //		/bases_concertacion
 //	/docentes
-//		/rfc	
-        
+//		/rfc
+
         switch ($perfil) {
             case 'docentes':
                 $dir = set_realpath('./uploads/docentes/' . $datos . '/');//$datos es numero de control
@@ -51,14 +51,13 @@ class Adjuntar_descargar extends CI_Controller {
         }
 
         if (!is_dir($dir)) {
-            mkdir($dir);
+            //mkdir($dir);
+            mkdir($dir,0777,true);
         }
         $config['upload_path'] = $dir;
         $config['allowed_types'] = 'doc|docx|pdf';
         $config['max_size'] = 10240;
-
         $this->load->library('upload', $config);
-
         if (!$this->upload->do_upload('userfile')) {//userfile es el nombre del form field
             $error = array('error' => $this->upload->display_errors());
             return $error;
@@ -71,11 +70,10 @@ class Adjuntar_descargar extends CI_Controller {
     }
 
     public function download($ruta_archivo) {
-        
+
         force_download($ruta_archivo, NULL);
         //force_download('./uploads/Untitled_Untitled_1.docx', NULL);
     }
 
 }
 ?>
-
