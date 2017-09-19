@@ -88,24 +88,40 @@ function cambiar(rfc_docente, base) {
   //var titu = $(this).attr('checked');
   //var ante_id = $("#anteproyecto_id").val();
   //alert(rfc);
-  var rol = $('#rol').attr('value');
-  var participantes = $('#id_participantes').attr('value');
-  jQuery.ajax({
-    type: "POST",
-    url: base + "index.php/Residencia/c_info_participantes_proyecto/cambiar_asesor_revisor",
-    dataType: 'json',
-    data: {ppid: participantes, rfc: rfc_docente, puesto: rol},
-    success: function (res) {
+  var pasa=0;
+  if (($('#rfcasesor').text() != rfc_docente)) {
+    pasa++;
+  }
+  if ($('#rfcrevisor1').text()!= rfc_docente) {
+    pasa++;
+  }
+  if ($('#rfcrevisor2').text() != rfc_docente) {
+    pasa++;
+  }
+  if(pasa==3) {
+    var rol = $('#rol').attr('value');
+    var participantes = $('#id_participantes').attr('value');
+    jQuery.ajax({
+      type: "POST",
+      url: base + "index.php/Residencia/c_info_participantes_proyecto/cambiar_asesor_revisor",
+      dataType: 'json',
+      data: {ppid: participantes, rfc: rfc_docente, puesto: rol},
+      success: function (res) {
+        cargar_tabla(res);
+        $('#modal_cambiar').closeModal();
+        $('#modal_cambiar2').closeModal();
+        alert('El cambio se ha hecho correctamente.');
 
-      cargar_tabla(res);
-      alert('El cambio se ha hecho correctamente.');
-      $('#modal_cambiar').closeModal();
-      $('#modal_cambiar2').closeModal();
-    },
-    error: function (XMLHttpRequest, textStatus, errorThrown) {
-      alert(textStatus);
-    }
-  });
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert(textStatus);
+      }
+    });
+  }else{
+    $('#modal_cambiar').closeModal();
+    $('#modal_cambiar2').closeModal();
+    alert("ERROR docente anteriormente asigando");
+  }
 }
 function reemplazar2(ppid, docente) {
   //alert(docente);
@@ -138,7 +154,6 @@ function cambiar2(rfc_docente, base) {//CREO QUE ESTA FUNCION NO SE NECESITA
 function cargar_tabla(a) {
   var trHTML = '', cad = '';
   $.each(a.residente, function (i, item) {
-
     trHTML += '<tr><td>Residente ' + a.residente[i].numero_control +
     '</td><td>' + a.residente[i].nombre +
     '</td><td>' + a.residente[i].correo +
@@ -147,7 +162,7 @@ function cargar_tabla(a) {
   });
   $.each(a.asesor, function (i, item) {
     if (a.user == 'jefeacademico') {
-      cad = '<td style="text-align: center;"><a href="#!" onclick="reemplazar(\'' + a.asesor[i].id + '\',\'asesor\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
+      cad = '<td style="text-align: center;"><a style="display:none" id="rfcasesor">' + a.asesor[i].rfc + '</a><a href="#!" onclick="reemplazar(\'' + a.asesor[i].id + '\',\'asesor\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
       '</td><td style="text-align: center;"><a href="#!" onclick="reemplazar2(\'' + a.asesor[i].id + '\',\'asesor\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
       '</td>';
     }
@@ -159,7 +174,7 @@ function cargar_tabla(a) {
   cad = '';
   $.each(a.revisor1, function (i, item) {
     if (a.user == 'jefeacademico') {
-      cad = '<td style="text-align: center;"><a href="#!" onclick="reemplazar(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
+      cad = '<td style="text-align: center;"><a style="display:none" id="rfcrevisor1">' + a.revisor1[i].rfc + '</a><a href="#!" onclick="reemplazar(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
       '</td><td style="text-align: center;"><a href="#!" onclick="reemplazar2(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
       '</td>';
     }
@@ -171,7 +186,7 @@ function cargar_tabla(a) {
   cad = '';
   $.each(a.revisor2, function (i, item) {
     if (a.user == 'jefeacademico') {
-      cad = '<td style="text-align: center;"><a href="#!" onclick="reemplazar(\'' + a.revisor2[i].id + '\',\'revisor2\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
+      cad = '<td style="text-align: center;"><a style="display:none" id="rfcrevisor2">' + a.revisor2[i].rfc + '</a><a href="#!" onclick="reemplazar(\'' + a.revisor2[i].id + '\',\'revisor2\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
       '</td><td style="text-align: center;"><a href="#!" onclick="reemplazar2(\'' + a.revisor2[i].id + '\',\'revisor2\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
       '</td>';
     }

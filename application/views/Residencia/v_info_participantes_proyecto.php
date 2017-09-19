@@ -190,6 +190,7 @@
                             foreach ($docentes_otros as $value) {
                               ?>
                               <tr>
+
                                 <td><?= utf8_decode($value->nombres . ' ' . $value->apellidos); ?></td>
                                 <td><?= $value->departamento ?></td>
                                 <td><?= $value->especialidad ?></td>

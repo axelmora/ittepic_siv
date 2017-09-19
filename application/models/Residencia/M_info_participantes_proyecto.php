@@ -56,7 +56,7 @@ AND AR.ID_DOCENTE = \''.$rfc.'\' AND AR.ASESOR_REVISOR_PK = PP.REVISOR2');
     function info_asesor($idp) {
         $DB2 = $this->load->database('local', TRUE);
         $query = $DB2->query('
-            SELECT PP.ID,PP.ASESOR,D.NOMBRES, D.APELLIDOS, D.CORREO,AR.TIPO
+            SELECT PP.ID,PP.ASESOR,D.NOMBRES, D.APELLIDOS, D.CORREO,AR.TIPO,D.RFC
 FROM PARTICIPANTES_PROYECTO PP, DOCENTES D, ASESOR_REVISOR AR
 WHERE PP.ID = '.$idp.' AND D.RFC = AR.ID_DOCENTE AND AR.ASESOR_REVISOR_PK = PP.ASESOR');
 
@@ -69,7 +69,7 @@ WHERE PP.ID = '.$idp.' AND D.RFC = AR.ID_DOCENTE AND AR.ASESOR_REVISOR_PK = PP.A
     function info_revisor1($idp) {
         $DB2 = $this->load->database('local', TRUE);
         $query = $DB2->query('
-            SELECT PP.ID,PP.REVISOR1,D.NOMBRES, D.APELLIDOS, D.CORREO,AR.TIPO
+            SELECT PP.ID,PP.REVISOR1,D.NOMBRES, D.APELLIDOS, D.CORREO,AR.TIPO,D.RFC
 FROM PARTICIPANTES_PROYECTO PP, DOCENTES D, ASESOR_REVISOR AR
 WHERE PP.ID = '.$idp.' AND D.RFC = AR.ID_DOCENTE AND AR.ASESOR_REVISOR_PK = PP.REVISOR1');
 
@@ -82,7 +82,7 @@ WHERE PP.ID = '.$idp.' AND D.RFC = AR.ID_DOCENTE AND AR.ASESOR_REVISOR_PK = PP.R
     function info_revisor2($idp) {
         $DB2 = $this->load->database('local', TRUE);
         $query = $DB2->query('
-            SELECT PP.ID,PP.REVISOR2,D.NOMBRES, D.APELLIDOS, D.CORREO,AR.TIPO
+            SELECT PP.ID,PP.REVISOR2,D.NOMBRES, D.APELLIDOS, D.CORREO,AR.TIPO,D.RFC
 FROM PARTICIPANTES_PROYECTO PP, DOCENTES D, ASESOR_REVISOR AR
 WHERE PP.ID = '.$idp.' AND D.RFC = AR.ID_DOCENTE AND AR.ASESOR_REVISOR_PK = PP.REVISOR2');
 
@@ -121,7 +121,6 @@ WHERE PP.ID = '.$idp.' AND A.NUMERO_CONTROL = PP.NUMERO_CONTROL');
 
     function consulta_docentes($dep) {
         $DB2 = $this->load->database('local', TRUE);
-
         $query = $DB2->query("SELECT D.* FROM DOCENTES D
 WHERE D.DEPARTAMENTO = '" . $dep . "' AND D.DISPONIBLE = TRUE
  UNION
