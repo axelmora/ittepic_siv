@@ -1,22 +1,12 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of C_asignar_asesor
  *
  * @author javier
  */
 date_default_timezone_set('America/Mazatlan');
-
 class C_asignar_asesor extends CI_Controller {
-
     var $mensajes = '';
-
     public function __construct() {
         parent::__construct();
         $this->load->database('local');
@@ -27,7 +17,6 @@ class C_asignar_asesor extends CI_Controller {
             redirect(base_url() . 'index.php/logeo');
         }
     }
-
     public function index() {
 
         $data['info'] = $this->session->userdata('perfil');
