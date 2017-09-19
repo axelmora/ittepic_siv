@@ -88,7 +88,7 @@ function cambiar(rfc_docente, base) {
   //var titu = $(this).attr('checked');
   //var ante_id = $("#anteproyecto_id").val();
   //alert(rfc);
-  var pasa=0;
+  var pasa=0; /*VALIDACION PARA QUE NO SE REPITA USUARIO*/
   if (($('#rfcasesor').text() != rfc_docente)) {
     pasa++;
   }
@@ -107,11 +107,10 @@ function cambiar(rfc_docente, base) {
       dataType: 'json',
       data: {ppid: participantes, rfc: rfc_docente, puesto: rol},
       success: function (res) {
-        cargar_tabla(res);
         $('#modal_cambiar').closeModal();
         $('#modal_cambiar2').closeModal();
+        cargar_tabla(res);
         alert('El cambio se ha hecho correctamente.');
-
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
         alert(textStatus);
