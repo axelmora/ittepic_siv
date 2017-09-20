@@ -185,9 +185,9 @@ function cargar_tabla(a) {
     });
   }else {
     if (a.user == 'jefeacademico') {
-      trHTML +='<tr><td colspan="4"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 1 asigando</center></td><td><a class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick=""> <i class="large material-icons">add</i>Agregar Revisor 1</a></td><tr>';
+          trHTML +='<tr><td colspan="2"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 1 asigando</center></td><td colspan="3"><center><a class="waves-effect orange waves-light btn modal-trigger"   data-target="modalexterno" href="#" onclick="abirventana1(1)"> <i class="large material-icons">add</i></a>  <a class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick="abirventana2(1)"> <i class="large material-icons">add</i></a></center></td><tr>';
     }else{
-      trHTML +='<tr><td colspan="5"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 2 asigando</center></td><tr>';
+      trHTML +='<tr><td colspan="5"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 1 asigando</center></td><tr>';
     }
   }
   if (Object.keys(a.revisor2).length>0) {
@@ -204,11 +204,11 @@ function cargar_tabla(a) {
       '</td>' + cad + '</tr>';
     });
   }else {
-      if (a.user == 'jefeacademico') {
-        trHTML +='<tr><td colspan="4"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor asigando</center></td><td><a class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick=""> <i class="large material-icons">add</i>Agregar Revisor 2</a></td><tr>';
-      }else{
-        trHTML +='<tr><td colspan="5"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor asigando</center></td><tr>';
-      }
+    if (a.user == 'jefeacademico') {
+      trHTML +='<tr><td colspan="2"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 2 asigando</center></td><td colspan="3"><center><a class="waves-effect orange waves-light btn modal-trigger"   data-target="modalexterno" href="#" onclick="abirventana1(2)"> <i class="large material-icons">add</i></a>  <a class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick="abirventana2(2)"> <i class="large material-icons">add</i></a></center></td><tr>';
+    }else{
+      trHTML +='<tr><td colspan="5"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe  revisor 2 asigando</center></td><tr>';
+    }
   }
   cad = '';
   $.each(a.asesore, function (i, item) {
@@ -233,5 +233,57 @@ function editarasesorexterno(idacesor,nombre) {
     alert("Error un revisor no puede cambiar el nombre.")
   } else {
     $('#modalexterno').openModal();
+  }
+
+}
+var opcion="";
+function abirventana1(op) {
+  //$('#idopcionrevisor').val("1");
+  opcion=op;
+  $('#agregar1').openModal();
+}
+function abirventana2(op) {
+//  $('#idopcionrevisor').val("2");
+  opcion=op;
+  $('#agregar2').openModal();
+}
+function asignarrevisor(rfc_docente, base) {
+  //var titu = $(this).attr('checked');
+  //var ante_id = $("#anteproyecto_id").val();
+  //alert(rfc);
+  var pasa=0; /*VALIDACION PARA QUE NO SE REPITA USUARIO*/
+  if (($('#rfcasesor').text() != rfc_docente)) {
+    pasa++;
+  }
+  if ($('#rfcrevisor1').text()!= rfc_docente) {
+    pasa++;
+  }
+  if ($('#rfcrevisor2').text() != rfc_docente) {
+    pasa++;
+  }
+  if(pasa==3) {
+    var rol = $('#rol').attr('value');
+    var participantes = $('#id_participantes').attr('value');
+    jQuery.ajax({
+      type: "POST",
+      url: base + "index.php/Residencia/c_info_participantes_proyecto/asigna_revisores",
+      dataType: 'json',
+      data: {ppid: participantes,rfc: rfc_docente,op:opcion},
+      success: function (res) {
+        $('#modal_cambiar').closeModal();
+        $('#modal_cambiar2').closeModal();
+        $('#modal_agregar1').closeModal();
+        $('#modal_agregar2').closeModal();
+        cargar_tabla(res);
+        alert('Se a agregado correctamente.');
+      },
+      error: function (XMLHttpRequest, textStatus, errorThrown) {
+        alert(textStatus);
+      }
+    });
+  }else{
+    $('#modal_cambiar').closeModal();
+    $('#modal_cambiar2').closeModal();
+    alert("ERROR docente anteriormente asigando");
   }
 }

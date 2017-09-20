@@ -208,9 +208,82 @@
                       <a href="#!" class="btn orange modal-action modal-close waves-effect waves-green">CANCELAR</a>
                     </div>
                   </div>
+                  <div id="agregar1" class="modal modal-fixed-footer">
+                    <div class="modal-content">
+                      <h5>DOCENTES DEL DEPARTAMENTO</h5>
+
+                      <table id="tabla_agregar1" class="display">
+                        <thead>
+                          <tr>
+                            <th>Nombres</th>
+                            <th>Especialidad</th>
+                            <th>Asignar</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          if ($docentes) {
+                            foreach ($docentes as $value) {
+                              ?>
+                              <tr>
+                                <td><?= utf8_decode($value->nombres . ' ' . $value->apellidos); ?></td>
+                                <td><?= $value->especialidad ?></td>
+                                <td><a href="#" onclick="asignarrevisor('<?php echo $value->rfc ?>', '<?php echo base_url(); ?>');"><img src="<?php echo base_url(); ?>images/queue_tiny.png"></a>
+                                </td>
+                              </tr>
+                              <?php
+                            }
+                          }
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#!" class="btn orange modal-action modal-close waves-effect waves-green">CANCELAR</a>
+                    </div>
+                  </div>
+                  <div id="agregar2" class="modal modal-fixed-footer">
+                    <div class="modal-content">
+                      <h5>DOCENTES DE OTROS DEPARTAMENTOS </h5>
+                      <!--                            <input id="rol2" name="rol2" type="text" value = "" hidden/>                -->
+                      <table id="tabla_agregar2" class="display">
+                        <thead>
+                          <tr>
+                            <th>Nombres</th>
+                            <th>Departamento</th>
+                            <th>Especialidad</th>
+                            <th>Asignar</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          if ($docentes_otros) {
+                            foreach ($docentes_otros as $value) {
+                              ?>
+                              <tr>
+
+                                <td><?= utf8_decode($value->nombres . ' ' . $value->apellidos); ?></td>
+                                <td><?= $value->departamento ?></td>
+                                <td><?= $value->especialidad ?></td>
+                                <td><a href="#" onclick="asignarrevisor('<?php echo $value->rfc ?>', '<?php echo base_url(); ?>');"><img src="<?php echo base_url(); ?>images/queue_tiny.png"></a>
+                                </td>
+                              </tr>
+                              <?php
+                            }
+                          }
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="#!" class="btn orange modal-action modal-close waves-effect waves-green">CANCELAR</a>
+                    </div>
+                  </div>
+
                   <?php
                 }
                 ?>
+                <input id="idopcionrevisor" style="display:none" type="text" value="1"  >
                 <!-- Asesor externo-->
                 <form method="post" id="editorasesorexternoform" accept-charset="UTF-8">
                   <div id="modalexterno" class="modal">
@@ -260,6 +333,7 @@
             <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/jquery.form.min.js"></script>
             <script type="text/javascript">
             $( document ).ready(function() {
+
               $("#editorasesorexternoform").submit(function(e) {
                 //var id=$('#idasesorexterno').val();
                 var nombre=$('#nombreasesorexternoactual').val();
@@ -276,6 +350,64 @@
                   }
                 });
                 e.preventDefault();
+              });
+              $('#tabla_agregar1').DataTable({
+                  "language": {
+                      "sProcessing": "Procesando...",
+                      "sLengthMenu": "Mostrar _MENU_ registros",
+                      "sZeroRecords": "No se encontraron resultados",
+                      "sEmptyTable": "Ningún dato disponible en esta tabla",
+                      "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                      "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                      "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                      "sInfoPostFix": "",
+                      "sSearch": "Buscar:",
+                      "sUrl": "",
+                      "sInfoThousands": ",",
+                      "sLoadingRecords": "Cargando...",
+                      "oPaginate": {
+                          "sFirst": "Primero",
+                          "sLast": "Último",
+                          "sNext": "Siguiente",
+                          "sPrevious": "Anterior"
+                      },
+                      "oAria": {
+                          "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                      }
+                  },
+                  "autoWidth": false,
+                  order: [[0, 'asc']],
+                  responsive: true
+              });
+              $('#tabla_agregar2').DataTable({
+                  "language": {
+                      "sProcessing": "Procesando...",
+                      "sLengthMenu": "Mostrar _MENU_ registros",
+                      "sZeroRecords": "No se encontraron resultados",
+                      "sEmptyTable": "Ningún dato disponible en esta tabla",
+                      "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                      "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                      "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                      "sInfoPostFix": "",
+                      "sSearch": "Buscar:",
+                      "sUrl": "",
+                      "sInfoThousands": ",",
+                      "sLoadingRecords": "Cargando...",
+                      "oPaginate": {
+                          "sFirst": "Primero",
+                          "sLast": "Último",
+                          "sNext": "Siguiente",
+                          "sPrevious": "Anterior"
+                      },
+                      "oAria": {
+                          "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                      }
+                  },
+                  "autoWidth": false,
+                  order: [[0, 'asc']],
+                  responsive: true
               });
             });
             </script>
