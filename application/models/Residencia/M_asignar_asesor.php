@@ -179,7 +179,7 @@ WHERE DEPARTAMENTO NOT IN ('DEPARTAMENTO DE CIENCIAS DE LA TIERRA','DEPARTAMENTO
 
     public function insertar_asesor_revisor($datos) {
         $DB2 = $this->load->database('local', TRUE);
-        echo "$datos";
+      //  echo "$datos";
         $insertar_docentes = $DB2->insert('asesor_revisor', $datos);
         if ($insertar_docentes) {//retorna el id del asesor que se inserto
             $query = $DB2->query('
