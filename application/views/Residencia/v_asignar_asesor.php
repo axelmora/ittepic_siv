@@ -161,7 +161,10 @@
                   </a>
                   <br>
                   <br>
-                  <a style="margin-bottom:15px;" class="btn waves-effect orange waves-light" id="revisoresboton">Selecionar revisores  <i class="material-icons right">person_add</i></a>
+                  <b>¿Desea asignar revisores?</b><br><br>
+                  <a style="margin-bottom:15px;" class="btn waves-effect orange waves-light" id="revisoresboton">SI  <i class="material-icons right">person_add</i></a>
+                  <a style="margin-bottom:15px;" class="btn waves-effect red waves-light" id="revisoresboton2">NO <i class="material-icons right">do_not_disturb_alt
+</i></a>
                   <div id="revisores" style="display: none;">
                     Revisor 1: <label id="r1">Sin revisor</label>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a id="revisor1" href="#modal_seleccionar_asesor-revisores" class=" waves-effect modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Asignar revisor">
@@ -204,11 +207,12 @@
                         <input id="rfc_asesor" name="rfc_asesor" type="text" value="" bandera="0" nombres="" hidden="true">
                         <input id="rfc_revisor1" name="rfc_revisor1" type="text" value="0" bandera="0" nombres="" hidden="true">
                         <input id="rfc_revisor2" name="rfc_revisor2" type="text" value="0" bandera="0" nombres="" hidden="true">
-
+                        <div id="continuar" style="display:none">
                         <a id="btn_asignar" class="btn orange waves-effect darken-1 right-align z-depth-0" onclick="btn_asignar('<?php echo $id_participantes; ?>','<?php echo base_url();?>');">
                           GUARDAR</a>
                           <a id="cancelar_asignacion" class="btn red waves-effect darken-1 right-align z-depth-0">
                             CANCELAR</a>
+                          </div>
                           </form>
 
                         </div>
@@ -367,8 +371,16 @@
                   $(document).ready(function(){
                     $("#revisoresboton").click(function(){
                       $("#revisores").slideToggle( "fast", function() {
-                        // Animation complete.
+                        $("#continuar").show();
                       });
+                    });
+                    $("#revisoresboton2").click(function(){
+                      $("#revisores").hide();
+                      $("#continuar").show();
+                    });
+                    $("#cancelar_asignacion").click(function(){
+                      $("#revisores").hide();
+                      $("#continuar").hide();
                     });
                   });
 
