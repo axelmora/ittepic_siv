@@ -383,7 +383,6 @@
                       $("#continuar").hide();
                     });
                   });
-
                   </script>
                 </body>
                 </html>

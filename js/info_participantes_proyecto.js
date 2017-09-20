@@ -272,8 +272,8 @@ function asignarrevisor(rfc_docente, base) {
       success: function (res) {
         $('#modal_cambiar').closeModal();
         $('#modal_cambiar2').closeModal();
-        $('#modal_agregar1').closeModal();
-        $('#modal_agregar2').closeModal();
+        $('#agregar1').closeModal();
+        $('#agregar2').closeModal();
         cargar_tabla(res);
         alert('Se a agregado correctamente.');
       },

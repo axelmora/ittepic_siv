@@ -44,7 +44,7 @@
             <div class="container">
 
                 <br><br>
-                <h3 class="thin header center amber-text darken-1-text">      
+                <h3 class="thin header center amber-text darken-1-text">
                     Sistema Integral de Vinculación <br></h3>
                 <p></p>
                 <p> </p>
@@ -109,7 +109,7 @@
                         <div class="card-panel grey lighten-5 z-depth-1">
                             <div class="row valign-wrapper">
                                 <div class="col s6">
-                                    <img src="<?php echo base_url(); ?>images/logoidiomas.png" alt="" class="circle responsive-img">  notice the "circle" class 
+                                    <img src="<?php echo base_url(); ?>images/logoidiomas.png" alt="" class="circle responsive-img">  notice the "circle" class
                                 </div>
                                 <div class="col s6">
                                     <span class="black-text">
@@ -122,14 +122,14 @@
                     </div></a>-->
             </div>
             <!--            <div class="row">
-            
+
                             <a href="<?php echo base_url(); ?>index.php/">
                                 <div class="col s12 m4 center">
-            
+
                                     <div class="card-panel grey lighten-5 z-depth-1">
                                         <div class="row valign-wrapper">
                                             <div class="col s6">
-                                                <img src="<?php echo base_url(); ?>images/logoexterno.png" alt="" class="circle responsive-img">  notice the "circle" class 
+                                                <img src="<?php echo base_url(); ?>images/logoexterno.png" alt="" class="circle responsive-img">  notice the "circle" class
                                             </div>
                                             <div class="col s6">
                                                 <span class="black-text">
@@ -138,16 +138,16 @@
                                             </div>
                                         </div>
                                     </div></a>
-            
+
                         </div>
-            
+
                         <a href="<?php echo base_url(); ?>index.php/">
                             <div class="col s12 m4 center">
-            
+
                                 <div class="card-panel grey lighten-5 z-depth-1">
                                     <div class="row valign-wrapper ">
                                         <div class="col s6">
-                                            <img src="<?php echo base_url(); ?>images/logovempresas.png" alt="" class="circle responsive-img">  notice the "circle" class 
+                                            <img src="<?php echo base_url(); ?>images/logovempresas.png" alt="" class="circle responsive-img">  notice the "circle" class
                                         </div>
                                         <div class="col s6">
                                             <span class="black-text">
@@ -157,14 +157,14 @@
                                     </div>
                                 </div>
                             </div></a>
-            
+
                         <a href="<?php echo base_url(); ?>index.php/">
                             <div class="col s12 m4 center">
-            
+
                                 <div class="card-panel grey lighten-5 z-depth-1">
                                     <div class="row valign-wrapper">
                                         <div class="col s6">
-                                            <img src="<?php echo base_url(); ?>images/logoiempresas.png" alt="" class="circle responsive-img">  notice the "circle" class 
+                                            <img src="<?php echo base_url(); ?>images/logoiempresas.png" alt="" class="circle responsive-img">  notice the "circle" class
                                         </div>
                                         <div class="col s6">
                                             <span class="black-text">
@@ -173,7 +173,7 @@
                                         </div>
                                     </div>
                                 </div>
-            
+
                             </div></a>
                     </div>-->
         </div>
@@ -196,8 +196,8 @@
 
 
     <!--  Scripts-->
-    <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>               
-    <script src="<?php echo base_url(); ?>js/materialize.js"></script>               
+    <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
+    <script src="<?php echo base_url(); ?>js/materialize.js"></script>
 
 </body>
 </html>
