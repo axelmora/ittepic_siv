@@ -4,49 +4,33 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>SIV :: ASIGNAR ASESOR Y REVISORES</title>
-
   <!-- CSS  -->
-
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
   <!-- Compiled and minified CSS -->
   <!--<link rel="stylesheet" href="<?php echo base_url(); ?>css/materialize.min.css">-->
-
   <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/media/css/jquery.dataTables.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/extensions/Responsive/css/responsive.dataTables.min.css">
   <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
 </head>
 <body>
   <nav>
     <div class="nav-wrapper grey lighten-5 left-align">
       <a href="#!" class="brand-logo center"><img src="<?php echo base_url(); ?>images/logochico.png" alt="Logo" /></a>
-
       <div class="right-align hide-on-med-and-down">
         <a href="#"><div class=""></div><span class="grey-text text-darken-2 right-align hide-on-med-and-down"><?php echo $info; ?>
           <?= anchor(base_url() . 'index.php/Logeo/logout_ci', '<span class=" amber-text  right-align hide-on-med-and-down">(Cerrar sesión)  </span>') ?></span></a>
         </div>
       </div>
-
-
-
-
     </nav>
     <!-- Navbar goes here keyboard_return_tiny-->
-
-
     <div class="section no-pad-bot" id="index-banner">
-
       <div class="row center">
-
         <h5 class="condensed light header center amber-text darken-1-text">
           ASIGNAR ASESOR Y REVISORES</h5>
         </div>
-
       </div>
-
       <div class="container">
         <div class="section">
           <?php if ($info == 'jefeacademico') { ?>
@@ -58,7 +42,6 @@
             href="<?php echo base_url() . 'index.php/Residencia/CoordinadorResidencia/Panel_coordiresidencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
           <?php }
           ?>
-
           <div class="left-align col s3 m6 l3 card-panel grey lighten-5">
             <div class="input-field">
               <?php if ($residentes) { ?>
@@ -219,8 +202,8 @@
                         ?>
                         <input id="id_participantes" name="id_participantes" type="text" value="<?php echo $id_participantes; ?>" hidden="true">
                         <input id="rfc_asesor" name="rfc_asesor" type="text" value="" bandera="0" nombres="" hidden="true">
-                        <input id="rfc_revisor1" name="rfc_revisor1" type="text" value="" bandera="0" nombres="" hidden="true">
-                        <input id="rfc_revisor2" name="rfc_revisor2" type="text" value="" bandera="0" nombres="" hidden="true">
+                        <input id="rfc_revisor1" name="rfc_revisor1" type="text" value="0" bandera="0" nombres="" hidden="true">
+                        <input id="rfc_revisor2" name="rfc_revisor2" type="text" value="0" bandera="0" nombres="" hidden="true">
 
                         <a id="btn_asignar" class="btn orange waves-effect darken-1 right-align z-depth-0" onclick="btn_asignar('<?php echo $id_participantes; ?>','<?php echo base_url();?>');">
                           GUARDAR</a>

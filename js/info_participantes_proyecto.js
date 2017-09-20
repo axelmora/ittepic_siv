@@ -28,7 +28,6 @@ $(document).ready(function () {
         alert('Error1');
       }
     };
-
     $("#frm_sel_proyecto").ajaxForm(options);
   });
 
@@ -170,19 +169,26 @@ function cargar_tabla(a) {
     '</td><td>' + a.asesor[i].correo +
     '</td>' + cad + '</tr>';
   });
-  cad = '';
-  $.each(a.revisor1, function (i, item) {
-    if (a.user == 'jefeacademico') {
-      cad = '<td style="text-align: center;"><a style="display:none" id="rfcrevisor1">' + a.revisor1[i].rfc + '</a><a href="#!" onclick="reemplazar(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
-      '</td><td style="text-align: center;"><a href="#!" onclick="reemplazar2(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
-      '</td>';
-    }
-    //alert("valor : "+ Object.keys(a.revisor1[i]).length);
-    trHTML += '<tr><td>Revisor1' +
-    '</td><td>' + decodeURIComponent(escape(a.revisor1[i].nombres)) + ' ' + decodeURIComponent(escape(a.revisor1[i].apellidos)) +
-    '</td><td>' + a.revisor1[i].correo +
-    '</td>' + cad + '</tr>';
-  });
+
+  //alert("valor : "+ Object.keys(a.revisor1).length);
+  if (Object.keys(a.revisor1).length>0) {
+    cad = '';
+    $.each(a.revisor1, function (i, item) {
+      if (a.user == 'jefeacademico') {
+        cad = '<td style="text-align: center;"><a style="display:none" id="rfcrevisor1">' + a.revisor1[i].rfc + '</a><a href="#!" onclick="reemplazar(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
+        '</td><td style="text-align: center;"><a href="#!" onclick="reemplazar2(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
+        '</td>';
+      }
+
+      trHTML += '<tr><td>Revisor1' +
+      '</td><td>' + decodeURIComponent(escape(a.revisor1[i].nombres)) + ' ' + decodeURIComponent(escape(a.revisor1[i].apellidos)) +
+      '</td><td>' + a.revisor1[i].correo +
+      '</td>' + cad + '</tr>';
+    });
+  }else {
+      trHTML +='<tr><td colspan="4"><center style="color:red;">Actualmente no existe revisor asigando</center></td><td></td><tr>';
+  }
+  if (Object.keys(a.revisor2).length>0) {
   cad = '';
   $.each(a.revisor2, function (i, item) {
     if (a.user == 'jefeacademico') {
@@ -195,6 +201,10 @@ function cargar_tabla(a) {
     '</td><td>' + a.revisor2[i].correo +
     '</td>' + cad + '</tr>';
   });
+}else {
+  trHTML +='<tr><td colspan="4"><center style="color:red;">Actualmente no existe revisor asigando</center></td><td></td><tr>';
+
+}
   cad = '';
   $.each(a.asesore, function (i, item) {
     var valorboton="";

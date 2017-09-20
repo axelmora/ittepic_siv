@@ -578,8 +578,9 @@ function mostrar_vacantes(nombre_empresa, domicilio, nombre_contacto, correo_con
 $("#modal_detalles_vacantes").openModal();
 }
 function btn_asignar(idp, base) {
-  if ($('#rfc_asesor').attr('value') != '' && $('#rfc_revisor1').attr('value') != ''
-  && $('#rfc_revisor2').attr('value') != '' && valida_ae()) {
+  /*if ($('#rfc_asesor').attr('value') != '' && $('#rfc_revisor1').attr('value') != ''
+  && $('#rfc_revisor2').attr('value') != '' && valida_ae()) {*/
+  if ($('#rfc_asesor').attr('value') != '' && valida_ae()) {
     jQuery.ajax({
       type: "POST",
       url: base + 'index.php/Residencia/c_asignar_asesor/tiene_asesor/',

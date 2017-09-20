@@ -72,7 +72,7 @@ class M_asignar_asesor extends CI_Model {
         $DB2 = $this->load->database('local', TRUE);
         $query = $DB2->query('
             SELECT PP.*,A.*,AP.*,S.SEMESTRE, C.CARRERA, E.EMPRESA_PK, E.NOMBRE_EMPRESA
-            FROM PARTICIPANTES_PROYECTO PP,ALUMNOS A, ANTEPROYECTO AP, SEMESTRE S, CARRERAS C, EMPRESA E 
+            FROM PARTICIPANTES_PROYECTO PP,ALUMNOS A, ANTEPROYECTO AP, SEMESTRE S, CARRERAS C, EMPRESA E
             WHERE PP.ID = ' . $id_participantes . ' AND PP.NUMERO_CONTROL = A.NUMERO_CONTROL AND AP.ANTEPROYECTO_PK = PP.ANTEPROYECTO_FK AND A.ID_SEMESTRE = S.ID_SEMESTRE AND A.ID_CARRERA = C.ID_CARRERA AND E.EMPRESA_PK = AP.EMPRESA_FK');
 
         if ($query->num_rows() > 0) {
@@ -159,8 +159,8 @@ WHERE DP.RFC = D.RFC AND DP.DEPARTAMENTO_DESTINO = '" . $tmp . "' AND D.DISPONIB
     }
     function consulta_docentes2() {
         $DB2 = $this->load->database('local', TRUE);
-        
-        $query = $DB2->query("SELECT * FROM DOCENTES 
+
+        $query = $DB2->query("SELECT * FROM DOCENTES
 WHERE DEPARTAMENTO NOT IN ('DEPARTAMENTO DE CIENCIAS DE LA TIERRA','DEPARTAMENTO DE SISTEMAS Y COMPUTACION',
 'DEPARTAMENTO DE QUIMICA Y BIOQUIMICA','DEPTO. DE INGENIERIA INDUSTRIAL','DEPARTAMENTO DE INGENIERIA ELECTRICA Y ELECTRONICA',
 'DEPARTAMENTO DE INGENIERIAS','DEPARTAMENTO DE CIENCIAS ECONOMICO ADMINISTRATIVAS') ORDER BY NOMBRES");
@@ -179,12 +179,12 @@ WHERE DEPARTAMENTO NOT IN ('DEPARTAMENTO DE CIENCIAS DE LA TIERRA','DEPARTAMENTO
 
     public function insertar_asesor_revisor($datos) {
         $DB2 = $this->load->database('local', TRUE);
+        echo "$datos";
         $insertar_docentes = $DB2->insert('asesor_revisor', $datos);
         if ($insertar_docentes) {//retorna el id del asesor que se inserto
             $query = $DB2->query('
             SELECT MAX(AR.ASESOR_REVISOR_PK) AS ULTIMO
             FROM ASESOR_REVISOR AR');
-
             if ($query->num_rows() > 0) {
                 return $query->result();
             }
