@@ -155,4 +155,14 @@ class M_info_docentes extends CI_Model {
         }
     }
 
+    function consultararchivoalumnos() {
+      $DB2 = $this->load->database('local', TRUE);
+      $query = $DB2->query("select * from ARCHIVO_ALUMNO aa,ALUMNOS al,CARRERAS ca where   aa.TIPO_DOCUMENTO='RF' and aa.NUMERO_CONTROL_FK=al.NUMERO_CONTROL and ca.id_carrera=al.id_carrera;");
+      if ($query->num_rows() > 0) {
+          return $query->result();
+        } else {
+          return false;
+        }
+      }
+
 }

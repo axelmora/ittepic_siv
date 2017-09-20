@@ -177,6 +177,7 @@ function cargar_tabla(a) {
       '</td><td style="text-align: center;"><a href="#!" onclick="reemplazar2(\'' + a.revisor1[i].id + '\',\'revisor1\')"><img src="' + a.base_url + 'images/swap_horiz.png"></a>' +
       '</td>';
     }
+    //alert("valor : "+ Object.keys(a.revisor1[i]).length);
     trHTML += '<tr><td>Revisor1' +
     '</td><td>' + decodeURIComponent(escape(a.revisor1[i].nombres)) + ' ' + decodeURIComponent(escape(a.revisor1[i].apellidos)) +
     '</td><td>' + a.revisor1[i].correo +

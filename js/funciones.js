@@ -597,7 +597,6 @@ function btn_asignar(idp, base) {
         alert(errorThrown);
       }
     });
-
   } else {
     alert('No ha asignado algún asesor o revisor.');
   }

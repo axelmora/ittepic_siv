@@ -145,7 +145,7 @@
                         </div>
                       </div>
                     </div></a>
-                    <a href="<?php echo base_url(); ?>index.php/Residencia/C_reportes">
+                    <a href="<?php echo base_url(); ?>index.php/Residencia/JefeResidencia/Panel_jeferesidencia/informe_finalsemestre">
                       <div class="col s12 m4 center">
                         <div class="card-panel grey lighten-5 z-depth-1 caro">
                           <div class="row valign-wrapper ">

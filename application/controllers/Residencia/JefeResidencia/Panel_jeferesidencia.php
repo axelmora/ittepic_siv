@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class Panel_jeferesidencia extends CI_Controller {
 
@@ -43,5 +43,8 @@ class Panel_jeferesidencia extends CI_Controller {
     public function informacion_procedimiento() {
         $this->load->view('Residencia/v_info_procedimiento');
     }
-
+    public function informe_finalsemestre() {
+        $data['alumnos'] = $this->m_info_docentes->consultararchivoalumnos();
+        $this->load->view('Residencia/JefeResidencia/v_reportesfinales',$data);
+    }
 }
