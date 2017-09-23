@@ -47,9 +47,41 @@ class Logeo extends CI_Controller {
       break;
 
       case 'jefeacademico':
-      redirect(base_url() . 'index.php/panel_academico');
+      $this->load->helper('file');
+      $archivoid=$this->session->userdata('id_usuario');
+      $archivo= read_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt');
+      if ($archivo!=false) {
+        $REVISION="";
+        $int=0;
+        $handle = fopen(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "r");
+          while (($line = fgets($handle)) !== false) {
+            echo $line."<br>";
+            $REVISION[$int]=trim($line);
+            $int++;
+          }
+          fclose($handle);
+      }else {
+        $idusuarioarchivo=$this->session->userdata('user_id_archivo');
+        $fecha ="".date("Y-m-d");
+        $hora ="".date("H");
+        $minutos ="".date("i");
+        $segundos ="".date("s");
+        if (write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt',$idusuarioarchivo."\n",'w+'))
+        {
+          write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', $fecha."\n",'a+');
+          write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$hora."\n",'a+');
+          write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$minutos."\n",'a+');
+          write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$segundos."\n",'a+');
+          echo 'Se escribio';
+        }
+        else
+        {
+            echo "error";
+        }
+      }
+      //  echo '<pre>'; print_r($this->session->all_userdata());exit;
+       redirect(base_url() . 'index.php/panel_academico');
       break;
-
       case 'administrador':
       redirect(base_url() . 'index.php/panel_administrador');
       break;
@@ -81,12 +113,17 @@ class Logeo extends CI_Controller {
     $check_user = $this->login_model->login_user($username, $password);
     if ($check_user == TRUE) {
       $perfil=str_replace(" ","", $check_user->perfil);// QUITA los espacios del perfil
+      $jefearchivo="";
+      if ($perfil=="jefeacademico") {
+      $jefearchivo="JA".$check_user->id.rand(1,1000);
+      }
       $data = array(
         'is_logued_in' => TRUE,
         'id_usuario' => $check_user->id,
         'perfil' =>$perfil,
         'alias' => $check_user->alias,
         'username' => $check_user->usuario,
+        'user_id_archivo'=>$jefearchivo,
         'permisoS' => $check_user->permiso_servicio
       );
       $this->session->set_userdata($data);

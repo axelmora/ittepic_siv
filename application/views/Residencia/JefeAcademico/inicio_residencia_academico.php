@@ -253,9 +253,11 @@
         </div>
     </div>
 </footer>
-<?php echo '<pre>'; print_r($this->session->all_userdata());exit; ?>
 <!--  Scripts-->
 <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
 <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+<?php
+        $this->load->view('jfacademicoarchivo');
+?>
 </body>
 </html>
