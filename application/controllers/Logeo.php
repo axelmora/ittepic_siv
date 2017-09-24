@@ -49,17 +49,70 @@ class Logeo extends CI_Controller {
       case 'jefeacademico':
       $this->load->helper('file');
       $archivoid=$this->session->userdata('id_usuario');
+      $usuario=$this->session->userdata('user_id_archivo');
       $archivo= read_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt');
       if ($archivo!=false) {
         $REVISION="";
         $int=0;
         $handle = fopen(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "r");
-          while (($line = fgets($handle)) !== false) {
-            echo $line."<br>";
-            $REVISION[$int]=trim($line);
-            $int++;
+        while (($line = fgets($handle)) !== false) {
+          echo $line."<br>";
+          $REVISION[$int]=trim($line);
+          $int++;
+        }
+        $afecha ="".date("Y-m-d");
+        $ahora ="".date("H");
+        $aminutos ="".date("i");
+        $asegundos ="".date("s");
+        if ($REVISION[0]!=$usuario) {
+          echo "Entra primera revision <br>";
+          if ($REVISION[1]==$afecha) {
+            echo "Misma fecha <br>";
+            $tiempotoal=($aminutos-$REVISION[3]);
+            if ($tiempotoal>=2) {
+              //echo "TIEMPO EXEDIDO <br>";
+              //echo "SE ACTUALIZA";
+              $fecha ="".date("Y-m-d");
+              $hora ="".date("H");
+              $minutos ="".date("i");
+              $segundos ="".date("s");
+              if (write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt',$usuario."\n",'w+'))
+              {
+                write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', $fecha."\n",'a+');
+                write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$hora."\n",'a+');
+                write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$minutos."\n",'a+');
+                write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$segundos."\n",'a+');
+                echo 'SE ACTUALIZO!';
+              }
+              else
+              {
+                echo "error";
+              }
+            }
+            else {
+
+            }
+          }else {
+            $idusuarioarchivo=$this->session->userdata('user_id_archivo');
+            $fecha ="".date("Y-m-d");
+            $hora ="".date("H");
+            $minutos ="".date("i");
+            $segundos ="".date("s");
+            if (write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt',$idusuarioarchivo."\n",'w+'))
+            {
+              write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', $fecha."\n",'a+');
+              write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$hora."\n",'a+');
+              write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$minutos."\n",'a+');
+              write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$segundos."\n",'a+');
+              echo 'Se escribio';
+            }
+            else
+            {
+              echo "error";
+            }
           }
-          fclose($handle);
+        }
+        fclose($handle);
       }else {
         $idusuarioarchivo=$this->session->userdata('user_id_archivo');
         $fecha ="".date("Y-m-d");
@@ -76,11 +129,11 @@ class Logeo extends CI_Controller {
         }
         else
         {
-            echo "error";
+          echo "error";
         }
       }
       //  echo '<pre>'; print_r($this->session->all_userdata());exit;
-       redirect(base_url() . 'index.php/panel_academico');
+      redirect(base_url() . 'index.php/panel_academico');
       break;
       case 'administrador':
       redirect(base_url() . 'index.php/panel_administrador');
@@ -115,7 +168,7 @@ class Logeo extends CI_Controller {
       $perfil=str_replace(" ","", $check_user->perfil);// QUITA los espacios del perfil
       $jefearchivo="";
       if ($perfil=="jefeacademico") {
-      $jefearchivo="JA".$check_user->id.rand(1,1000);
+        $jefearchivo="JA".$check_user->id.rand(1,1000);
       }
       $data = array(
         'is_logued_in' => TRUE,

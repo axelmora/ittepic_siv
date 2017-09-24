@@ -1,14 +1,14 @@
 <?php
 if ($this->session->userdata('perfil')=='jefeacademico') {
   $this->load->helper('file');
-  echo '<pre>'; print_r($this->session->all_userdata());
+  //echo '<pre>'; print_r($this->session->all_userdata());
   $archivoid=$this->session->userdata('id_usuario');
   $user_id_archivo=$this->session->userdata('user_id_archivo');
   $handle = fopen(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "r");
   $REVISION="";
   $int=0;
   while (($line = fgets($handle)) !== false) {
-    echo $line."<br>";
+  //  echo $line."<br>";
     $REVISION[$int]=trim($line);
     $int++;
   }
@@ -19,7 +19,7 @@ if ($this->session->userdata('perfil')=='jefeacademico') {
   $asegundos ="".date("s");
   if (trim ($REVISION[0])==$user_id_archivo) {
     /*actualizar */
-    echo "SE ACTUALIZA";
+  //  echo "SE ACTUALIZA";
     $fecha ="".date("Y-m-d");
     $hora ="".date("H");
     $minutos ="".date("i");
@@ -38,12 +38,12 @@ if ($this->session->userdata('perfil')=='jefeacademico') {
       //echo "error";
     }
   }else {
-    echo "SE verifica <br>";
+    //echo "SE verifica <br>";
     if (trim($afecha)==$REVISION[1]) {
       if ($ahora==$REVISION[2]) {
         $tiempotoal=($aminutos-$REVISION[3]);
-        echo "t:".$tiempotoal;
-        if ($tiempotoal>=3) {
+      //  echo "t:".$tiempotoal;
+        if ($tiempotoal>=2) {
           echo "SE ACTUALIZA";
           $fecha ="".date("Y-m-d");
           $hora ="".date("H");
@@ -60,7 +60,7 @@ if ($this->session->userdata('perfil')=='jefeacademico') {
           }
           else
           {
-           echo "error";
+          //  echo "error";
           }
         }else {
           //    echo "DUPLICADO";
@@ -74,10 +74,26 @@ if ($this->session->userdata('perfil')=='jefeacademico') {
           <?php
         }
       }else {
-      echo "Error 1";
+      //  echo "Error 1";
       }
     }
   }
-}
+?>
+<script>
+setInterval(function(){
+  //alert("Hello");
+  jQuery.ajax({
+    type:"post",
+    url: "<?php echo base_url(); ?>index.php/controljfasesion/",
+    success: function(data) {
+    },
+    error: function(data) {
+        alert("error");
+    },
+  });
+}, 10000);
+</script>
 
+<?php
+}
 ?>
