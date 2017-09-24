@@ -39,28 +39,28 @@
         <!-- Navbar goes here -->
 
 
-        <div class="section no-pad-bot" id="index-banner">            
+        <div class="section no-pad-bot" id="index-banner">
             <div class="row center">
-                <h5 class="condensed light header center amber-text darken-1-text">      
+                <h5 class="condensed light header center amber-text darken-1-text">
                     SOLICITUDES DE ANTEPROYECTO</h5>
-            </div>                
+            </div>
 
         </div>
 
         <div class="container">
-            <div class="section">             
-                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
+            <div class="section">
+                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
                    href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                 <div class="col s6 center-align card-panel grey lighten-5">
                     <table id="tabla_solicitudes_anteproyecto" class="display">
-                        <thead>                    
+                        <thead>
                             <tr>
                                 <th>NUMERO DE CONTROL</th>
                                 <th>NOMBRE</th>
-                                <th>ANTEPROYECTO</th>                        
+                                <th>ANTEPROYECTO</th>
                                 <th>FECHA SOLICITUD</th>
                                 <th style="text-align: center;">VACANTE ATENDIDA</th>
-                                <th style="text-align: center;">ACEPTAR/RECHAZAR</th>                        
+                                <th style="text-align: center;">ACEPTAR/RECHAZAR</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -73,13 +73,13 @@
 
                                         <td><?= $value->numero_control; ?></td>
                                         <td><?= $value->nombre; ?></td>
-                                        <td><?= $value->nombre_proyecto; ?></td>                            
-                                        <td><?= $value->fecha_solicitud; ?></td>                            
-                                        <td style="text-align: center;"><a href="#!" onclick="detalles_vacante(<?php echo $value->id_vacante; ?>,'<?php echo $base; ?>')"><img src="<?php echo base_url(); ?>images/detalles_tiny.png"></a></td>                            
+                                        <td><?= $value->nombre_proyecto; ?></td>
+                                        <td><?= $value->fecha_solicitud; ?></td>
+                                        <td style="text-align: center;"><a href="#!" onclick="detalles_vacante(<?php echo $value->id_vacante; ?>,'<?php echo $base; ?>')"><img src="<?php echo base_url(); ?>images/detalles_tiny.png"></a></td>
                                         <td style="text-align: center;">
                                             <a href="#!" onclick="aceptar_rechazar_solicitud(<?php echo $value->numero_control; ?>,<?php echo $value->anteproyecto_id; ?>, 'A', '<?php echo $value->banco; ?>')"  ><img src="<?php echo base_url(); ?>images/done_tiny.png"></a>&nbsp;&nbsp;&nbsp;
                                             <a href="#!" onclick="aceptar_rechazar_solicitud(<?php echo $value->numero_control; ?>,<?php echo $value->anteproyecto_id; ?>, 'R', '<?php echo $value->banco; ?>')" ><img src="<?php echo base_url(); ?>images/close.png"></a>
-                                        </td>                        
+                                        </td>
                                     </tr>
 
                                     <?php
@@ -87,9 +87,9 @@
                             }
                             ?>
 
-                        </tbody>                      
-                    </table>                              
-                </div>                                                  
+                        </tbody>
+                    </table>
+                </div>
                 <form id="solicitud" name="solicitud" action="<?php echo base_url() . 'index.php/Residencia/JefeAcademico/panel_jefeacademico/aceptar_cancelar_solicitud' ?>" method="POST">
                     <input id="nc" name="nc" type="text" value="" hidden="true">
                     <input id="id_anteproyecto" name="id_anteproyecto" type="text" value="" hidden="true">
@@ -100,11 +100,11 @@
                 <!-- modal_detalles_vacante-->
                 <div id="modal_detalles_vacante" class="modal modal-fixed-footer">
                     <div class="modal-content">
-                        
+
                     </div>
                     <div class="modal-footer">
                         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn orange">Salir</a>
-                    </div>     
+                    </div>
                 </div>
 
                 <p>&nbsp;</p>
@@ -114,7 +114,7 @@
                 <p>&nbsp;</p>
             </div>
 
-        </div>        
+        </div>
 
         <br><br>
 
@@ -134,15 +134,17 @@
             </div>
         </footer>
 
-        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>               
-        <script src="<?php echo base_url(); ?>js/materialize.js"></script>               
+        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/materialize.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/media/js/jquery.dataTables.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/modals.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/funciones.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/solicitudes_anteproyecto.js"></script>
-
+        <?php
+        $this->load->view('jfacademicoarchivo');
+        ?>
 
     </body>
 </html>

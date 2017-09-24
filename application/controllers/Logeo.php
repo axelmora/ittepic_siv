@@ -68,30 +68,52 @@ class Logeo extends CI_Controller {
           echo "Entra primera revision <br>";
           if ($REVISION[1]==$afecha) {
             echo "Misma fecha <br>";
-            $tiempotoal=($aminutos-$REVISION[3]);
-            if ($tiempotoal>=2) {
-              //echo "TIEMPO EXEDIDO <br>";
-              //echo "SE ACTUALIZA";
+            if ($ahora!=$REVISION[2]) {
+              $idusuarioarchivo=$this->session->userdata('user_id_archivo');
               $fecha ="".date("Y-m-d");
               $hora ="".date("H");
               $minutos ="".date("i");
               $segundos ="".date("s");
-              if (write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt',$usuario."\n",'w+'))
+              if (write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt',$idusuarioarchivo."\n",'w+'))
               {
                 write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', $fecha."\n",'a+');
                 write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$hora."\n",'a+');
                 write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$minutos."\n",'a+');
                 write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$segundos."\n",'a+');
-                echo 'SE ACTUALIZO!';
+                echo 'Se escribio';
               }
               else
               {
                 echo "error";
               }
             }
-            else {
+            else{
+              $tiempotoal=($aminutos-$REVISION[3]);
+              if ($tiempotoal>=2) {
+                //echo "TIEMPO EXEDIDO <br>";
+                //echo "SE ACTUALIZA";
+                $fecha ="".date("Y-m-d");
+                $hora ="".date("H");
+                $minutos ="".date("i");
+                $segundos ="".date("s");
+                if (write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt',$usuario."\n",'w+'))
+                {
+                  write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', $fecha."\n",'a+');
+                  write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$hora."\n",'a+');
+                  write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$minutos."\n",'a+');
+                  write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$segundos."\n",'a+');
+                  echo 'SE ACTUALIZO!';
+                }
+                else
+                {
+                  echo "error";
+                }
+              }
+              else {
 
+              }
             }
+
           }else {
             $idusuarioarchivo=$this->session->userdata('user_id_archivo');
             $fecha ="".date("Y-m-d");

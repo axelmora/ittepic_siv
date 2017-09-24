@@ -31,7 +31,7 @@ if ($this->session->userdata('perfil')=='jefeacademico') {
       write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$hora."\n",'a+');
       write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$minutos."\n",'a+');
       write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$segundos."\n",'a+');
-      echo 'SE ACTUALIZO!';
+    //  echo 'SE ACTUALIZO!';
     }
     else
     {
@@ -44,7 +44,7 @@ if ($this->session->userdata('perfil')=='jefeacademico') {
         $tiempotoal=($aminutos-$REVISION[3]);
       //  echo "t:".$tiempotoal;
         if ($tiempotoal>=2) {
-          echo "SE ACTUALIZA";
+        //  echo "SE ACTUALIZA";
           $fecha ="".date("Y-m-d");
           $hora ="".date("H");
           $minutos ="".date("i");
@@ -56,7 +56,7 @@ if ($this->session->userdata('perfil')=='jefeacademico') {
             write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$hora."\n",'a+');
             write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$minutos."\n",'a+');
             write_file(FCPATH.'uploads/ss/academico'.$archivoid.'.txt', "".$segundos."\n",'a+');
-            echo 'SE ACTUALIZO!';
+          //  echo 'SE ACTUALIZO!';
           }
           else
           {
@@ -91,9 +91,8 @@ setInterval(function(){
         alert("error");
     },
   });
-}, 10000);
+}, 35000);
 </script>
-
 <?php
 }
 ?>

@@ -11,8 +11,8 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Compiled and minified CSS -->
-        <!--<link rel="stylesheet" href="<?php echo base_url(); ?>css/materialize.min.css">-->        
-        <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/media/css/jquery.dataTables.css">        
+        <!--<link rel="stylesheet" href="<?php echo base_url(); ?>css/materialize.min.css">-->
+        <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/media/css/jquery.dataTables.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/extensions/Responsive/css/responsive.dataTables.min.css">
 
         <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -33,46 +33,46 @@
         </nav>
         <!-- Navbar goes here -->
 
-        <div class="section no-pad-bot" id="index-banner">            
+        <div class="section no-pad-bot" id="index-banner">
             <div class="row center">
-                <h5 class="condensed light header center amber-text darken-1-text">      
+                <h5 class="condensed light header center amber-text darken-1-text">
                     INFORMACIÓN DOCENTES</h5>
-            </div>                
+            </div>
 
         </div>
 
         <div class="container">
-            <div class="section">             
-                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
-                   href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>                       
+            <div class="section">
+                <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
+                   href="<?php echo base_url() . 'index.php/panel_academico/residencia'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                 <br>
                 <br>
                 <div class="center-align col m6 card-panel grey lighten-5 black">
                     <table id="table_id" class="display">
-                        <!--bordered highlight responsive-table-->   
+                        <!--bordered highlight responsive-table-->
                         <thead>
                             <tr>
                             <th>NOMBRE</th>
                             <th>ESPECIALIDAD</th>
                             <th style="text-align: center;">DIPONIBLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                             <th style="text-align: center;">ACTUALIZAR</th>
-                            <th style="text-align: center;">COMPARTIR</th>                            
-                            <th style="text-align: center;">NO COMPARTIR</th>                            
+                            <th style="text-align: center;">COMPARTIR</th>
+                            <th style="text-align: center;">NO COMPARTIR</th>
                         </tr>
                         </thead>
-                        
+
 
                         <?php
                         if ($info_docentes) { ?>
                         <tbody>
                             <?php foreach ($info_docentes as $value) {
                                 ?>
-                                <tr>                                                                           
+                                <tr>
                                     <td><?= utf8_decode($value->nombres . ' ' . $value->apellidos); ?></td>
                                     <td>
                                         <form method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/panel_jefeacademico/actualizar_docentes" ?>">
                                             <input type="text" name = "rfc" id = "rfc" value="<?php echo $value->rfc; ?>" hidden="true"/>
-                                        <input type="text" name="especialidad" id="especialidad" value="<?php echo $value->especialidad; ?>" required/></td>                                    
+                                        <input type="text" name="especialidad" id="especialidad" value="<?php echo $value->especialidad; ?>" required/></td>
                                     <td style="text-align: center;">
                                         <div class="switch">
                                             <label>
@@ -90,7 +90,7 @@
                                     <td style="text-align: center;"><button type="submit" style=" border: 0; background: transparent">
                                             <img src="<?php echo base_url(); ?>images/autorenew.png" alt="submit" />
                                         </button></form>
-                                    </td>  
+                                    </td>
                                     <td style="text-align: center;">
                                         <a href="#!" onclick="prestar('<?= $value->rfc; ?>', '<?= $value->nombres; ?>', '<?= base_url(); ?>');"class="waves-effect waves-light">
                                             <img src="<?php echo base_url(); ?>images/add.png"/>
@@ -106,9 +106,9 @@
                                 } ?>
                                     </tbody>
                             <?php }
-                            ?>                        
+                            ?>
                     </table>
-                </div>                                                                
+                </div>
 
                 <!-- Modal prestar-->
                 <div id="prestar" class="modal modal-fixed-footer">
@@ -121,14 +121,14 @@
                         </div>
 
                         <br>
-                        <div class="row">                            
-                            <div class="col s6">                              
+                        <div class="row">
+                            <div class="col s6">
                                 <form id="frm_compartir_docente" method="post" action="<?php echo base_url() . "index.php/Residencia/JefeAcademico/panel_jefeacademico/prestar_docente"; ?>">
                                     <span><b>Compartir docente:</b></span>
-                                    <br>                                
+                                    <br>
 
                                     <label>Departamento:</label>
-                                    <br>                                
+                                    <br>
                                     <select  id="dep" name="dep">
                                         <?php
                                         $departamentos = array('DEPARTAMENTO DE CIENCIAS DE LA TIERRA',
@@ -167,7 +167,7 @@
                         <h4 id="nombre_docente_quitar"></h4>
                         <br>
 
-                        <div class="row">                            
+                        <div class="row">
                             <table id="tbl_quitar_docente" class="bordered highlight responsive-table">
                                 <thead>
                                     <tr>
@@ -175,10 +175,10 @@
                                         <th>Quitar</th>
                                     </tr>
                                 </thead>
-                                <tbody>                                 
+                                <tbody>
                                 </tbody>
                             </table>
-                            <span id="no_compartido"></span>                            
+                            <span id="no_compartido"></span>
                         </div>
                     </div>
 
@@ -194,7 +194,7 @@
                 <p>&nbsp;</p>
             </div>
 
-        </div>                
+        </div>
 
         <br><br>
 
@@ -212,8 +212,8 @@
         </footer>
 
         <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
-        <script src="<?php echo base_url(); ?>js/materialize.js"></script>        
-        
+        <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/media/js/jquery.dataTables.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
@@ -221,6 +221,8 @@
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/informacion_docentes.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/jquery.form.min.js"></script>
         <!--<script src="http://malsup.github.com/jquery.form.js"></script>-->
-
+        <?php
+        $this->load->view('jfacademicoarchivo');
+        ?>
     </body>
 </html>

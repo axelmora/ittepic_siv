@@ -273,5 +273,8 @@
             //  $('.daz').matchHeight();
             });
             </script>
+            <?php
+            $this->load->view('jfacademicoarchivo');
+            ?>
           </body>
           </html>

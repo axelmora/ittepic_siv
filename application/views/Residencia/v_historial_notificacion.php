@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
         <title>SIV :: HISTORIAL DE NOTIFICACIONES</title>
 
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>     
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">       
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-        <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>    
+        <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/media/css/jquery.dataTables.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>js/DataTables/extensions/Responsive/css/responsive.dataTables.min.css">
     </head>
@@ -26,11 +26,11 @@
 
 
 
-        <div class="section no-pad-bot" id="index-banner">            
+        <div class="section no-pad-bot" id="index-banner">
             <div class="row center">
-                <h5 class="condensed light header center amber-text darken-1-text">      
+                <h5 class="condensed light header center amber-text darken-1-text">
                     HISTORIAL DE NOTIFICACIONES</h5>
-            </div>             
+            </div>
 
         </div>
 
@@ -42,33 +42,33 @@
                 <?php
                 switch ($info) {
                     case 'docente':
-                        ?>                
-                        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
+                        ?>
+                        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
                            href="<?php echo base_url() . 'index.php/Residencia/Docente/panel_docente/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                            <?php
                            break;
                        case 'jefeacademico':
                            ?>
-                        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" 
+                        <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
                            href="<?php echo base_url() . 'index.php/panel_academico/residencia/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                            <?php
                            break;
                        case 'coordinadorresidencia':
-                           ?>                        
+                           ?>
                         <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
                            href="<?php echo base_url() . 'index.php/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                            <?php
                            break;
                    }
-                   ?>                                                 
+                   ?>
 
                 <div class="row center-align">
 
-                    <table id="tabla_historial_notificaciones" class="display">      
+                    <table id="tabla_historial_notificaciones" class="display">
                         <thead>
-                            <tr>                                                                                                
+                            <tr>
                                 <th>Asunto</th>
-                                <th>Fecha</th>          
+                                <th>Fecha</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -76,9 +76,9 @@
                             if ($data) {
                                 foreach ($data as $row) {
                                     ?>
-                                    <tr>                                                                                                                    
+                                    <tr>
                                         <td><?php echo $row->asunto; ?></td>
-                                        <td><?php echo $row->fecha; ?></td>          
+                                        <td><?php echo $row->fecha; ?></td>
                                     </tr>
                                     <?php
                                 }
@@ -87,7 +87,7 @@
                         </tbody>
                     </table>
                     <?php //}   ?>
-                </div>                               
+                </div>
 
             </div>
 
@@ -108,13 +108,15 @@
                             </span></a></div>
                 </div>
             </div>
-        </footer>      
-        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>                       
+        </footer>
+        <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
         <script src="<?php echo base_url(); ?>js/materialize.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/media/js/jquery.dataTables.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/tablas.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
-
+        <?php
+        $this->load->view('jfacademicoarchivo');
+        ?>
 
     </body>
 </html>

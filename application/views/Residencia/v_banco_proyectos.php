@@ -145,6 +145,8 @@
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/modals.js"></script>
         <script type="text/javascript" charset="utf8" src="<?php echo base_url(); ?>/js/funciones.js"></script>
-
+        <?php
+        $this->load->view('jfacademicoarchivo');
+        ?>
     </body>
 </html>

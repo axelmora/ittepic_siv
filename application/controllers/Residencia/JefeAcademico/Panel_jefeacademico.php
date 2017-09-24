@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 date_default_timezone_set('America/Mazatlan');
 
@@ -28,7 +28,6 @@ class Panel_jefeacademico extends CI_Controller {
     }
 
     public function index() {
-
         $this->load->view('Residencia/JefeAcademico/inicio_residencia_academico');
     }
 
@@ -339,7 +338,7 @@ class Panel_jefeacademico extends CI_Controller {
             );
             $this->m_historial->insertar_historial($a);
             //var_dump('Se envió');
-            //       
+            //
             //con esto podemos ver el resultado
             //var_dump($this->email->print_debugger());
         }
@@ -576,19 +575,19 @@ class Panel_jefeacademico extends CI_Controller {
             <tr nobr="true">
                 <td colspan="3">
                     <br>
-                    Nombre del Residente: <u> $nombre_alumno </u><br>  
-                    Carrera: <u>$nombre_carrera</u><br>  
-                    Nombre del proyecto: <u>$nombre_proyecto</u><br>  
-                    Periodo de realización: <u>$periodo</u><br>  
-                    Empresa: <u>$nombre_empresa</u>  
+                    Nombre del Residente: <u> $nombre_alumno </u><br>
+                    Carrera: <u>$nombre_carrera</u><br>
+                    Nombre del proyecto: <u>$nombre_proyecto</u><br>
+                    Periodo de realización: <u>$periodo</u><br>
+                    Empresa: <u>$nombre_empresa</u>
                 </td>
             </tr>
-        </table>   
+        </table>
 EOD;
 
         $pdf->writeHTML($tbl, true, false, false, false, '');
 
-        $html = '<br><br> 
+        $html = '<br><br>
         <div style="text-align: justify">Así mismo, le solicito dar el seguimiento pertinente a la realización del proyecto aplicando los lineamientos establecidos para ello, en el procedimiento del SGC para Residencias Profesionales (ITTEPIC-AC-PO-007).</div>
         <div style="text-align: justify">Agradezco de antemano su valioso apoyo en esta importante actividad para la formación profesional de nuestros estudiantes.</div>
         <br><br>
@@ -606,7 +605,7 @@ EOD;
         $pdf->writeHTML($html, true, false, false, false, '');
 
 ////////////////////////            ////////////////////////
-////////////////////////SEGUNDA HOJA////////////////////////        
+////////////////////////SEGUNDA HOJA////////////////////////
 ////////////////////////            ////////////////////////
 ////////////////////////            ////////////////////////
         $pdf->AddPage();
@@ -685,18 +684,18 @@ EOD;
             <tr nobr="true">
                 <td colspan="3">
                     <br>
-                    Nombre del Residente: <u>$nombre_alumno</u><br>  
-                    Carrera: <u>$nombre_carrera</u><br>  
-                    Nombre del proyecto: <u>$nombre_proyecto</u><br>  
-                    Asesor y Revisor: <u> $nombre_asesor  $apellido_asesor <br> $nombre_revisor2 $apellido_revisor2 </u>  
+                    Nombre del Residente: <u>$nombre_alumno</u><br>
+                    Carrera: <u>$nombre_carrera</u><br>
+                    Nombre del proyecto: <u>$nombre_proyecto</u><br>
+                    Asesor y Revisor: <u> $nombre_asesor  $apellido_asesor <br> $nombre_revisor2 $apellido_revisor2 </u>
                 </td>
             </tr>
-        </table>   
+        </table>
 EOD;
 
         $pdf->writeHTML($tbl, true, false, false, false, '');
 
-        $html = '<br><br> 
+        $html = '<br><br>
         <div align=style="text-align: justify">Agradeciendo de antemano su valiosa aportación a esta importante actividad para la formación profesional de nuestros estudiantes.</div>
         <br><br>
         <div align="center"><b>A t e n t a m e n t e.</b></div>
@@ -713,7 +712,7 @@ EOD;
         $pdf->writeHTML($html, true, false, false, false, '');
 
 ////////////////////////            ////////////////////////
-////////////////////////TERCERA HOJA////////////////////////        
+////////////////////////TERCERA HOJA////////////////////////
 ////////////////////////            ////////////////////////
 ////////////////////////            ////////////////////////
         $pdf->AddPage();
@@ -750,18 +749,18 @@ EOD;
             <tr nobr="true">
                 <td colspan="3">
                     <br>
-                    Nombre del Residente: <u>$nombre_alumno</u><br>  
-                    Carrera: <u>$nombre_carrera</u><br>  
-                    Nombre del proyecto: <u>$nombre_proyecto</u><br>    
-                    Asesor y Revisor: <u> $nombre_asesor $apellido_asesor <br> $nombre_revisor1 $apellido_revisor1 </u>    
+                    Nombre del Residente: <u>$nombre_alumno</u><br>
+                    Carrera: <u>$nombre_carrera</u><br>
+                    Nombre del proyecto: <u>$nombre_proyecto</u><br>
+                    Asesor y Revisor: <u> $nombre_asesor $apellido_asesor <br> $nombre_revisor1 $apellido_revisor1 </u>
                 </td>
             </tr>
-        </table>   
+        </table>
 EOD;
 
         $pdf->writeHTML($tbl, true, false, false, false, '');
 
-        $html = '<br><br> 
+        $html = '<br><br>
         <div style="text-align: justify">Agradeciendo de antemano su valiosa aportación a esta importante actividad para la formación profesional de nuestros estudiantes.</div>
         <br><br>
         <div align="center"><b>A t e n t a m e n t e.</b></div>
