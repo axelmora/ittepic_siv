@@ -143,13 +143,15 @@
         <?php if (isset($messages)) { ?>
           <CENTER><p class="col s4 center-align card-panel red white-text">La noticia se ha eliminado</p></CENTER><br>
         <?php } ?>
+        <?php if (isset($messageErrorEditar)) { ?>
+          <CENTER><p class="col s4 center-align card-panel red white-text"><?php echo $messageErrorEditar; ?></p></CENTER><br>
+        <?php } ?>
+
+
         <div class="row">
           <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" href="<?php echo base_url(); ?>index.php">
             <img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
-
             <div class="section">
-
-
               <div class="col s2 left-aling"><div class="input-field">
                 <div id="buscador">
                   &nbsp;&nbsp;
@@ -283,10 +285,23 @@ $(document).ready(function(){
     $("#AgregarNoticiaBoton").click(function(){
       //  $("#formulario1").show();
         $("#formulario1")  .slideDown( "slow", function() {
-    // Animation complete.
       });
+        $('#tnoticia').val("");
     });
+
 });
 </script>
+<?php if (isset($errorInsertar)) { ?>
+
+  <script>
+  $(document).ready(function(){
+    $("#AgregarNoticiaBoton").hide();
+    $("#formulario1")  .slideDown( "slow", function() {
+  });
+  });
+  </script>
+
+
+<?php } ?>
 </body>
 </html>

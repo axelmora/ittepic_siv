@@ -146,11 +146,7 @@
 
     <div class="section no-pad-bot" id="index-banner">
       <div class="container">
-
-        <br><br>
-        <br>
         <div class="row center">
-
           <h5 class="condensed light header center amber-text darken-1-text">
             NOTICIAS</h5>
           </div>
@@ -159,8 +155,6 @@
           </div>
         </div>
       </div>
-
-
       <div class="container">
         <?php if (isset($message)) { ?>
           <CENTER><p class="col s4 center-align card-panel green white-text">La noticia se agrego correctamente</p></CENTER><br>
@@ -169,7 +163,7 @@
         <?php if (isset($messages)) { ?>
           <CENTER><p class="col s4 center-align card-panel red white-text">La noticia se ha eliminado</p></CENTER><br>
         <?php } ?>
-        <div class="row"> <a href="<?php echo base_url(); ?>index.php/">< Regresar</a>
+        <div class="row"> <a href="<?php echo base_url(); ?>index.php/c_noticias/">< Regresar</a>
           <div class="section">
             <div class="col s2 left-aling"><div class="input-field">
               <div id="buscador">
@@ -178,33 +172,27 @@
             </div>
             <div class="col s8 center-align card-panel #bdbdbd grey lighten-2"><div class="input-field">
               <div id="buscador">
-
-                <?php echo form_open('c_noticias/validar'); ?>
                 <?php foreach ($noticias as $item): ?>
+                <?php echo form_open('c_noticias/validarEditar/'.$item->id_noticia); ?>
                   <br>&nbsp;
-
                   <div class="rowsa">
                     <input class="slide-up" type="text" name="tnoticia" id="tnoticia" value="<?php echo set_value('tnoticia'); echo   $item->titulo_n; ?>" placeholder="Introduce el titulo" /><label for="tnoticia">&nbsp;&nbsp;&nbsp;&nbsp;Titulo de la noticia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <div class="red-text left"><?php echo form_error('tnoticia'); ?></div>
                   </div>
-
                   <br>&nbsp;
                   <br>&nbsp;
-
                   <div class="rowa">
-                    <textarea style="background:white; resize: none" rows="10" class="large-textarea" name="cnoticia" id="cnoticia" type="text" value="<?php echo set_value('cnoticia');  ?>" placeholder="Introduce el contenido de la noticia"><?php echo    $item->titulo_n ; ?></textarea>
+                    <textarea style="background:white; resize: none" rows="10" class="large-textarea" name="cnoticia" id="cnoticia" type="text" value="<?php echo set_value('cnoticia');  ?>" placeholder="Introduce el contenido de la noticia"><?php echo    $item->contenido_n ; ?></textarea>
                     <div class="red-text left"><?php echo form_error('cnoticia'); ?></div>
                   </div>
                   <br>
                   <br>
                   <button class="btn orange darken-1 right-align z-depth-0 " type="submit">
-                    <div class="text-orange"><i class="material-icons right">description</i>Agregar noticia</div>
+                    <div class="text-orange"><i class="material-icons right">description</i>Editar noticia</div>
                   </button>
-
-
                   <br>&nbsp;
-                <?php endforeach; ?>
                 <?= form_close() ?>
+                  <?php endforeach; ?>
               </div></div>
 
             </div>

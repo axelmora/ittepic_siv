@@ -125,21 +125,21 @@
                 <!--  &nbsp; -->
               </div>
             </div>
-            <div class="col m4">
+            <div class="col m12 l4 s10 ">
               <div  class="card-panel z-depth-0">
                 <div id="capa1"  style="display: none;"> <!--  style="visibility:hidden"  antiguo -->
                   <?php $this->load->view('login-personal'); ?>
                 </div>
               </div>
             </div>
-            <div  class="col m4" >
+            <div  class="col m12 l4 s10 " >
               <div class="card-panel z-depth-0">
                 <div  id="capa2" style="display: none;">
                   <?php $this->load->view('login'); ?>
                 </div>
               </div>
             </div>
-            <div  class="col m4">
+            <div  class="col m12 l4 s10 ">
               <div class="card-panel z-depth-0">
                 <div id="capa3"  style="display: none;">
                   <?php $this->load->view('login-docente'); ?>

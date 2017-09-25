@@ -48,10 +48,37 @@ class C_noticias extends CI_Controller {
             $this->load->view('v_noticias', $data);
         } else {
             //mostramos de nuevo el buscador con los errores
+            $data['errorInsertar']="Error al agregar";
             $data['noticias'] = $this->m_noticias->shownoticias();
             $this->load->view('v_noticias', $data);
         }
     }
+
+    public function validarEditar($id) {
+        $this->load->library('form_validation');
+        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
+        $this->form_validation->set_rules('tnoticia', 'Titulo de la noticia', 'required|min_length[1]|max_length[100]');
+        $this->form_validation->set_rules('cnoticia', 'Contenido de la noticia', 'required|min_length[1]|max_length[1000]');
+      //  $this->form_validation->set_message('required', 'El campo no puede ir vacío');
+      //  $this->form_validation->set_message('min_length', 'El  campo debe tener al menos %s carácteres');
+      //  $this->form_validation->set_message('max_length', 'El campo no puede tener más de %s carácteres');
+        if ($this->form_validation->run() == TRUE) {
+            $data = array(
+                'contenido_n' => $this->input->post('cnoticia'),
+                'fecha_noticia' => date('Y-m-d H:i:s'),
+                'titulo_n' => $this->input->post('tnoticia')
+            );
+            $this->m_noticias->actualizarnoticiaServicio($id,$data);
+            $data['message'] = 'Los datos se insertaron actualizaron correctamente';
+            $data['noticias'] = $this->m_noticias->shownoticias();
+            $this->load->view('v_noticias', $data);
+        } else {
+            $data['noticias'] = $this->m_noticias->shownoticias();
+            $data['messageErrorEditar'] = 'No se puede dejar un campo en blanco.';
+            $this->load->view('v_noticias', $data);
+        }
+    }
+
     function index() {
         if ($this->session->userdata('perfil') == FALSE) {
             redirect(base_url() . 'index.php/logeo');
@@ -125,6 +152,7 @@ class C_noticias extends CI_Controller {
         } else {
             //mostramos de nuevo el buscador con los errores
             $data['noticiasResidencia'] = $this->m_noticias->shownoticiasResidencia();
+            $data['errorInsertar']="Error al agregar";
             $this->load->view('Residencia/v_noticias_agregar_quitar', $data);
         }
     }
@@ -133,9 +161,9 @@ class C_noticias extends CI_Controller {
         $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
         $this->form_validation->set_rules('tnoticia', 'Titulo de la noticia', 'required|min_length[1]|max_length[100]');
         $this->form_validation->set_rules('cnoticia', 'Contenido de la noticia', 'required|min_length[1]|max_length[1000]');
-        $this->form_validation->set_message('required', 'El campo no puede ir vacío');
-        $this->form_validation->set_message('min_length', 'El  campo debe tener al menos %s carácteres');
-        $this->form_validation->set_message('max_length', 'El campo no puede tener más de %s carácteres');
+    //    $this->form_validation->set_message('required', 'El campo no puede ir vacío');
+      //  $this->form_validation->set_message('min_length', 'El  campo debe tener al menos %s carácteres');
+      //  $this->form_validation->set_message('max_length', 'El campo no puede tener más de %s carácteres');
         if ($this->form_validation->run() == TRUE) {
             $data = array(
                 'contenido_n' => $this->input->post('cnoticia'),
@@ -148,7 +176,8 @@ class C_noticias extends CI_Controller {
             $this->load->view('Residencia/v_noticias_agregar_quitar', $data);
         } else {
             $data['noticiasResidencia'] = $this->m_noticias->shownoticiasResidencia();
-            $this->load->view('Residencia/v_noticias_agregar_quitar', $data);
+            $data['messageErrorEditar'] = 'No se puede dejar un campo en blanco.';
+            $this->load->view('Residencia/v_noticias_agregar_quitar',$data);
         }
     }
     function deleteResidencia() {
@@ -158,6 +187,5 @@ class C_noticias extends CI_Controller {
         $data['noticiasResidencia'] = $this->m_noticias->shownoticiasResidencia();
         $this->load->view('Residencia/v_noticias_agregar_quitar', $data);
     }
-
 }
 ?>

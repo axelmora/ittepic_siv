@@ -56,7 +56,11 @@ class M_noticias extends CI_Model {
     $DB2 = $this->load->database('local', TRUE);
     $DB2->insert('noticias_servicio', $data);
   }
-
+  function actualizarnoticiaServicio($id, $data) {
+    $DB2 = $this->load->database('local', TRUE);
+    $DB2->where('id_noticia', $id);
+    $DB2->update('noticias_servicio', $data);
+  }
   /////////////////////////RESIDENCIA//////////////////////////////////////////////////////////////////
   function deleteResidencia($idnot) {
     $DB2 = $this->load->database('local', TRUE);
