@@ -381,9 +381,7 @@ class Panel_jefeacademico extends CI_Controller {
         $pdf->SetTitle('Instituto Tecnologico de Tepic');
         $pdf->SetSubject('Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-
         $image_file = 'sinasesor.png';
-
 // datos por defecto de cabecera, se pueden modificar en el archivo tcpdf_config_alt.php de libraries/config
         $pdf->SetHeaderData($image_file, PDF_HEADER_LOGO_WIDTH, 'Instituto Tecnologico de Tepic', 's');
 
@@ -531,16 +529,21 @@ class Panel_jefeacademico extends CI_Controller {
             $nombre_asesor = $m->nombres;
             $apellido_asesor = $m->apellidos;
         }
-        $data['revisor1'] = $this->m_dictamen->mostrar_nombre_docente($revisor1);
-        foreach ($data['revisor1'] as $m) {
-            $nombre_revisor1 = $m->nombres;
-            $apellido_revisor1 = $m->apellidos;
+        if ($revisor1!="") {
+          $data['revisor1'] = $this->m_dictamen->mostrar_nombre_docente($revisor1);
+          foreach ($data['revisor1'] as $m) {
+              $nombre_revisor1 = $m->nombres;
+              $apellido_revisor1 = $m->apellidos;
+          }
         }
-        $data['revisor2'] = $this->m_dictamen->mostrar_nombre_docente($revisor2);
-        foreach ($data['revisor2'] as $m) {
-            $nombre_revisor2 = $m->nombres;
-            $apellido_revisor2 = $m->apellidos;
+        if ($revisor2!="") {
+          $data['revisor2'] = $this->m_dictamen->mostrar_nombre_docente($revisor2);
+          foreach ($data['revisor2'] as $m) {
+              $nombre_revisor2 = $m->nombres;
+              $apellido_revisor2 = $m->apellidos;
+          }
         }
+
 
         $nombre_asesor = utf8_decode($nombre_asesor);
         $apellido_asesor = utf8_decode($apellido_asesor);
@@ -608,173 +611,179 @@ EOD;
 ////////////////////////SEGUNDA HOJA////////////////////////
 ////////////////////////            ////////////////////////
 ////////////////////////            ////////////////////////
-        $pdf->AddPage();
+if ($revisor1!="") {
+  $pdf->AddPage();
 
 //fijar efecto de sombra en el texto
-        $pdf->setTextShadow(array('disabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
+  $pdf->setTextShadow(array('disabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
 
 // Establecemos el contenido para imprimir
 // el data y los models
-        $datax['hoy'] = date("Y-m-d");
-        $fecha1 = date('Y-m-d', strtotime($datax['hoy'] . ' + 7 days'));
-        $uno = explode("-", $fecha1);
-        switch ($uno[1]) {
-            case 1:
-                $uno[1] = 'Enero';
-                break;
-            case 2:
-                $uno[1] = 'Febrero';
-                break;
-            case 3:
-                $uno[1] = 'Marzo';
-                break;
-            case 4:
-                $uno[1] = 'Abril';
-                break;
-            case 5:
-                $uno[1] = 'Mayo';
-                break;
-            case 6:
-                $uno[1] = 'Junio';
-                break;
-            case 7:
-                $uno[1] = 'Julio';
-                break;
-            case 8:
-                $uno[1] = 'Agosto';
-                break;
-            case 9:
-                $uno[1] = 'Septiembre';
-                break;
-            case 10:
-                $uno[1] = 'Octubre';
-                break;
-            case 11:
-                $uno[1] = 'Noviembre';
-                break;
-            case 12:
-                $uno[1] = 'Diciembre';
-                break;
-        }
+  $datax['hoy'] = date("Y-m-d");
+  $fecha1 = date('Y-m-d', strtotime($datax['hoy'] . ' + 7 days'));
+  $uno = explode("-", $fecha1);
+  switch ($uno[1]) {
+      case 1:
+          $uno[1] = 'Enero';
+          break;
+      case 2:
+          $uno[1] = 'Febrero';
+          break;
+      case 3:
+          $uno[1] = 'Marzo';
+          break;
+      case 4:
+          $uno[1] = 'Abril';
+          break;
+      case 5:
+          $uno[1] = 'Mayo';
+          break;
+      case 6:
+          $uno[1] = 'Junio';
+          break;
+      case 7:
+          $uno[1] = 'Julio';
+          break;
+      case 8:
+          $uno[1] = 'Agosto';
+          break;
+      case 9:
+          $uno[1] = 'Septiembre';
+          break;
+      case 10:
+          $uno[1] = 'Octubre';
+          break;
+      case 11:
+          $uno[1] = 'Noviembre';
+          break;
+      case 12:
+          $uno[1] = 'Diciembre';
+          break;
+  }
 
 
-        $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
+  $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
 
 
 //preparamos y maquetamos el contenido a crear
 
-        $pdf->Image(K_PATH_IMAGES . 'sinrevisor.png', 15, 0, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
-        $pdf->Image(K_PATH_IMAGES . 'abajorevisor.png', 15, 230, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
+  $pdf->Image(K_PATH_IMAGES . 'sinrevisor.png', 15, 0, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
+  $pdf->Image(K_PATH_IMAGES . 'abajorevisor.png', 15, 230, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
 
 
-        $html = '<div align="right">Departamento: ' . $departamento . ' <br>
-            No. de Oficio: ' . $this->input->post('oficio_revisor1') . '<br>
-            Asunto:<b>Revisor de Residencias</b><br>
-            <b>Profesionales</b></div>
-        <div align="right"><b>Tepic, Nayarit a ' . $dia . ' de ' . $mes . ' del ' . $año . ' </b></div>
-        <div style="text-align: justify"><b>' . $nombre_revisor1 . ' ' . $apellido_revisor1 . '</b><br/>
-           <b>CATEDRATICO DEL I.T. DE TEPIC</b><br/>
-           <b>P R E S E N T E</b></div>
-        <div style="text-align: justify">Por este conducto solicito a usted  revisar el informe técnico de Residencia Profesional adjunto, emitiendo su aprobación o bien, señalando las observaciones que considere pertinentes para mejorar la calidad del mismo.  Asimismo, le informo que la fecha límite para la entrega de dicha revisión es el día <b>' . $uno[2] . ' de ' . $uno[1] . ' del presente año.</b></div><br>';
+  $html = '<div align="right">Departamento: ' . $departamento . ' <br>
+      No. de Oficio: ' . $this->input->post('oficio_revisor1') . '<br>
+      Asunto:<b>Revisor de Residencias</b><br>
+      <b>Profesionales</b></div>
+  <div align="right"><b>Tepic, Nayarit a ' . $dia . ' de ' . $mes . ' del ' . $año . ' </b></div>
+  <div style="text-align: justify"><b>' . $nombre_revisor1 . ' ' . $apellido_revisor1 . '</b><br/>
+     <b>CATEDRATICO DEL I.T. DE TEPIC</b><br/>
+     <b>P R E S E N T E</b></div>
+  <div style="text-align: justify">Por este conducto solicito a usted  revisar el informe técnico de Residencia Profesional adjunto, emitiendo su aprobación o bien, señalando las observaciones que considere pertinentes para mejorar la calidad del mismo.  Asimismo, le informo que la fecha límite para la entrega de dicha revisión es el día <b>' . $uno[2] . ' de ' . $uno[1] . ' del presente año.</b></div><br>';
 
-        $pdf->writeHTML($html, true, false, false, false, '');
+  $pdf->writeHTML($html, true, false, false, false, '');
 
-        $tbl = <<<EOD
-        <table border="1" align="left" >
-            <tr nobr="true">
-                <td colspan="3">
-                    <br>
-                    Nombre del Residente: <u>$nombre_alumno</u><br>
-                    Carrera: <u>$nombre_carrera</u><br>
-                    Nombre del proyecto: <u>$nombre_proyecto</u><br>
-                    Asesor y Revisor: <u> $nombre_asesor  $apellido_asesor <br> $nombre_revisor2 $apellido_revisor2 </u>
-                </td>
-            </tr>
-        </table>
+  $tbl = <<<EOD
+  <table border="1" align="left" >
+      <tr nobr="true">
+          <td colspan="3">
+              <br>
+              Nombre del Residente: <u>$nombre_alumno</u><br>
+              Carrera: <u>$nombre_carrera</u><br>
+              Nombre del proyecto: <u>$nombre_proyecto</u><br>
+              Asesor y Revisor: <u> $nombre_asesor  $apellido_asesor <br> $nombre_revisor2 $apellido_revisor2 </u>
+          </td>
+      </tr>
+  </table>
 EOD;
 
-        $pdf->writeHTML($tbl, true, false, false, false, '');
+  $pdf->writeHTML($tbl, true, false, false, false, '');
 
-        $html = '<br><br>
-        <div align=style="text-align: justify">Agradeciendo de antemano su valiosa aportación a esta importante actividad para la formación profesional de nuestros estudiantes.</div>
-        <br><br>
-        <div align="center"><b>A t e n t a m e n t e.</b></div>
-        <br><br>
-        <div align="center">_________________________</div>
-        <div align="center"><b>' . $nombre_jefe . '</b><br>
-             <b>' . $depa_jefe . '</b></div>
-        <br><br>
-        <br><br>
-        <small>c.c.p. Coordinación de Carrera</small>
-        <br>
-        <small>c.c.p. Expediente</small>';
+  $html = '<br><br>
+  <div align=style="text-align: justify">Agradeciendo de antemano su valiosa aportación a esta importante actividad para la formación profesional de nuestros estudiantes.</div>
+  <br><br>
+  <div align="center"><b>A t e n t a m e n t e.</b></div>
+  <br><br>
+  <div align="center">_________________________</div>
+  <div align="center"><b>' . $nombre_jefe . '</b><br>
+       <b>' . $depa_jefe . '</b></div>
+  <br><br>
+  <br><br>
+  <small>c.c.p. Coordinación de Carrera</small>
+  <br>
+  <small>c.c.p. Expediente</small>';
 
-        $pdf->writeHTML($html, true, false, false, false, '');
+  $pdf->writeHTML($html, true, false, false, false, '');
+
+}
 
 ////////////////////////            ////////////////////////
 ////////////////////////TERCERA HOJA////////////////////////
 ////////////////////////            ////////////////////////
 ////////////////////////            ////////////////////////
-        $pdf->AddPage();
+if ($revisor2!="") {
+  $pdf->AddPage();
 
 //fijar efecto de sombra en el texto
-        $pdf->setTextShadow(array('disabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
+  $pdf->setTextShadow(array('disabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
 
 // Establecemos el contenido para imprimir
 // el data y los models
 
-        $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
+  $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
 
 
 //preparamos y maquetamos el contenido a crear
 
-        $pdf->Image(K_PATH_IMAGES . 'sinrevisor.png', 15, 0, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
-        $pdf->Image(K_PATH_IMAGES . 'abajorevisor.png', 15, 230, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
+  $pdf->Image(K_PATH_IMAGES . 'sinrevisor.png', 15, 0, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
+  $pdf->Image(K_PATH_IMAGES . 'abajorevisor.png', 15, 230, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
 
 
-        $html = '<div align="right">Departamento: ' . $departamento . ' <br>
-            No. de Oficio: ' . $this->input->post('oficio_revisor2') . ' <br>
-            Asunto:<b>Revisor de Residencias</b><br>
-            <b>Profesionales</b></div>
-        <div align="right"><b>Tepic, Nayarit a ' . $dia . ' de ' . $mes . ' del ' . $año . ' </b></div>
-        <div style="text-align: justify"><b>' . $nombre_revisor2 . ' ' . $apellido_revisor2 . '</b><br/>
-           <b>CATEDRATICO DEL I.T. DE TEPIC</b><br/>
-           <b>P R E S E N T E</b></div>
-        <div style="text-align: justify">Por este conducto solicito a usted  revisar el informe técnico de Residencia Profesional adjunto, emitiendo su aprobación o bien, señalando las observaciones que considere pertinentes para mejorar la calidad del mismo.  Asimismo, le informo que la fecha límite para la entrega de dicha revisión es el día <b>' . $uno[2] . ' de ' . $uno[1] . ' del presente año.</b></div><br>';
+  $html = '<div align="right">Departamento: ' . $departamento . ' <br>
+      No. de Oficio: ' . $this->input->post('oficio_revisor2') . ' <br>
+      Asunto:<b>Revisor de Residencias</b><br>
+      <b>Profesionales</b></div>
+  <div align="right"><b>Tepic, Nayarit a ' . $dia . ' de ' . $mes . ' del ' . $año . ' </b></div>
+  <div style="text-align: justify"><b>' . $nombre_revisor2 . ' ' . $apellido_revisor2 . '</b><br/>
+     <b>CATEDRATICO DEL I.T. DE TEPIC</b><br/>
+     <b>P R E S E N T E</b></div>
+  <div style="text-align: justify">Por este conducto solicito a usted  revisar el informe técnico de Residencia Profesional adjunto, emitiendo su aprobación o bien, señalando las observaciones que considere pertinentes para mejorar la calidad del mismo.  Asimismo, le informo que la fecha límite para la entrega de dicha revisión es el día <b>' . $uno[2] . ' de ' . $uno[1] . ' del presente año.</b></div><br>';
 
-        $pdf->writeHTML($html, true, false, false, false, '');
+  $pdf->writeHTML($html, true, false, false, false, '');
 
-        $tbl = <<<EOD
-        <table border="1" align="left" >
-            <tr nobr="true">
-                <td colspan="3">
-                    <br>
-                    Nombre del Residente: <u>$nombre_alumno</u><br>
-                    Carrera: <u>$nombre_carrera</u><br>
-                    Nombre del proyecto: <u>$nombre_proyecto</u><br>
-                    Asesor y Revisor: <u> $nombre_asesor $apellido_asesor <br> $nombre_revisor1 $apellido_revisor1 </u>
-                </td>
-            </tr>
-        </table>
+  $tbl = <<<EOD
+  <table border="1" align="left" >
+      <tr nobr="true">
+          <td colspan="3">
+              <br>
+              Nombre del Residente: <u>$nombre_alumno</u><br>
+              Carrera: <u>$nombre_carrera</u><br>
+              Nombre del proyecto: <u>$nombre_proyecto</u><br>
+              Asesor y Revisor: <u> $nombre_asesor $apellido_asesor <br> $nombre_revisor1 $apellido_revisor1 </u>
+          </td>
+      </tr>
+  </table>
 EOD;
 
-        $pdf->writeHTML($tbl, true, false, false, false, '');
+  $pdf->writeHTML($tbl, true, false, false, false, '');
 
-        $html = '<br><br>
-        <div style="text-align: justify">Agradeciendo de antemano su valiosa aportación a esta importante actividad para la formación profesional de nuestros estudiantes.</div>
-        <br><br>
-        <div align="center"><b>A t e n t a m e n t e.</b></div>
-        <br><br>
-        <div align="center">_________________________</div>
-        <div align="center"><b>' . $nombre_jefe . '</b><br>
-             <b>' . $depa_jefe . '</b></div>
-        <br><br>
-        <br><br>
-        <small>c.c.p. Coordinación de Carrera</small>
-        <br>
-        <small>c.c.p. Expediente</small>';
+  $html = '<br><br>
+  <div style="text-align: justify">Agradeciendo de antemano su valiosa aportación a esta importante actividad para la formación profesional de nuestros estudiantes.</div>
+  <br><br>
+  <div align="center"><b>A t e n t a m e n t e.</b></div>
+  <br><br>
+  <div align="center">_________________________</div>
+  <div align="center"><b>' . $nombre_jefe . '</b><br>
+       <b>' . $depa_jefe . '</b></div>
+  <br><br>
+  <br><br>
+  <small>c.c.p. Coordinación de Carrera</small>
+  <br>
+  <small>c.c.p. Expediente</small>';
 
-        $pdf->writeHTML($html, true, false, false, false, '');
+  $pdf->writeHTML($html, true, false, false, false, '');
+}
+
 
 // Imprimimos el texto con writeHTMLCell()
         //$pdf->writeHTMLCell($w = 0, $h = 0, $x = '', $y = '', $html, $border = 0, $ln = 1, $fill = 0, $reseth = true, $align = '', $autopadding = true);
