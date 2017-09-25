@@ -515,7 +515,7 @@ function asignar_asesor_revisores(rfc, nombres) {
     }
   }
   else if ($('#rfc_revisor1').attr('bandera') === '1') {
-    if ($('#rfc_asesor').attr('value')!=rfc && $('#rfc_revisor1').attr('value')!=rfc) {
+    if ($('#rfc_asesor').attr('value')!=rfc && $('#rfc_revisor2').attr('value')!=rfc) {
       $('#rfc_revisor1').attr('value', rfc);
       $('#rfc_revisor1').attr('nombres', nombres);
       $('#r1').html($('#rfc_revisor1').attr('nombres'));
@@ -523,7 +523,7 @@ function asignar_asesor_revisores(rfc, nombres) {
       alert("ERROR docente ya selecionado.")
     }
   } else {
-    if ($('#rfc_asesor').attr('value')!=rfc && $('#rfc_revisor2').attr('value')!=rfc) {
+    if ($('#rfc_asesor').attr('value')!=rfc && $('#rfc_revisor1').attr('value')!=rfc) {
       $('#rfc_revisor2').attr('value', rfc);
       $('#rfc_revisor2').attr('nombres', nombres);
       $('#r2').html($('#rfc_revisor2').attr('nombres'));
