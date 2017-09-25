@@ -1,11 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set('America/Mazatlan');
-
 class C_proponer extends CI_Controller {
-
   private $error;
-
   function __construct() {
     parent::__construct();
     $this->load->helper(array('url', 'form'));
@@ -19,7 +16,6 @@ class C_proponer extends CI_Controller {
     $this->load->helper('download');
     $this->load->helper('path');
   }
-
   public function index() {
     if ($this->session->userdata('logged_in')) {
       $session_data = $this->session->userdata('logged_in');
@@ -38,7 +34,6 @@ class C_proponer extends CI_Controller {
       $data['empresas'] = $this->m_vacantes->mostrar_empresas();
       $data['solicitud'] = $this->m_propuesta->solicitud($session_data['username']);
       $data['error'] = $this->error;
-
       $otro = $this->m_usuarios->consulta_info_alumno($data['username']);
       foreach ($otro as $value) {
         $tmp = $value->correo;
@@ -101,8 +96,6 @@ class C_proponer extends CI_Controller {
     $datax['hoy'] = date("Y-m-d");
     $fecha1 = date('Y-m-d', strtotime($datax['hoy'] . ' + 7 days'));
     if ($this->input->post('valida_empresa') == 'true') {
-
-
       $respuesta = $this->do_upload_Alumno();
       if (array_key_exists('error', $respuesta)) {
         $this->index();
@@ -116,15 +109,12 @@ class C_proponer extends CI_Controller {
           'fecha_limite_revision' => $fecha1,
           'ruta_archivo' => $respuesta['ruta'],
           'nombre_archivo' => mb_strtoupper($respuesta['nombre_archivo'], 'UTF-8'));
-
           $this->m_propuesta->insertar_archivo_alumno($archivo_alumno);
-
           if ($this->input->post('residentes_requeridos') - 1 == 0) {
             $disponible = FALSE;
           } else {
             $disponible = TRUE;
           }
-
           $nuevo2 = $this->m_banco_proyectos->obtener_departamento($data['id_carrera']);
           $anteproyecto = array(
             'nombre_proyecto' => mb_strtoupper($this->input->post('nombre_proyecto'), 'UTF-8'),
@@ -146,7 +136,6 @@ class C_proponer extends CI_Controller {
               $anteproyecto['id_vacante'] = 0;
             }
             $this->m_propuesta->insertar_anteproyecto($anteproyecto);
-
             $nuevo3 = $this->m_propuesta->obtener_anteproyecto_agregado();
             foreach ($nuevo3 as $value3) {
               $tmp3 = $value3->anteproyecto_pk;
@@ -189,7 +178,6 @@ class C_proponer extends CI_Controller {
                     'numero_afiliacion' => mb_strtoupper($this->input->post('numero_afiliacion'), 'UTF-8'));
 
                     $this->m_propuesta->insertar_atencion_medica($atencion);
-
                     //AQUI
                     $this->correo($data['id_carrera']);
                     redirect(base_url() . 'index.php/inicio');
@@ -208,9 +196,7 @@ class C_proponer extends CI_Controller {
                       'fecha_limite_revision' => $fecha1,
                       'nombre_archivo' => mb_strtoupper($respuesta['nombre_archivo'], 'UTF-8'),
                       'ruta_archivo' => $respuesta['ruta']);
-
                       $this->m_propuesta->insertar_archivo_alumno($archivo_alumno);
-
                       $empresa = array(
                         'nombre_empresa' => mb_strtoupper($this->input->post('nombre_empresa'), 'UTF-8'),
                         'telefono' => mb_strtoupper($this->input->post('telefono'), 'UTF-8'),
@@ -223,20 +209,16 @@ class C_proponer extends CI_Controller {
                         'codigo_postal' => $this->input->post('codigo_postal'),
                         'titular_empresa' => mb_strtoupper($this->input->post('titular_empresa'), 'UTF-8'),
                         'puesto_titular' => mb_strtoupper($this->input->post('puesto_titular'), 'UTF-8'));
-
                         $this->m_propuesta->insertar_empresa($empresa);
-
                         $nuevo = $this->m_propuesta->obtener_empresapk_agregada();
                         foreach ($nuevo as $value) {
                           $tmp = $value->empresa_pk;
                         }
-
                         if ($this->input->post('residentes_requeridos') - 1 == 0) {
                           $disponible = FALSE;
                         } else {
                           $disponible = TRUE;
                         }
-
                         $nuevo2 = $this->m_banco_proyectos->obtener_departamento($data['id_carrera']);
                         $anteproyecto = array(
                           'nombre_proyecto' => mb_strtoupper($this->input->post('nombre_proyecto'), 'UTF-8'),
@@ -252,20 +234,16 @@ class C_proponer extends CI_Controller {
                           'periodo' => mb_strtoupper($this->input->post('periodo'), 'UTF-8'),
                           'residentes_requeridos' => $this->input->post('residentes_requeridos'),
                           'lugares_disponibles' => ($this->input->post('residentes_requeridos') - 1));
-
                           if ($this->input->post('valida_vacante') == 'true') {
                             $anteproyecto['id_vacante'] = $this->input->post('id_vacante');
                           } else {
                             $anteproyecto['id_vacante'] = 0;
                           }
-
                           $this->m_propuesta->insertar_anteproyecto($anteproyecto);
-
                           $nuevo3 = $this->m_propuesta->obtener_anteproyecto_agregado();
                           foreach ($nuevo3 as $value3) {
                             $tmp3 = $value3->anteproyecto_pk;
                           }
-
                           $asesor_externo = array(
                             'nombre' => mb_strtoupper($this->input->post('nombre_asesor'), 'UTF-8'),
                             'correo' => $this->input->post('correo'),
@@ -273,9 +251,7 @@ class C_proponer extends CI_Controller {
                             'anteproyecto_fk' => $tmp3,
                             'puesto' => mb_strtoupper($this->input->post('puesto'), 'UTF-8'),
                             'area' => mb_strtoupper($this->input->post('area'), 'UTF-8'));
-
                             $this->m_propuesta->insertar_asesor_externo($asesor_externo);
-
                             $solicitud = array(
                               'numero_control' => $session_data['username'],
                               'anteproyecto_id' => $tmp3,
@@ -287,9 +263,7 @@ class C_proponer extends CI_Controller {
                               $bitacora = array(
                                 'numero_control' => $session_data['username'],
                                 'estado' => 1);
-
                                 $this->m_propuesta->insertar_bitacora($bitacora);
-
                                 $dictamen = array(
                                   'numero_control' => $session_data['username'],
                                   'jefe_academico' => false,
@@ -302,9 +276,7 @@ class C_proponer extends CI_Controller {
                                   'liberacion_externo' => false,
                                   'calificaciones' => false,
                                   'evidencias' => false);
-
                                   $this->m_propuesta->insertar_dictamen($dictamen);
-
                                   $atencion = array(
                                     'numero_control' => $session_data['username'],
                                     'atencion_medica' => mb_strtoupper($this->input->post('atencion_medica'), 'UTF-8'),
@@ -358,7 +330,6 @@ class C_proponer extends CI_Controller {
                                 foreach ($consulta_correo_ja as $value) {
                                   $correoJA = $value->correo;
                                 }
-
                                 if ($correoJA != null || $correoJA != '') {
                                   $this->enviar_correo($this->getJefeA($id_carrera), $correoJA, 'Solicitud de residencia pendiente.', 'Tiene una solicitud de residencia pendiente, ingrese a http://siv.ittepic.edu.mx/ para mas información.'); //enviar correo a asesor
                                 }

@@ -273,8 +273,8 @@
 </footer>
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="../../bin/materialize.js"></script>
-<script src="js/init.js"></script>
+<script src="<?php echo base_url(); ?>js/materialize.js"></script>
+<script src="<?php echo base_url(); ?>js/init.js"></script>
 <script>
 $(document).ready(function(){
     /*$("#hide").click(function(){
