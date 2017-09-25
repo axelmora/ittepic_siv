@@ -232,7 +232,7 @@
 
 
 
-                                <div class="left-align">Hasta:</div>   
+                                <div class="left-align">Hasta:</div>
                                 <input type="text" class="datepicker" placeholder="Fecha final" name="hastax" value=""    id="hastax" />
 
                                 <button class="btn orange darken-1 z-depth-0 " type="submit">
@@ -241,7 +241,7 @@
                                 <?= form_close() ?>
                             </div></div>
                         <br>
-                    </div> 
+                    </div>
 
                     <div class="col s2 center-align"><div class="input-field center-align">
                         </div>
@@ -274,7 +274,7 @@
 
 
 
-                                <div class="left-align">Hasta:</div>   
+                                <div class="left-align">Hasta:</div>
                                 <input type="text" class="datepicker" placeholder="Fecha final" name="hastax" value=""    id="hastax" />
 
 
@@ -284,7 +284,7 @@
                                 <?= form_close() ?>
                             </div></div>
                         <br>
-                    </div> 
+                    </div>
 
 
                     <div class="col s1 center-align"><div class="input-field center-align">
@@ -292,7 +292,7 @@
 
                     </div>
                 </div>
-                <!--IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII--> 
+                <!--IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII-->
 
 
 
@@ -302,7 +302,7 @@
 
 
 
-                </div>  
+                </div>
 
 
                 <p>&nbsp;</p>
@@ -362,6 +362,8 @@
                 clear: 'borrar'
             });
         </script>
-
+        <?php
+        $this->load->view('jfacademicoarchivo');
+        ?>
     </body>
 </html>
