@@ -40,8 +40,8 @@
                 <div class="row">
 
                     <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/informacion_procedimiento"><!--compartido-->
-                        <div class="col s12 m4 l4 center caro">
-                            <div class="card-panel grey lighten-5 z-depth-1">
+                        <div class="col s12 m4 l4 center ">
+                            <div class="card-panel grey lighten-5 z-depth-1 caro">
                                 <div class="row valign-wrapper">
                                     <div class="col s4">
                                         <img src="<?php echo base_url(); ?>images/info.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -58,8 +58,8 @@
 
 
                 <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/info_participantes">
-                    <div class="col s12 m4 l4 center caro">
-                        <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="col s12 m4 l4 center ">
+                        <div class="card-panel grey lighten-5 z-depth-1 caro">
                             <div class="row valign-wrapper ">
                                 <div class="col s4">
                                     <img src="<?php echo base_url(); ?>images/participantes.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
@@ -74,8 +74,8 @@
                     </div></a>
 
                 <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/solicitudes_anteproyecto">
-                    <div class="col s12 m4 l4 center caro">
-                        <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="col s12 m4 l4 center ">
+                        <div class="card-panel grey lighten-5 z-depth-1 caro">
                             <div class="row valign-wrapper">
                                 <div class="col s4">
                                     <img src="<?php echo base_url(); ?>images/solicitudes.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
@@ -92,8 +92,8 @@
             </div>
             <div class="row">
                 <a href="<?php echo base_url(); ?>index.php/Residencia/C_asignar_asesor"><!--compartido-->
-                    <div class="col s12 m4 center caro">
-                        <div class="card-panel grey lighten-5 z-depth-1">
+                    <div class="col s12 m4 center ">
+                        <div class="card-panel grey lighten-5 z-depth-1 caro ">
                             <div class="row valign-wrapper">
                                 <div class="col s4">
                                     <img src="<?php echo base_url(); ?>images/asignar.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -108,8 +108,8 @@
             </div>
 
             <a href="<?php echo base_url(); ?>index.php/Residencia/C_banco_proyectos">
-                <div class="col s12 m4 center caro">
-                    <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="col s12 m4 center ">
+                    <div class="card-panel grey lighten-5 z-depth-1 caro">
                         <div class="row valign-wrapper ">
                             <div class="col s4">
                                 <img src="<?php echo base_url(); ?>images/banco.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -124,8 +124,8 @@
                 </div></a>
 
             <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/bitacoras_avance">
-                <div class="col s12 m4 center caro">
-                    <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="col s12 m4 center ">
+                    <div class="card-panel grey lighten-5 z-depth-1 caro">
                         <div class="row valign-wrapper">
                             <div class="col s4">
                                 <img src="<?php echo base_url(); ?>images/bitacora.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -144,8 +144,8 @@
         <div class="row">
 
             <a href="<?php echo base_url(); ?>index.php/Residencia/c_historial_notificacion">
-                <div class="col s12 m4 center caro">
-                    <div class="card-panel grey lighten-5 z-depth-1">
+                <div class="col s12 m4 center ">
+                    <div class="card-panel grey lighten-5 z-depth-1 caro">
                         <div class="row valign-wrapper">
                             <div class="col s4">
                                 <img src="<?php echo base_url(); ?>images/historial.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -161,8 +161,8 @@
         </div>
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/vacantes">
-            <div class="col s12 m4 center caro">
-                <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="col s12 m4 center ">
+                <div class="card-panel grey lighten-5 z-depth-1 caro">
                     <div class="row valign-wrapper ">
                         <div class="col s4">
                             <img src="<?php echo base_url(); ?>images/vacantes.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -177,8 +177,8 @@
             </div></a>
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/eliminar_procesos">
-            <div class="col s12 m4 center caro">
-                <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="col s12 m4 center ">
+                <div class="card-panel grey lighten-5 z-depth-1 caro">
                     <div class="row valign-wrapper">
                         <div class="col s4">
                             <img src="<?php echo base_url(); ?>images/e_procesos.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -196,8 +196,8 @@
     <div class="row">
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/docentes">
-            <div class="col s12 m4 left caro">
-                <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="col s12 m4 left ">
+                <div class="card-panel grey lighten-5 z-depth-1 caro">
                     <div class="row valign-wrapper">
                         <div class="col s4">
                             <img src="<?php echo base_url(); ?>images/info_docentes.png" alt="" class="responsive-img"> <!-- notice the "circle" class -->
@@ -214,8 +214,8 @@
         </a>
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/c_base">
-            <div class="col s12 m4 center caro">
-                <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="col s12 m4 center ">
+                <div class="card-panel grey lighten-5 z-depth-1 caro">
                     <div class="row valign-wrapper ">
                         <div class="col s4">
                             <img src="<?php echo base_url(); ?>images/base_concertacion.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
