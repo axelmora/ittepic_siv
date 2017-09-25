@@ -3,15 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set('America/Mazatlan');
 
 class C_avance extends CI_Controller {
-
     private $error = array('error' => '');
-
     function __construct() {
         parent::__construct();
         $this->load->helper(array('url', 'form'));
 //cargamos la librería form_validation
         $this->load->library(array('form_validation'));
-
         $this->load->model('Residencia/Alumno/m_avance');
         $this->load->model('Residencia/Alumno/m_propuesta');
         $this->load->model('Residencia/m_dictamen');
@@ -20,16 +17,13 @@ class C_avance extends CI_Controller {
     }
 
     public function generar() {
-
         $this->load->library('Pdf');
         $resolution = array(216, 279);
         $pdf = new Pdf('P', 'mm', $resolution, true, 'UTF-8', false);
-
         $pdf->SetAuthor('Jose Antonio');
         $pdf->SetTitle('Instituto Tecnologico de Tepic');
         $pdf->SetSubject('Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-
         $image_file = 'sin2.png';
 
 // datos por defecto de cabecera, se pueden modificar en el archivo tcpdf_config_alt.php de libraries/config
@@ -351,7 +345,7 @@ EOD;
             } else {
                 $data['estado'] = false;
             }
-
+            $data['proacepjeseasesor']= $this->m_avance->obtener_aceptado($session_data['username']);
             $nuevo2 = $this->m_avance->obtener_titulacion($session_data['username']);
             if ($nuevo2) {
                 foreach ($nuevo2 as $value2) {

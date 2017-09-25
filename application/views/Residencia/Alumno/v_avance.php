@@ -159,12 +159,29 @@
                                     </div>
                                     <br>
                                     <br>
-                                    <?php  ?>
+                                    <?php
+                                    $cvalor1="";
+                                    $cvalor2="";
+                                      foreach ($proacepjeseasesor as $key => $value) {
+                                    //    foreach ($proacepjeseasesor as $value) {
+                                        $cvalor1=$value->jefe_academico;
+                                        $cvalor2=$value->aprobado;
+                                      }
+                                    //  echo " VALOOOR: $cvalor1    $cvalor2";
+                                    if ($cvalor1!=true && $cvalor2!="A" && $estado==2) {
+                                     ?>
                                     <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="material-icons">attach_file</i> Adjuntar Archivo</button></h3>
-                                    <?php  ?>
+                                    <?php
+                                        }
+                                        else {
+                                          ?>
+                                          <center><h4><i class="material-icons">add_alert</i> Espere la siguiente etapa.</h4></center>
+                                          <?php
+                                        }
+                                     ?>
                                     <br>
                                     <?php if ($banco === 'f') { ?>
-                                        <span>Clave para compartir proyecto: <?php echo $clave; ?> </span>
+                                        <span><i class="material-icons">vpn_key</i>Clave para compartir proyecto: <?php echo $clave; ?> </span>
                                     <?php } ?>
                                     <?php
                                     break;
@@ -187,7 +204,7 @@
                                     </div>
                                     <br>
                                     <?php if ($banco === 'f') { ?>
-                                        <span>Clave para compartir proyecto: <?php echo $clave; ?> </span>
+                                        <span><i class="material-icons">vpn_key</i>Clave para compartir proyecto: <?php echo $clave; ?> </span>
                                     <?php } ?>
                                     <br>
                                     <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3>
@@ -213,7 +230,7 @@
                                     </div>
                                     <br>
                                     <?php if ($banco === 'f') { ?>
-                                        <span>Clave para compartir proyecto: <?php echo $clave; ?> </span>
+                                        <span><i class="material-icons">vpn_key</i>Clave para compartir proyecto: <?php echo $clave; ?> </span>
                                     <?php } ?>
                                     <br>
                                     <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3>

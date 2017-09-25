@@ -19,7 +19,15 @@ class M_avance extends CI_Model {
             return false;
         }
     }
-
+    public function obtener_aceptado($numero_control) {
+        $DB2 = $this->load->database('local', TRUE);
+        $query = $DB2->query("SELECT DA.jefe_academico, AN.aprobado from DICTAMEN_ANTEPROYECTO DA, ANTEPROYECTO AN where AN.anteproyecto_pk=DA.anteproyecto and  DA.numero_control='".$numero_control."';");
+        if ($query->num_rows() > 0) {
+            return $query->result();
+          } else {
+            return false;
+          }
+    }
     public function obtener_titulacion($numero_control) {
         $DB2 = $this->load->database('local', TRUE);
         $DB2->select('*');
@@ -47,7 +55,7 @@ class M_avance extends CI_Model {
             return false;
         }
     }
-        
+
     public function obtener_archivo_asesor($numero_control) {
         $DB2 = $this->load->database('local', TRUE);
         $DB2->select('*');
