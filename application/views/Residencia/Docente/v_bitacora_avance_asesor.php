@@ -16,10 +16,8 @@
 
         <link href="<?php echo base_url(); ?>css/flow.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
-
-
     </head>
-    <body>
+    <body style="background-color: #FFFFFF;">
         <nav>
             <div class="nav-wrapper grey lighten-5 left-align">
                 <a href="#!" class="brand-logo center"><img src="<?php echo base_url(); ?>images/logochico.png" alt="Logo" /></a>
@@ -39,7 +37,7 @@
 
         </div>
         <div class="">
-            <div class="section">
+            <div class="section" style=" margin-left: 1%;   margin-right: 1%; ">
                 <a class = "tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar"
                    href="<?php echo base_url() . 'index.php/Residencia/Docente/panel_docente/'; ?>"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
                 <div class="left-align col s3 m6 l3 card-panel grey lighten-5">
