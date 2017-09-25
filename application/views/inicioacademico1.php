@@ -67,7 +67,7 @@
                 <div class="row">
 
                     <a href="<?php echo base_url(); ?>index.php/c_reportesservicioda">
-                        <div class="col s12 m4 center">
+                        <div class="col s12 m6 l4 center caro">
 
                             <div class="card-panel grey lighten-5 z-depth-1">
                                 <div class="row valign-wrapper">
@@ -87,7 +87,7 @@
 
 
                 <a href="<?php echo base_url(); ?>index.php/panel_academico/residencia">
-                    <div class="col s12 m4 center">
+                    <div class="col s12 m6 l4 center caro">
 
                         <div class="card-panel grey lighten-5 z-depth-1">
                             <div class="row valign-wrapper ">
@@ -198,6 +198,12 @@
     <!--  Scripts-->
     <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
     <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+    <script src="<?php echo base_url(); ?>js/jquery.matchHeight.js"></script>
+    <script>
+    $(function() {
+    	$('.caro').matchHeight();
+    });
+    </script>
     <?php
     $this->load->view('jfacademicoarchivo');
     ?>

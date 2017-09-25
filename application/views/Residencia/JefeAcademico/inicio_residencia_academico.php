@@ -40,7 +40,7 @@
                 <div class="row">
 
                     <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/informacion_procedimiento"><!--compartido-->
-                        <div class="col s12 m4 l4 center">
+                        <div class="col s12 m4 l4 center caro">
                             <div class="card-panel grey lighten-5 z-depth-1">
                                 <div class="row valign-wrapper">
                                     <div class="col s4">
@@ -58,7 +58,7 @@
 
 
                 <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/info_participantes">
-                    <div class="col s12 m4 l4 center">
+                    <div class="col s12 m4 l4 center caro">
                         <div class="card-panel grey lighten-5 z-depth-1">
                             <div class="row valign-wrapper ">
                                 <div class="col s4">
@@ -74,7 +74,7 @@
                     </div></a>
 
                 <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/solicitudes_anteproyecto">
-                    <div class="col s12 m4 l4 center">
+                    <div class="col s12 m4 l4 center caro">
                         <div class="card-panel grey lighten-5 z-depth-1">
                             <div class="row valign-wrapper">
                                 <div class="col s4">
@@ -92,7 +92,7 @@
             </div>
             <div class="row">
                 <a href="<?php echo base_url(); ?>index.php/Residencia/C_asignar_asesor"><!--compartido-->
-                    <div class="col s12 m4 center">
+                    <div class="col s12 m4 center caro">
                         <div class="card-panel grey lighten-5 z-depth-1">
                             <div class="row valign-wrapper">
                                 <div class="col s4">
@@ -108,7 +108,7 @@
             </div>
 
             <a href="<?php echo base_url(); ?>index.php/Residencia/C_banco_proyectos">
-                <div class="col s12 m4 center">
+                <div class="col s12 m4 center caro">
                     <div class="card-panel grey lighten-5 z-depth-1">
                         <div class="row valign-wrapper ">
                             <div class="col s4">
@@ -124,7 +124,7 @@
                 </div></a>
 
             <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/bitacoras_avance">
-                <div class="col s12 m4 center">
+                <div class="col s12 m4 center caro">
                     <div class="card-panel grey lighten-5 z-depth-1">
                         <div class="row valign-wrapper">
                             <div class="col s4">
@@ -144,7 +144,7 @@
         <div class="row">
 
             <a href="<?php echo base_url(); ?>index.php/Residencia/c_historial_notificacion">
-                <div class="col s12 m4 center">
+                <div class="col s12 m4 center caro">
                     <div class="card-panel grey lighten-5 z-depth-1">
                         <div class="row valign-wrapper">
                             <div class="col s4">
@@ -161,7 +161,7 @@
         </div>
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/vacantes">
-            <div class="col s12 m4 center">
+            <div class="col s12 m4 center caro">
                 <div class="card-panel grey lighten-5 z-depth-1">
                     <div class="row valign-wrapper ">
                         <div class="col s4">
@@ -177,7 +177,7 @@
             </div></a>
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/eliminar_procesos">
-            <div class="col s12 m4 center">
+            <div class="col s12 m4 center caro">
                 <div class="card-panel grey lighten-5 z-depth-1">
                     <div class="row valign-wrapper">
                         <div class="col s4">
@@ -196,7 +196,7 @@
     <div class="row">
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/JefeAcademico/panel_jefeacademico/docentes">
-            <div class="col s12 m4 left">
+            <div class="col s12 m4 left caro">
                 <div class="card-panel grey lighten-5 z-depth-1">
                     <div class="row valign-wrapper">
                         <div class="col s4">
@@ -214,7 +214,7 @@
         </a>
 
         <a href="<?php echo base_url(); ?>index.php/Residencia/c_base">
-            <div class="col s12 m4 center">
+            <div class="col s12 m4 center caro">
                 <div class="card-panel grey lighten-5 z-depth-1">
                     <div class="row valign-wrapper ">
                         <div class="col s4">
@@ -231,19 +231,11 @@
     </div>
 </div>
 <br><br>
-
-
-
 <div class="section">
-
-
-
 </div>
 </div>
-
 <footer class="page-footer black">
     <div class="container">
-
     </div>
     <div class="footer-copyright">
         <div>
@@ -256,6 +248,12 @@
 <!--  Scripts-->
 <script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>
 <script src="<?php echo base_url(); ?>js/materialize.js"></script>
+<script src="<?php echo base_url(); ?>js/jquery.matchHeight.js"></script>
+<script>
+$(function() {
+	$('.caro').matchHeight();
+});
+</script>
 <?php
 $this->load->view('jfacademicoarchivo');
 ?>
