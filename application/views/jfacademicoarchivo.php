@@ -86,9 +86,11 @@ setInterval(function(){
     type:"post",
     url: "<?php echo base_url(); ?>index.php/controljfasesion/",
     success: function(data) {
+        console.log("Actualizado")
     },
     error: function(data) {
-        alert("error");
+        //alert("error");
+        console.log("Error 404 Servidor  Fuera de servicio ")
     },
   });
 }, 35000);
