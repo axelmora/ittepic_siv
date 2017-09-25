@@ -723,22 +723,14 @@ EOD;
 ////////////////////////            ////////////////////////
 if ($revisor2!="") {
   $pdf->AddPage();
-
 //fijar efecto de sombra en el texto
   $pdf->setTextShadow(array('disabled' => true, 'depth_w' => 0.2, 'depth_h' => 0.2, 'color' => array(196, 196, 196), 'opacity' => 1, 'blend_mode' => 'Normal'));
-
 // Establecemos el contenido para imprimir
 // el data y los models
-
   $imgdata = base64_decode('iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABlBMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDrEX4IJTRkb7lobNUStXsB0jIXIAMSsQnWlsV+wULF4Avk9fLq2r8a5HSE35Q3eO2XP1A1wQkZSgETvDtKdQAAAABJRU5ErkJggg==');
-
-
 //preparamos y maquetamos el contenido a crear
-
   $pdf->Image(K_PATH_IMAGES . 'sinrevisor.png', 15, 0, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
   $pdf->Image(K_PATH_IMAGES . 'abajorevisor.png', 15, 230, 180, 40, 'PNG', '', '', true, 150, '', false, false, 0, false, false, false);
-
-
   $html = '<div align="right">Departamento: ' . $departamento . ' <br>
       No. de Oficio: ' . $this->input->post('oficio_revisor2') . ' <br>
       Asunto:<b>Revisor de Residencias</b><br>

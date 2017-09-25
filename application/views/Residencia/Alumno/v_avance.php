@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>SIV :: ITTEPIC</title>
-        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.min.js"></script>
         <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
@@ -17,13 +17,10 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/queries.css" media="all" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src=" http://code.jquery.com/jquery-1.9.1.js"></script>
-
         <script src="<?php echo base_url(); ?>js/materialize.js"></script>
         <link href="<?php echo base_url(); ?>css/materialize.css" type="text/javascript" rel="stylesheet" media="screen,projection"/>
         <link href="<?php echo base_url(); ?>css/proceso.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="<?php echo base_url(); ?>css/flow.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
-
         <script>$(document).ready(function () {
                 $('.step').each(function (index, element) {
                     // element == this
@@ -57,17 +54,15 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>js/selectnav.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/twitter.min.js"></script>
     </head>
-
     <body>
-
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <!--<header id="branding" role="banner">-->
-                <h1 id="site-title"> 
+                <h1 id="site-title">
                     <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                     <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                </h1><div align="right" class="right"> Bienvenido (a): <?php echo $nombre; ?>  
-                    <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                </h1><div align="right" class="right"> Bienvenido (a): <?php echo utf8_encode($nombre); ?>
+                    <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
 
                 <!--                    <div class="social">
                                         <ul>
@@ -76,7 +71,6 @@
                                         </ul>
                                     </div>-->
                 <nav id="access" class="access" role="">
-
                     <div id="menu" class="menu">
                         <ul id="tiny">
                             <li><a href="<?php echo base_url(); ?>index.php/inicio">Inicio</a>
@@ -103,12 +97,10 @@
                             <li><a href="#">Centro de Idiomas</a></li>
                             <li><a href="#">Servicio Externo</a></li>
                             <li><a href="#">Visitas a Empresas</a></li>
-
                         </ul>
                     </div>
-
                 </nav>
-                <!-- #access --> 
+                <!-- #access -->
                 <!--</header>-->
                 <!-- #branding -->
 
@@ -137,13 +129,13 @@
                                         <div class = "step active" data-desc = "Liberación de residencia">7</div>
                                     </div>
                                     <br>
-                                    <form method="post" action="<?php echo base_url(); ?>index.php/Residencia/Alumno/C_avance/generar">       
+                                    <form method="post" action="<?php echo base_url(); ?>index.php/Residencia/Alumno/C_avance/generar">
                                         <button class="btn btn-warning" formtarget="_blank" type="submit">
-                                            Generar Solicitud de Residencia Profesional</button>                                                            
+                                            Generar Solicitud de Residencia Profesional</button>
                                     </form>
                                     <br>
                                     <?php if ($banco === 'f' && $lugares > 0) { ?>
-                                        <span>Clave para compartir proyecto: <?php echo $clave; ?> </span>
+                                        <span>Clave  para compartir proyecto: <?php echo $clave; ?> </span>
                                     <?php } ?>
                                     <br>
                                     <?php
@@ -167,7 +159,9 @@
                                     </div>
                                     <br>
                                     <br>
-                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3> 
+                                    <?php  ?>
+                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="material-icons">attach_file</i> Adjuntar Archivo</button></h3>
+                                    <?php  ?>
                                     <br>
                                     <?php if ($banco === 'f') { ?>
                                         <span>Clave para compartir proyecto: <?php echo $clave; ?> </span>
@@ -196,7 +190,7 @@
                                         <span>Clave para compartir proyecto: <?php echo $clave; ?> </span>
                                     <?php } ?>
                                     <br>
-                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3> 
+                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3>
                                     <?php
                                     break;
 
@@ -222,7 +216,7 @@
                                         <span>Clave para compartir proyecto: <?php echo $clave; ?> </span>
                                     <?php } ?>
                                     <br>
-                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3> 
+                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3>
                                     <?php
                                     break;
                                 case 5:
@@ -290,7 +284,7 @@
                                     <?php
                                     break;
                             }
-                            ?>                          
+                            ?>
 
                             <!-- Modal Adjuntar -->
                             <div id="myModal" class="modal fade" role="dialog">
@@ -299,14 +293,14 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Adjuntar Archivo</h4>
+                                            <h4 class="modal-title"><i class="material-icons">attach_file</i> Adjuntar Archivo</h4>
                                         </div>
                                         <div class="modal-body">
                                             <form method="post" action="<?php echo base_url(); ?>index.php/Residencia/Alumno/c_avance/subir_doc" enctype="multipart/form-data" class="form-horizontal" id="formid">
                                                 <?php if ($estado < 3) { ?>
                                                     <span style="color: red">Nota: Tu anteproyecto será revisado sólo 2 veces por tu asesor.</span>
                                                 <?php }
-                                                ?>                                                
+                                                ?>
                                                 <div class="form-group">
                                                     <label class="control-label col-xs-3">Descripción del archivo:</label><br>
                                                     <div class="col-xs-6">
@@ -316,8 +310,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label col-xs-3">Adjuntar Archivo:</label><br>
                                                     <div class="col-xs-6">
-                                                        <input type="file" accept=".pdf,.docx,.doc" name="userfile" class="form-control" required >                               
-                                                    </div>                           
+                                                        <input type="file" accept=".pdf,.docx,.doc" name="userfile" class="form-control" required >
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-xs-3">Tipo de documento:</label><br>
@@ -349,7 +343,7 @@
                             <?php if ($estado) { ?>
                                 <div class="table-responsive" align="center">
                                     <p><?php echo $error; ?></p>
-                                    <!--<button  align="center" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3>-->                                     
+                                    <!--<button  align="center" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3>-->
                                     <h4>Mis archivos compartidos</h4>
                                     <table id="archivo_alumno" class="table table-hover">
                                         <thead>
@@ -421,7 +415,7 @@
                                                 endforeach;
                                             }
                                             ?>
-                                        </tbody>                      
+                                        </tbody>
                                     </table>
                                 </div>
                                 <div class="table-responsive" align="center">
@@ -480,15 +474,15 @@
                                                 endforeach;
                                             }
                                             ?>
-                                        </tbody>                      
-                                    </table> 
+                                        </tbody>
+                                    </table>
                                 </div>
                                 <?php if ($titulacion === 't') { ?>
-                                    <div id="stepe" align="center"> 
+                                    <div id="stepe" align="center">
                                         <div class="step done" data-desc="Opción a titulación">X</div>
                                     </div>
                                 <?php } else { ?>
-                                    <div id="stepe" align="center"> 
+                                    <div id="stepe" align="center">
                                         <div class="step active" data-desc="Opción a titulación">X</div>
                                     </div>
                                 <?php } ?>
