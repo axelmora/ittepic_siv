@@ -168,7 +168,7 @@
                                         $cvalor2=$value->aprobado;
                                       }
                                     //  echo " VALOOOR: $cvalor1    $cvalor2";
-                                    if ($cvalor1!=true && $cvalor2!="A" && $estado==2) {
+                                    if (($cvalor1!=t && $cvalor2!="A") && $estado==2) {
                                      ?>
                                     <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="material-icons">attach_file</i> Adjuntar Archivo</button></h3>
                                     <?php
@@ -207,7 +207,7 @@
                                         <span><i class="material-icons">vpn_key</i>Clave para compartir proyecto: <?php echo $clave; ?> </span>
                                     <?php } ?>
                                     <br>
-                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Adjuntar Archivo</button></h3>
+                                    <button  align="center" type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal"><i class="material-icons">attach_file</i>Adjuntar Archivo</button></h3>
                                     <?php
                                     break;
 
