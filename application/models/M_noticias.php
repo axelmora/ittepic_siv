@@ -38,6 +38,19 @@ class M_noticias extends CI_Model {
     }
   }
 
+  function vernoticiaunicaServicio($idnot) {
+    $DB2 = $this->load->database('local', TRUE);
+    $DB2->select('*');
+    $DB2->from('noticias_servicio');
+    $DB2->where('id_noticia', $idnot);
+    $query = $DB2->get();
+    if ($query->num_rows() > 0) {
+      return $query->result();
+    } else {
+      return false;
+    }
+  }
+
   function form_insert($data) {
     // Inserting in Table(students) of Database(college
     $DB2 = $this->load->database('local', TRUE);

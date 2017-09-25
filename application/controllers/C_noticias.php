@@ -64,6 +64,19 @@ class C_noticias extends CI_Controller {
             $this->load->view('notienespermisos');
         }
     }
+    /* FUNCION EDITAR*/
+    function indexEditar($id) {
+        if ($this->session->userdata('perfil') == FALSE) {
+            redirect(base_url() . 'index.php/logeo');
+        }
+        if ($this->session->userdata('perfil') == 'jefevinculacion' || $this->session->userdata('perfil') == 'jefeservicio') {
+            $data['noticias'] = $this->m_noticias->vernoticiaunicaServicio($id);
+            $this->load->view('v_noticias_editar', $data);
+        }
+        else{
+            $this->load->view('notienespermisos');
+        }
+    }
 ////////////////////////////////////RESIDENCIA///////////////////////////////////////////////
     function indexR() {
         if ($this->session->userdata('perfil') == FALSE) {

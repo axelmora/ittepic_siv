@@ -178,138 +178,57 @@
             </div>
             <div class="col s8 center-align card-panel #bdbdbd grey lighten-2"><div class="input-field">
               <div id="buscador">
-                <br>
-                <button class="btn orange darken-1 right-align z-depth-0 "  id="AgregarNoticiaBoton">
-                    <div class="text-orange"><i class="material-icons right">description</i>Nueva Noticia</div>
-                </button>
-                <div id="formulario1" style="display: none;">
+
                 <?php echo form_open('c_noticias/validar'); ?>
+                <?php foreach ($noticias as $item): ?>
+                  <br>&nbsp;
 
-                <br>&nbsp;
+                  <div class="rowsa">
+                    <input class="slide-up" type="text" name="tnoticia" id="tnoticia" value="<?php echo set_value('tnoticia'); echo   $item->titulo_n; ?>" placeholder="Introduce el titulo" /><label for="tnoticia">&nbsp;&nbsp;&nbsp;&nbsp;Titulo de la noticia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <div class="red-text left"><?php echo form_error('tnoticia'); ?></div>
+                  </div>
 
-                <div class="rowsa">
-                  <input class="slide-up" type="text" name="tnoticia" id="tnoticia" value="<?php echo set_value('tnoticia'); ?>" placeholder="Introduce el titulo" /><label for="tnoticia">&nbsp;&nbsp;&nbsp;&nbsp;Titulo de la noticia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                  <div class="red-text left"><?php echo form_error('tnoticia'); ?></div>
-                </div>
+                  <br>&nbsp;
+                  <br>&nbsp;
 
-                <br>&nbsp;
-                <br>&nbsp;
-
-                <div class="rowa">
-                  <textarea style="background:white; resize: none" rows="10" class="large-textarea" name="cnoticia" id="cnoticia" type="text" value="<?php echo set_value('cnoticia'); ?>" placeholder="Introduce el contenido de la noticia"></textarea>
-                  <div class="red-text left"><?php echo form_error('cnoticia'); ?></div>
-                </div>
-                <br>
-                <br>
-                <button class="btn orange darken-1 right-align z-depth-0 " type="submit">
-                  <div class="text-orange"><i class="material-icons right">description</i>Agregar noticia</div>
-                </button>
+                  <div class="rowa">
+                    <textarea style="background:white; resize: none" rows="10" class="large-textarea" name="cnoticia" id="cnoticia" type="text" value="<?php echo set_value('cnoticia');  ?>" placeholder="Introduce el contenido de la noticia"><?php echo    $item->titulo_n ; ?></textarea>
+                    <div class="red-text left"><?php echo form_error('cnoticia'); ?></div>
+                  </div>
+                  <br>
+                  <br>
+                  <button class="btn orange darken-1 right-align z-depth-0 " type="submit">
+                    <div class="text-orange"><i class="material-icons right">description</i>Agregar noticia</div>
+                  </button>
 
 
-                <br>&nbsp;
+                  <br>&nbsp;
+                <?php endforeach; ?>
                 <?= form_close() ?>
-              </div>
-                <br> &nbsp;
-                <?php
-                if (!$noticias) {
-                  ?>
-
-                  <div class="red-text">No hay noticias.</div>
-
-                <?php } else {
-                  ?>
-
-
-                  <table class="striped">
-                    <tr class=" grey darken-1 right-align z-depth-0 ">
-                      <td class="white-text">
-                        &nbsp;&nbsp;Actividad
-                      </td>
-                      <td class="white-text">
-                        Fecha de publicación
-                      </td>
-                      <td class="white-text center">
-                        Editar
-                      </td>
-                      <td class="white-text center">
-                        Eliminar
-                      </td>
-
-                    </tr>
-
-                    <?php foreach ($noticias as $item): ?>
-
-                      <tr class="white">
-                        <td >
-                          &nbsp;&nbsp;<?= $item->titulo_n; ?>
-                        </td>
-                        <td >
-                          &nbsp;&nbsp;<?= $item->fecha_noticia; ?>
-                        </td>
-                        <td class="center">
-                          <a href="<?php echo base_url(); ?>index.php/C_noticias/indexEditar/<?= $item->id_noticia; ?>">
-                          <input type="text" name="idnot" size="1" style="visibility: hidden"  value="<?= $item->id_noticia; ?>" id="idnot" />
-                          <button type="submit" style="background: transparent; border: 0; ">
-                          <i class="material-icons green-text">edit</i>
-                          </button>
-                        </td>
-                        <td class="center">
-                          <?= form_open(base_url() . 'index.php/c_noticias/delete') ?>
-                          <input type="text" name="idnot" size="1" style="visibility: hidden"  value="<?= $item->id_noticia; ?>" id="idnot" />
-                          <button type="submit" style="background: transparent; border: 0; ">
-                            <img src="<?php echo base_url(); ?>images/button-bg.png" width="0" height="0"  alt="submit" /><i class="material-icons red-text">delete</i>
-                          </button>
-
-                          <input type="text" name="idact" size="1" style="visibility: hidden"  value="" id="idact" />
-
-                          <?= form_close() ?>
-                        </td>
-                      </tr>
-                    <?php endforeach; ?>
-                    <?php
-                  }
-                  ?>
-                </table>
-                <br>&nbsp;
               </div></div>
 
             </div>
-
             <div class="col s2 right-align"><div class="input-field">
             </div>
-
           </div>
         </div>
         <!--   Icon Section   -->
-
       </div>
-
-
-
-
-
-
     </div>
-
-
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
     <p>&nbsp;</p>
   </div>
-
 </div>
 <br><br>
-
 <div class="section">
-
 </div>
 </div>
 </div>
 <footer class="page-footer black">
   <div class="container">
-
   </div>
   <div class="footer-copyright">
     <div>
@@ -324,17 +243,6 @@
 <script src="<?php echo base_url(); ?>js/materialize.js"></script>
 <script src="<?php echo base_url(); ?>js/init.js"></script>
 <script>
-$(document).ready(function(){
-    /*$("#hide").click(function(){
-        $("formulario1").hide();
-    });*/
-    $("#AgregarNoticiaBoton").click(function(){
-      //  $("#formulario1").show();
-        $("#formulario1")  .slideDown( "slow", function() {
-    // Animation complete.
-      });
-    });
-});
 </script>
 </body>
 </html>
