@@ -22,6 +22,34 @@ $(document).ready(function () {
         var a = jQuery.parseJSON(response.responseText);
         $('#id_participantes').attr('value', a.asesor[0].id);
         cargar_tabla(a);
+        /* -----  */
+        if($('#rfcrevisor1').length)
+        {
+          if ($('#rfcrevisor1').text()!="") {
+            $("#oficio_revisor1").show();
+            $("#oficio_revisor1").prop('required',true);
+          }else {
+            $("#oficio_revisor1").hide();
+            $("#oficio_revisor1").removeAttr('required');
+          }
+        }else {
+          $("#oficio_revisor1").hide();
+          $("#oficio_revisor1").removeAttr('required');
+        }
+        if($('#rfcrevisor2').length)
+        {
+          if ($('#rfcrevisor2').text()!="") {
+            $("#oficio_revisor2").show();
+            $("#oficio_revisor2").prop('required',true);
+          }else {
+            $("#oficio_revisor2").hide();
+            $("#oficio_revisor2").removeAttr('required');
+          }
+        }else {
+          $("#oficio_revisor2").hide();
+          $("#oficio_revisor2").removeAttr('required');}
+
+        /* ----- */
       },
       error: function ()
       {
@@ -185,7 +213,7 @@ function cargar_tabla(a) {
     });
   }else {
     if (a.user == 'jefeacademico') {
-          trHTML +='<tr><td colspan="2"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 1 asigando</center></td><td colspan="3"><center><a class="waves-effect orange waves-light btn modal-trigger"   data-target="modalexterno" href="#" onclick="abirventana1(1)"> <i class="large material-icons">add</i></a>  <a class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick="abirventana2(1)"> <i class="large material-icons">add</i></a></center></td><tr>';
+      trHTML +='<tr><td colspan="2"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 1 asigando</center></td><td colspan="3"><center><a class="waves-effect orange waves-light btn modal-trigger"   data-target="modalexterno" href="#" onclick="abirventana1(1)"> <i class="large material-icons">add</i></a>  <a class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick="abirventana2(1)"> <i class="large material-icons">add</i></a></center></td><tr>';
     }else{
       trHTML +='<tr><td colspan="5"><center style="color:red;"><i class="material-icons">error_outline</i> Actualmente no existe revisor 1 asigando</center></td><tr>';
     }
@@ -243,7 +271,7 @@ function abirventana1(op) {
   $('#agregar1').openModal();
 }
 function abirventana2(op) {
-//  $('#idopcionrevisor').val("2");
+  //  $('#idopcionrevisor').val("2");
   opcion=op;
   $('#agregar2').openModal();
 }
