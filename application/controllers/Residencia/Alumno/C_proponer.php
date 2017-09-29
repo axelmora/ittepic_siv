@@ -301,7 +301,7 @@ class C_proponer extends CI_Controller {
                                 $session_data = $this->session->userdata('logged_in');
                                 $dir = set_realpath('./uploads/residentes/' . $session_data['username'] . '/');
                                 //$dir = set_realpath('./uploads/residentes/10400312/');
-                               if (!is_dir($dir)) {
+                                if (!is_dir($dir)) {
                                   mkdir($dir, 0777, true); // el segundo parametro es para el permiso de mas amplio acceso posible
                                   //  mkdir($dir);
                                 }
@@ -386,36 +386,35 @@ class C_proponer extends CI_Controller {
 
                               private function enviar_correo($id_usuario, $to, $subject, $message) {
                                 //cargamos la libreria email de ci
-                                //    $this->load->library("email");
+                                $this->load->library("email");
                                 //configuracion para gmail
-                                /*     $configGmail = array(
-                                'protocol' => 'smtp',
-                                'smtp_host' => 'ssl://smtp.gmail.com',
-                                'smtp_port' => 465,
-                                'smtp_user' => 'avisosiv@ittepic.edu.mx',
-                                'smtp_pass' => 'sivittepic',
-                                'mailtype' => 'html',
-                                'charset' => 'utf-8',
-                                'newline' => "\r\n"
-                              );*/
-                              //cargamos la configuración para enviar con gmail
-                              /* $this->email->initialize($configGmail);
+                                $configGmail = array(
+                                  'protocol' => 'smtp',
+                                  'smtp_host' => 'ssl://smtp.gmail.com',
+                                  'smtp_port' => 465,
+                                  'smtp_user' => 'avisosiv@ittepic.edu.mx',
+                                  'smtp_pass' => 'sivittepic',
+                                  'mailtype' => 'html',
+                                  'charset' => 'utf-8',
+                                  'newline' => "\r\n"
+                                );
+                                //cargamos la configuración para enviar con gmail
+                                $this->email->initialize($configGmail);
+                                $this->email->from('avisosiv@ittepic.edu.mx', 'Sistema Integral de Vinculación');
+                                $this->email->to($to);
+                                $this->email->subject($subject);
+                                $this->email->message('<h2>' . $message . '</h2>');
+                                $this->email->send();
+                                $a = array(
+                                  'destinatario' => $id_usuario,
+                                  'asunto' => $subject,
+                                  'fecha' => date('Y-m-d'),
+                                );
+                                $this->m_historial->insertar_historial($a);
+                                //var_dump('Se envió');
+                                //
+                                //con esto podemos ver el resultado
+                                //var_dump($this->email->print_debugger());
+                              }
 
-                              $this->email->from('avisosiv@ittepic.edu.mx', 'Sistema Integral de Vinculación');
-                              $this->email->to($to);
-                              $this->email->subject($subject);
-                              $this->email->message('<h2>' . $message . '</h2>');
-                              $this->email->send();
-                              $a = array(
-                              'destinatario' => $id_usuario,
-                              'asunto' => $subject,
-                              'fecha' => date('Y-m-d'),
-                            );
-                            $this->m_historial->insertar_historial($a);*/
-                            //var_dump('Se envió');
-                            //
-                            //con esto podemos ver el resultado
-                            //var_dump($this->email->print_debugger());
-                          }
-
-                        }
+                            }
