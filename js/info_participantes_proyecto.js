@@ -22,7 +22,7 @@ $(document).ready(function () {
         var a = jQuery.parseJSON(response.responseText);
         $('#id_participantes').attr('value', a.asesor[0].id);
         cargar_tabla(a);
-        /* -----  */
+        /* ----- GENERACION DE OFICIO CAMPOS OCULTOS  */
         if($('#rfcrevisor1').length)
         {
           if ($('#rfcrevisor1').text()!="") {
@@ -48,7 +48,6 @@ $(document).ready(function () {
         }else {
           $("#oficio_revisor2").hide();
           $("#oficio_revisor2").removeAttr('required');}
-
         /* ----- */
       },
       error: function ()
