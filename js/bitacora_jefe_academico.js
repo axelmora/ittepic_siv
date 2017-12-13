@@ -42,9 +42,11 @@ $(document).ready(function () {
         //dictamen
         if (a.dictamen[0].jefe_academico == 't') {
           //$('#autorizacion_dictamen').attr('checked', 'checked');
+          $('#estado_dictamen').val(true);
           $('#autorizacion_dictamen').prop("checked", true);
         } else {
           //$('#autorizacion_dictamen').removeAttr('checked');
+            $('#estado_dictamen').val(false);
           $('#autorizacion_dictamen').prop("checked", false);
         }
 
@@ -180,7 +182,6 @@ $(document).ready(function () {
       complete: function (response)
       {
         //complete: this function is called when the form upload is completed.  //
-
         try {
           $('#info').attr('hidden', false);
           var a= jQuery.parseJSON(response.responseText);
@@ -200,9 +201,11 @@ $(document).ready(function () {
           //dictamen
           if (a.dictamen[0].jefe_academico == 't') {
             //$('#autorizacion_dictamen').attr('checked', 'checked');
+              $('#estado_dictamen').val(true);
             $('#autorizacion_dictamen').prop("checked", true);
           } else {
             //$('#autorizacion_dictamen').removeAttr('checked');
+                $('#estado_dictamen').val(false);
             $('#autorizacion_dictamen').prop("checked", false);
           }
 
@@ -275,7 +278,7 @@ $(document).ready(function () {
 
           var trHTML = '';
           $.each(a.archivos_asesor, function (i, item) {
-            trHTML += '<tr><td>' + a.archivos_asesor[i].nombre_archivo +
+            trHTML += '<tr><td>' +  saltoDelineaAchivos(a.archivos_asesor[i].nombre_archivo) +
             '</td><td>' + a.archivos_asesor[i].descripcion_archivo +
             '</td><td>' + tipo_documento_asesor(a.archivos_asesor[i].tipo_documento) +
             '</td><td>' + a.archivos_asesor[i].fecha_guardado_documento +
@@ -286,7 +289,7 @@ $(document).ready(function () {
           trHTML = '';
           $.each(a.archivos_residente, function (i, item) {
 
-            trHTML += '<tr><td>' + a.archivos_residente[i].nombre_archivo +
+            trHTML += '<tr><td>' +  saltoDelineaAchivos(a.archivos_residente[i].nombre_archivo) +
             '</td><td>' + a.archivos_residente[i].descripcion_archivo +
             '</td><td>' + tipo_documento_residente(a.archivos_residente[i].tipo_documento) +
             '</td><td>' + estado(a.archivos_residente[i].estado) +
@@ -299,11 +302,11 @@ $(document).ready(function () {
 
           trHTML = '';
           $.each(a.archivos_revision_asesor, function (i, item) {
-            trHTML += '<tr><td>' + a.archivos_revision_asesor[i].nombre_archivo +
+            trHTML += '<tr><td>' +  saltoDelineaAchivos(a.archivos_revision_asesor[i].nombre_archivo) +
             '</td><td>' + a.archivos_revision_asesor[i].descripcion_archivo +
             '</td><td>' + tipo_documento_asesor(a.archivos_revision_asesor[i].tipo_documento) +
             '</td><td>' + a.archivos_revision_asesor[i].fecha_guardado_documento +
-            '</td><td>' + a.archivos_revision_asesor[i].nombre_archivo_alumno +
+            '</td><td>' +  saltoDelineaAchivos(a.archivos_revision_asesor[i].nombre_archivo_alumno) +
             '</td><td style="text-align: center;"><a href="' + a.base_url + '' + a.archivos_revision_asesor[i].ruta_archivo_asesor + '"><img src="' + a.base_url + 'images/download_tiny.png"></a>' +
             '</td></tr>';
           });
@@ -341,34 +344,35 @@ $(document).ready(function () {
 
   $('#autorizacion_dictamen').change(function (event) {
     event.preventDefault();
-    //var titu = $(this).attr('checked');
-    var ante_id = $("#anteproyecto_id").val();
-    var nc = $("#nc").val();
-    if ($(this).is(':checked')) {
-      aut = 'TRUE';
-    } else {
-      aut = 'FALSE';
-    }
-    var base = $('#anteproyecto_id').attr('base');
-
-    jQuery.ajax({
-      type: "POST",
-      url: base + "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/actualizar_dictamen",
-      dataType: 'json',
-      data: {autorizacion: aut, anteproyecto_id: ante_id, numero_control: nc},
-      success: function (res) {
-
-        alert(res.msj);
-        //alert('Se actualizó la opción de dictamen.');
-
-      },
-      error: function (XMLHttpRequest, textStatus, errorThrown) {
-        alert(textStatus);
+    if ($('#estado_dictamen').val()=="true") {
+      $('#autorizacion_dictamen').prop("checked", true);
+      alert("NO ES POSIBLE DESAUTORIZAR EL DICTAMEN");
+    }else {
+      //var titu = $(this).attr('checked');
+      var ante_id = $("#anteproyecto_id").val();
+      var nc = $("#nc").val();
+      if ($(this).is(':checked')) {
+        aut = 'TRUE';
+      } else {
+        aut = 'FALSE';
       }
-    });
-
+      var base = $('#anteproyecto_id').attr('base');
+      jQuery.ajax({
+        type: "POST",
+        url: base + "index.php/Residencia/JefeAcademico/c_bitacora_avance_academico/actualizar_dictamen",
+        dataType: 'json',
+        data: {autorizacion: aut, anteproyecto_id: ante_id, numero_control: nc},
+        success: function (res) {
+          alert(res.msj);
+          $('#estado_dictamen').val(true);
+          //alert('Se actualizó la opción de dictamen.');
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+          alert(textStatus);
+        }
+      });
+    }
   });
-
 });
 
 function tipo_documento_asesor(documento) {
