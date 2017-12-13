@@ -307,7 +307,7 @@ class C_proponer extends CI_Controller {
                                 }
                                 $config['upload_path'] = $dir;
                                 $config['allowed_types'] = 'doc|docx|pdf';
-                                $config['max_size'] = 10240;
+                                $config['max_size'] = 100240;
                                 $this->load->library('upload', $config);
                                 if (!$this->upload->do_upload('ruta_archivo')) {//userfile es el nombre del form field
                                   //return $data = array('ruta' => 'hay error');
