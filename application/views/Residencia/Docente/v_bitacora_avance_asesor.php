@@ -297,7 +297,7 @@
                         <br>
                     </div>
                     <div class="col s6">
-                        <a id="descargar_formato" href=""></a>
+                        <a id="descargar_formato" href="<?php  base_url()?>uploads/docentes/Formato_seguimiento_de_revisión.docx"></a>
                     </div>
                 </div>
                 <br>

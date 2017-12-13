@@ -78,7 +78,6 @@ class M_coordi_res extends CI_Model {
     and A.departamento_anteproyecto='".$departamento."';
     ");
       if ($query1->num_rows() > 0) {
-
         foreach ($query1->result() as $row)
         {
           $query2 =  $DB2->query("SELECT * FROM DOCENTES WHERE RFC='".$row->id_docente."' AND DEPARTAMENTO !='".$departamento."';");
@@ -88,11 +87,12 @@ class M_coordi_res extends CI_Model {
               $rfcdocentescompartidos[] =(object) array( "rfc" => $row1->rfc, "nombres" => $row1->nombres, "apellidos" => $row1->apellidos);
             }
           } else {
-            //  echo "2<BR>";
           }
         }
         if (count($query1) > 0) {
-          return $rfcdocentescompartidos;
+          if (isset($rfcdocentescompartidos)) {
+            return $rfcdocentescompartidos;
+          }
         }
         else {
           return false;
