@@ -5,19 +5,7 @@ $config['base_url'] = 'http://localhost/siv/';
 $config['index_page'] = 'index.php';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';
-
 $config['language']	= 'spanish';
-/*
-|--------------------------------------------------------------------------
-| Default Character Set
-|--------------------------------------------------------------------------
-|
-| This determines which character set is used by default in various methods
-| that require a character set to be provided.
-|
-| See http://php.net/htmlspecialchars for a list of supported charsets.
-|
-*/
 $config['charset'] = 'UTF-8';
 /*
 |--------------------------------------------------------------------------
