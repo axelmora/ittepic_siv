@@ -152,7 +152,7 @@
                   <br>
                   <br>
                   Asesor: <label id="a">Sin asesor</label>&nbsp;&nbsp;&nbsp;&nbsp;
-                   <!-- class modal-trigger -->
+                  <!-- class modal-trigger -->
                   <a id="asesor" href="#modal_seleccionar_asesor-revisores" class="caro1 waves-effect  modal-trigger  tooltipped" data-position="top" data-delay="50" data-tooltip="Asignar asesor">
                     <img src="<?php echo base_url(); ?>images/queue_tiny.png">
                   </a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -162,9 +162,10 @@
                   <br>
                   <br>
                   <b>¿Desea asignar revisores?</b><br><br>
+                  <input type="text" hidden name="carol" id="eliegirsi_no" value="">
                   <a style="margin-bottom:15px;" class="btn waves-effect orange waves-light" id="revisoresboton">SI  <i class="material-icons right">person_add</i></a>
                   <a style="margin-bottom:15px;" class="btn waves-effect red waves-light" id="revisoresboton2">NO <i class="material-icons right">do_not_disturb_alt
-</i></a>
+                  </i></a>
                   <div id="revisores" style="display: none;">
                     Revisor 1: <label id="r1">Sin revisor</label>&nbsp;&nbsp;&nbsp;&nbsp;
                     <a id="revisor1" href="#modal_seleccionar_asesor-revisores" class=" waves-effect modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="Asignar revisor">
@@ -208,11 +209,11 @@
                         <input id="rfc_revisor1" name="rfc_revisor1" type="text" value="0" bandera="0" nombres="" hidden="true">
                         <input id="rfc_revisor2" name="rfc_revisor2" type="text" value="0" bandera="0" nombres="" hidden="true">
                         <div id="continuar" style="display:none">
-                        <a id="btn_asignar" class="btn orange waves-effect darken-1 right-align z-depth-0" onclick="btn_asignar('<?php echo $id_participantes; ?>','<?php echo base_url();?>');">
-                          GUARDAR</a>
-                          <a id="cancelar_asignacion" class="btn red waves-effect darken-1 right-align z-depth-0">
-                            CANCELAR</a>
-                          </div>
+                          <a id="btn_asignar" class="btn orange waves-effect darken-1 right-align z-depth-0" onclick="btn_asignar('<?php echo $id_participantes; ?>','<?php echo base_url();?>');">
+                            GUARDAR</a>
+                            <a id="cancelar_asignacion" class="btn red waves-effect darken-1 right-align z-depth-0">
+                              CANCELAR</a>
+                            </div>
                           </form>
 
                         </div>
@@ -371,14 +372,21 @@
                   $(document).ready(function(){
                     $("#revisoresboton").click(function(){
                       $("#revisores").slideToggle( "fast", function() {
+                        $("#eliegirsi_no").val(true);
                         $("#continuar").show();
                       });
                     });
                     $("#revisoresboton2").click(function(){
+                      $("#eliegirsi_no").val(false);
+                      $('#rfc_revisor2').val("0");
+                      $('#rfc_revisor1').val("0");
                       $("#revisores").hide();
                       $("#continuar").show();
                     });
                     $("#cancelar_asignacion").click(function(){
+                      $("#eliegirsi_no").val(false);
+                      $('#rfc_revisor2').val(0);
+                      $('#rfc_revisor1').val(0);
                       $("#revisores").hide();
                       $("#continuar").hide();
                     });
