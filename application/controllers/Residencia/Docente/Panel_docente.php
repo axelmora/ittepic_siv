@@ -122,7 +122,7 @@ private $error='';
         }
         $config['upload_path'] = $dir; //'./uploads/docentes/'.$rfc;
         $config['allowed_types'] = 'doc|docx|pdf';
-        $config['max_size'] = 10240;
+        $config['max_size'] = 200000;
 
         $this->load->library('upload', $config);
 
