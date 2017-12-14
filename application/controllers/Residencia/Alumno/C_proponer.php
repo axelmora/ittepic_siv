@@ -51,7 +51,6 @@ class C_proponer extends CI_Controller {
       redirect('logeo', 'refresh');
     }
   }
-
   public function inicio($id_vacante) {
     if ($this->session->userdata('logged_in')) {
       $session_data = $this->session->userdata('logged_in');
