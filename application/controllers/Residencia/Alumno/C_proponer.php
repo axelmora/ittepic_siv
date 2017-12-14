@@ -20,7 +20,9 @@ class C_proponer extends CI_Controller {
     if ($this->session->userdata('logged_in')) {
   /*    echo ini_get('upload_max_filesize').'<br/>';
       echo ini_get("post_max_size");
-      phpinfo();*/
+      phpinfo();
+      echo CI_VERSION;
+      */
       $session_data = $this->session->userdata('logged_in');
       $data['username'] = $session_data['username'];
       $data['nombre'] = $session_data['nombre'];
