@@ -222,7 +222,7 @@ $(document).ready(function () {
             $('#panel_archivos2').hide();
           }
           $('#archivosadjuntadoscantidad').val(cantidadarchivos);
-          $('#limite_archivos').html("Archivos disponibles para adjuntar "+cantidadarchivos+" de 3");
+          $('#limite_archivos').html("Archivos adjuntados "+cantidadarchivos+" de 3");
           $('#archivos_asesor tbody').html(trHTML);
           //alert(response.responseText);
         } else {
@@ -597,7 +597,7 @@ function recargar_archivos_asesor(id, base) {
           $('#panel_archivos2').hide();
         }
         $('#archivosadjuntadoscantidad').val(cantidadarchivos);
-        $('#limite_archivos').html("Archivos disponibles para adjuntar "+cantidadarchivos+" de 3");
+        $('#limite_archivos').html("Archivos adjuntados "+cantidadarchivos+" de 3");
 
         $('#archivos_asesor tbody').html(trHTML);
 
