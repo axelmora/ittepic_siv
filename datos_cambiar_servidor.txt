@@ -1,0 +1,2 @@
+post_max_size 60MB 
+upload_max_filesize =60MB
