@@ -186,32 +186,28 @@ $(document).ready(function () {
         });                                                                                                                                                                             //nombre_archivo,id_archivo_alumno,id_asesor,tipo_doc,estado,base/
 
         $('#tabla_asesorado tbody').html(trHTML);
-
         $('#btn_agregar_revision').attr('idp', a.id_participantes);
         $('#btn_agregar_revision').attr('base', a.base_url);
         $('#btn_agregar_archivo').attr('idp', a.id_participantes);
         $('#btn_agregar_archivo').attr('base', a.base_url);
-
+        //    console.log("y el avanze?"+a.avance[0].estado );
         if (a.avance[0].estado > 3) {
           $('#doc_rev_ase').attr('hidden', false);
           trHTML = '';
-
           $.each(a.archivos_revision_asesor, function (i, item) {
             trHTML += '<tr><td>' + saltoDelineaAchivos(a.archivos_revision_asesor[i].nombre_archivo) +
-            '</td><td>s' + tipo_documento_asesor(a.archivos_revision_asesor[i].tipo_documento) +
+            '</td><td>' + (tipo_documento_asesor(a.archivos_revision_asesor[i].tipo_documento)) +
             '</td><td>' + a.archivos_revision_asesor[i].fecha_guardado_documento +
-            '</td><td style="text-align: center;">' + a.archivos_revision_asesor[i].nombre_archivo_alumno +
+            '</td><td style="text-align: center;">' + saltoDelineaAchivos(a.archivos_revision_asesor[i].nombre_archivo_alumno) +
             '</td><td style="text-align: center;"><a href="' + a.base_url + '' + a.archivos_revision_asesor[i].ruta_archivo_asesor + '" download target="_blank"><img src="' + a.base_url + 'images/download_tiny.png"></a>' +
             '</td><td style="text-align: center;"><a href="#!" onclick="modal_detalles_revisiones_asesor(\'' + a.archivos_revision_asesor[i].nombre_archivo + '\',\'' + tipo_documento_asesor(a.archivos_revision_asesor[i].tipo_documento) + '\',\'' + a.archivos_revision_asesor[i].descripcion_archivo + '\',\'' + a.archivos_revision_asesor[i].fecha_guardado_documento + '\',\'' + a.base_url + '' + a.archivos_revision_asesor[i].ruta_archivo_asesor + '\',\'' + a.archivos_revision_asesor[i].nombre_archivo_alumno + '\');"><img src="' + a.base_url + 'images/detalles_tiny.png"></a>' +
             '</td></tr>';
           });
           //
-
           $('#archivos_rev_asesor tbody').html(trHTML);
-
           $('#doc_asesor').attr('hidden', false);
           trHTML = '';
-
+          var cantidadarchivos=0;
           $.each(a.archivos_asesor, function (i, item) {
             trHTML += '<tr><td>' + saltoDelineaAchivos(a.archivos_asesor[i].nombre_archivo) +
             '</td><td>' + tipo_documento_asesor(a.archivos_asesor[i].tipo_documento) +
@@ -219,27 +215,29 @@ $(document).ready(function () {
             '</td><td style="text-align: center;"><a href="' + a.base_url + '' + a.archivos_asesor[i].ruta_archivo_asesor + '" target="_blank" download><img src="' + a.base_url + 'images/download_tiny.png"></a>' +
             '</td><td style="text-align: center;"><a href="#!" onclick="modal_detalles_asesor(\'' + a.archivos_asesor[i].nombre_archivo + '\',\'' + tipo_documento_asesor(a.archivos_asesor[i].tipo_documento) + '\',\'' + a.archivos_asesor[i].descripcion_archivo + '\',\'' + a.archivos_asesor[i].fecha_guardado_documento + '\',\'' + a.base_url + '' + a.archivos_asesor[i].ruta_archivo_asesor + '\');"><img src="' + a.base_url + 'images/detalles_tiny.png"></a>' +
             '</td></tr>';
+            cantidadarchivos++;
           });
-
+          if(cantidadarchivos>=3){
+            $('#panel_archivos').hide();
+            $('#panel_archivos2').hide();
+          }
+          $('#archivosadjuntadoscantidad').val(cantidadarchivos);
+          $('#limite_archivos').html("Archivos disponibles para adjuntar "+cantidadarchivos+" de 3");
           $('#archivos_asesor tbody').html(trHTML);
           //alert(response.responseText);
         } else {
           $('#doc_rev_ase').attr('hidden', true);
           $('#doc_asesor').attr('hidden', true);
         }
-
       },
       error: function ()
       {
         alert('Error1');
       }
     };
-
     $("#frm_sel_asesorado").ajaxForm(options);
   });
-
   $('#btn_agregar_revision').click(function () {
-
     var options = {
       beforeSend: function ()
       {
@@ -309,11 +307,9 @@ $(document).ready(function () {
       complete: function (response)
       {
         //complete: this function is called when the form upload is completed.
-
         $('#userfile').val('');
         $('#descripcion_archivo').val('');
         alert(response.responseText);
-
         recargar_archivos_asesor($('#btn_agregar_archivo').attr('idp'), $('#btn_agregar_archivo').attr('base'));
         recargar_avance($('#ncontrol').attr('value'), $('#btn_agregar_archivo').attr('base'));
         $('#modal_adjuntar_archivo_asesor').closeModal();
@@ -323,19 +319,14 @@ $(document).ready(function () {
         alert('Error3');
       }
     };
-
     $("#frm_agregar_archivo").ajaxForm(options);
   });
-
   $('#btn_salir_modal_agregar_archivo').click(function () {
     $('#modal_adjuntar_archivo_asesor #userfile').val('');
     $('#modal_adjuntar_archivo_asesor #descripcion_archivo').val('');
     //$('#modal_adjuntar_archivo_asesor').closeModal();
-
   });
-
 });
-
 function modal_detalles_asesorado(nombre, tipo_archivo, descripcion, estado, fecha_guardado, fecha_revision, descargar) {
 
   switch (tipo_archivo) {
@@ -591,6 +582,7 @@ function recargar_archivos_asesor(id, base) {
       {
         //var a = jQuery.parseJSON(res.responseText);
         var trHTML = '';
+        var cantidadarchivos=0;
         $.each(res.archivos_asesor, function (i, item) {
           trHTML += '<tr><td>' + res.archivos_asesor[i].nombre_archivo +
           '</td><td>' + tipo_documento_asesor(res.archivos_asesor[i].tipo_documento) +
@@ -598,7 +590,14 @@ function recargar_archivos_asesor(id, base) {
           '</td><td style="text-align: center;"><a href="' + base + '' + res.archivos_asesor[i].ruta_archivo_asesor + '" target="_blank" download><img src="' + base + 'images/download_tiny.png"></a>' +
           '</td><td style="text-align: center;"><a href="#!" onclick="modal_detalles_asesor(\'' + res.archivos_asesor[i].nombre_archivo + '\',\'' + tipo_documento_asesor(res.archivos_asesor[i].tipo_documento) + '\',\'' + res.archivos_asesor[i].descripcion_archivo + '\',\'' + res.archivos_asesor[i].fecha_guardado_documento + '\',\'' + base + '' + res.archivos_asesor[i].ruta_archivo_asesor + '\');"><img src="' + base + 'images/detalles_tiny.png"></a>' +
           '</td></tr>';
+          cantidadarchivos++;
         });
+        if(cantidadarchivos>=3){
+          $('#panel_archivos').hide();
+          $('#panel_archivos2').hide();
+        }
+        $('#archivosadjuntadoscantidad').val(cantidadarchivos);
+        $('#limite_archivos').html("Archivos disponibles para adjuntar "+cantidadarchivos+" de 3");
 
         $('#archivos_asesor tbody').html(trHTML);
 

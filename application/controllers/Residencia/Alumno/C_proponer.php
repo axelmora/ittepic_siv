@@ -178,7 +178,6 @@ class C_proponer extends CI_Controller {
                     'numero_control' => $session_data['username'],
                     'atencion_medica' => mb_strtoupper($this->input->post('atencion_medica'), 'UTF-8'),
                     'numero_afiliacion' => mb_strtoupper($this->input->post('numero_afiliacion'), 'UTF-8'));
-
                     $this->m_propuesta->insertar_atencion_medica($atencion);
                     //AQUI
                     $this->correo($data['id_carrera']);

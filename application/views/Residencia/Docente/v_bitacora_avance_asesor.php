@@ -9,11 +9,8 @@
 
   <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
   <link href="<?php echo base_url(); ?>css/materializesinselect.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="<?php echo base_url(); ?>css/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-
   <link href="<?php echo base_url(); ?>css/flow.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
@@ -219,7 +216,6 @@
                 <input id="id_asesor_revisor" name="id_asesor_revisor" type="text" value="" hidden="true">
                 <input id="ncontrol2" name="ncontrol2" type="text" value="" hidden="true"/>
               </div>
-
             </div>
             <div class="row">
               <div class="input-field col s6">
@@ -236,13 +232,19 @@
                 <label>Adjuntar archivo:</label>
                 <br>
                 <br>
-                <input type="file" accept=".pdf,.docx,.doc" name="userfile" required/>
+                <input type="text" id="archivosadjuntadoscantidad" value="0" hidden>
+
+                <div class="" id="panel_archivos" >
+                  <input type="file" accept=".pdf,.docx,.doc" name="userfile" required/>
+                </div>
+                <p id="limite_archivos"></p>
                 <br>
               </div>
             </div>
             <div class="row center">
-              <button id ="btn_agregar_archivo" class="btn orange waves-effect darken-1 right-align z-depth-0" idp="" base="">
-                GUARDAR</button>
+              <div class="" id="panel_archivos2" >
+                <button id ="btn_agregar_archivo" class="btn orange waves-effect darken-1 right-align z-depth-0" idp="" base="">
+                  GUARDAR</button>              </div>
               </div>
               <?= form_close() ?>
             </div>
@@ -274,7 +276,6 @@
             <div class="modal-content">
               <h4>Revisión de: <span id="nombre_archivo_r"></span></h4>
               <?= form_open_multipart(base_url() . 'index.php/Residencia/Docente/c_bitacora_avance_docente/agregar_revision_asesor', array('id' => 'frm_revision')) ?>
-
               <div class="row">
                 <div class="input-field col s12">
                   <textarea id="descripcion_archivo_revision" name="descripcion_archivo_revision" value ="" oninput="maxLengthCheck(this)" minlength="1" maxlength="300" length="300" class="materialize-textarea" required></textarea>
@@ -282,7 +283,6 @@
                 </div>
               </div>
               <div class="row">
-
                 <input id="id_archivo_alu" name = "id_archivo_alu" type="text" value="" hidden="true"/>
                 <input id="tipo_documento_revision" name="tipo_documento_revision" type="text" value="" hidden="true"/>
                 <input id="id_asesor" name="id_asesor" type="text" value="" hidden="true"/>
