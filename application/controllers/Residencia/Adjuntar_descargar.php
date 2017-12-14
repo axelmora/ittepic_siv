@@ -51,7 +51,7 @@ class Adjuntar_descargar extends CI_Controller {
     }
     $config['upload_path'] = $dir;
     $config['allowed_types'] = 'doc|docx|pdf';
-    $config['max_size'] = 50000;
+    $config['max_size'] = 100000;
     $this->load->library('upload', $config);
     if (!$this->upload->do_upload('userfile')) {//userfile es el nombre del form field
       $error = array('error' => $this->upload->display_errors());
