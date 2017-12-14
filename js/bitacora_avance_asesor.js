@@ -1,3 +1,11 @@
+function saltoDelineaAchivos(cadena) {
+  var resultado = '';
+  while (cadena.length > 0) {
+    resultado += cadena.substring(0, 15) + '<br>';
+    cadena = cadena.substring(15);
+  }
+  return resultado;
+}
 $(document).ready(function () {
   //v_bitacora_avance_asesor
   $('#revision_anteproyecto').click(function () {
@@ -43,7 +51,6 @@ $(document).ready(function () {
       $('#modal_agregar_revision #tipo_documento_revision').attr('value', 'FER');
       break;
     }
-
     $('#modal_agregar_revision').openModal();
   });
 
@@ -167,7 +174,7 @@ $(document).ready(function () {
           var nombrearchivo="";
           if(a.archivos_residente[i].nombre_archivo.length > 15)  nombrearchivo= a.archivos_residente[i].nombre_archivo.substring(0,15);
 
-          trHTML += '<tr><td>' + nombrearchivo +
+          trHTML += '<tr><td>' + saltoDelineaAchivos(nombrearchivo) +
           '</td><td>' + tipo_documento_residente(a.archivos_residente[i].tipo_documento) +
           '</td><td>' + estado(a.archivos_residente[i].estado) +
           '</td><td>' + a.archivos_residente[i].fecha_guardado_documento +
@@ -190,7 +197,7 @@ $(document).ready(function () {
           trHTML = '';
 
           $.each(a.archivos_revision_asesor, function (i, item) {
-            trHTML += '<tr><td>' + a.archivos_revision_asesor[i].nombre_archivo +
+            trHTML += '<tr><td>' + saltoDelineaAchivos(a.archivos_revision_asesor[i].nombre_archivo) +
             '</td><td>s' + tipo_documento_asesor(a.archivos_revision_asesor[i].tipo_documento) +
             '</td><td>' + a.archivos_revision_asesor[i].fecha_guardado_documento +
             '</td><td style="text-align: center;">' + a.archivos_revision_asesor[i].nombre_archivo_alumno +
@@ -206,7 +213,7 @@ $(document).ready(function () {
           trHTML = '';
 
           $.each(a.archivos_asesor, function (i, item) {
-            trHTML += '<tr><td>' + a.archivos_asesor[i].nombre_archivo +
+            trHTML += '<tr><td>' + saltoDelineaAchivos(a.archivos_asesor[i].nombre_archivo) +
             '</td><td>' + tipo_documento_asesor(a.archivos_asesor[i].tipo_documento) +
             '</td><td>' + a.archivos_asesor[i].fecha_guardado_documento +
             '</td><td style="text-align: center;"><a href="' + a.base_url + '' + a.archivos_asesor[i].ruta_archivo_asesor + '" target="_blank" download><img src="' + a.base_url + 'images/download_tiny.png"></a>' +
@@ -514,7 +521,6 @@ function agregar_revision(nombre_archivo, id_archivo_alumno, id_asesor, tipo_doc
       //                    $('#modal_agregar_revision #estado_anteproyecto #A').attr('selected', true);
       //                    break;
       default:
-
       break;
     }
     break;
@@ -532,10 +538,8 @@ function agregar_revision(nombre_archivo, id_archivo_alumno, id_asesor, tipo_doc
     $('#modal_agregar_revision #tipo_documento_revision').attr('value', 'FER');
     break;
   }
-
   $('#modal_agregar_revision').openModal();
 }
-
 function recargar_archivos_asesorado(id, base) {
   jQuery.ajax({
     type: "POST",
