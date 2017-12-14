@@ -18,6 +18,8 @@ class C_proponer extends CI_Controller {
   }
   public function index() {
     if ($this->session->userdata('logged_in')) {
+      echo ini_get('upload_max_filesize').'<br/>';
+      echo ini_get("post_max_size");
       $session_data = $this->session->userdata('logged_in');
       $data['username'] = $session_data['username'];
       $data['nombre'] = $session_data['nombre'];
@@ -41,7 +43,6 @@ class C_proponer extends CI_Controller {
       if ($tmp == null) {
         redirect('C_info_usuarios/alumno');
       }
-
       //cargamos la vista y el array data
       $this->load->view('Residencia/Alumno/v_proponer', $data);
     } else {
@@ -307,7 +308,7 @@ class C_proponer extends CI_Controller {
                                 }
                                 $config['upload_path'] = $dir;
                                 $config['allowed_types'] = 'doc|docx|pdf';
-                                $config['max_size'] = 100240;
+                                $config['max_size'] = 100000;
                                 $this->load->library('upload', $config);
                                 if (!$this->upload->do_upload('ruta_archivo')) {//userfile es el nombre del form field
                                   //return $data = array('ruta' => 'hay error');
