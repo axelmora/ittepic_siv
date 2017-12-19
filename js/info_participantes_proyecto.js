@@ -247,9 +247,11 @@ function cargar_tabla(a) {
     }
     trHTML += '<tr><td>Asesor externo' +
     '</td><td id="asxnombre">' + a.asesore[i].nombre +
-    '</td><td>' + a.asesore[i].correo +
-    '</td><td colspan="2"><a style="display:'+valorboton+'"  class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick="editarasesorexterno(\'' + a.asesore[i].asesor_externopk + '\',\'' + a.asesore[i].nombre + '\')"> <i class="large material-icons">edit</i>EDITAR NOMBRE</a>' +
-    '</td></tr>';
+    '</td><td>' + a.asesore[i].correo;
+    if (a.user == 'jefeacademico') {
+      trHTML +=  '</td><td colspan="2"><a style="display:'+valorboton+'"  class="waves-effect orange waves-light btn modal-trigger"  data-target="modalexterno" href="#" onclick="editarasesorexterno(\'' + a.asesore[i].asesor_externopk + '\',\'' + a.asesore[i].nombre + '\')"> <i class="large material-icons">edit</i>EDITAR NOMBRE</a>' +
+      '</td></tr>';
+    }
   });
   $('#tabla_participantes_proy tbody').html(trHTML);
 }
