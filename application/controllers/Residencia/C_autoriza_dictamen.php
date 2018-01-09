@@ -1,11 +1,4 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  * Description of C_banco_proyectos
  *
@@ -20,7 +13,6 @@ class C_autoriza_dictamen extends CI_Controller {
         $this->load->model('Residencia/m_dictamen');
         $this->load->helper(array('form', 'url'));
     }
-
     public function index() {
         if ($this->session->userdata('perfil') == FALSE) {
             redirect(base_url() . 'index.php/logeo');
@@ -100,18 +92,26 @@ class C_autoriza_dictamen extends CI_Controller {
             $data['dictamen'] = $this->m_dictamen->dictamenes2('jefe_academico', $departamento);
             $data['s']=0;
             $this->load->view('Residencia/v_autorizacion_dictamen', $data);
+        }else {
+          if ($this->session->userdata('perfil') == 'presidenteacademia') {
+              $data['dictamen'] = $this->m_dictamen->dictamenes3('presidente_academia', $departamento, $carrera);
+              $data['s']=0;
+              $this->load->view('Residencia/v_autorizacion_dictamen', $data);
+          }else {
+            if ($this->session->userdata('perfil') == 'presidenteacademia') {
+                $data['dictamen'] = $this->m_dictamen->dictamenes3('presidente_academia', $departamento, $carrera);
+                $data['s']=0;
+                $this->load->view('Residencia/v_autorizacion_dictamen', $data);
+            }else {
+              if ($this->session->userdata('perfil') == 'directivo') {
+                  $data['dictamen'] = $this->m_dictamen->dictamenes('subdirector_academico');
+                  $data['s']=0;
+                  $this->load->view('Residencia/v_autorizacion_dictamen', $data);
+              }else {
+                    $this->load->view('notienespermisos');
+              }
+            }
+          }
         }
-        if ($this->session->userdata('perfil') == 'presidenteacademia') {
-            $data['dictamen'] = $this->m_dictamen->dictamenes3('presidente_academia', $departamento, $carrera);
-            $data['s']=0;
-            $this->load->view('Residencia/v_autorizacion_dictamen', $data);
-        }
-        if ($this->session->userdata('perfil') == 'directivo') {
-            $data['dictamen'] = $this->m_dictamen->dictamenes('subdirector_academico');
-            $data['s']=0;
-            $this->load->view('Residencia/v_autorizacion_dictamen', $data);
-        }
-        $this->load->view('notienespermisos');
     }
-
 }
