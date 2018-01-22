@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 /**
- * 
+ *
  */
 class C_alumnos extends CI_Controller {
 
@@ -18,16 +18,13 @@ class C_alumnos extends CI_Controller {
 
         if ($this->session->userdata('perfil') == FALSE) {
             redirect(base_url() . 'index.php/logeo');
+        }else {
+          if ($this->session->userdata('perfil') == 'jefevinculacion' || $this->session->userdata('perfil') == 'jefeservicio') {
+              $this->load->view('v_alumnos');
+          }else {
+              $this->load->view('notienespermisos');
+          }
         }
-        if ($this->session->userdata('perfil') == 'jefevinculacion' || $this->session->userdata('perfil') == 'jefeservicio') {
-            $this->load->view('v_alumnos');
-        }
-
-        $this->load->view('notienespermisos');
-
-
-
-
         //--------------------------------------------------------------------------------------------------------------------
     }
 
