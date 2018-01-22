@@ -48,7 +48,7 @@
           <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
         </h1>
         <div class="right-align"><a href="<?php echo base_url();?>index.php/c_info_usuarios/alumno">Mi usuario<img src="<?php echo base_url(); ?>images/perm_identity_tiny.png"></a></div>
-        <div class="right-align"> Bienvenido (a): <?php echo $nombre; ?>
+        <div class="right-align"> Bienvenido (a): <?php echo mb_convert_encoding($nombre, 'Windows-1252'); ?>
           <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
           <div class="social">
             <ul>
@@ -122,9 +122,6 @@
 
         </ul>
       </div>
-
-
-
       <?php
     }
     ?>

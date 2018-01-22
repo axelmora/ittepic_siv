@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>SIV :: ITTEPIC</title>
-        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.min.js"></script>
 
@@ -56,11 +56,11 @@
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <header id="branding" role="banner">
-                    <h1 id="site-title"> 
+                    <h1 id="site-title">
                         <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                         <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo $nombre; ?>  
-                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo mb_convert_encoding($nombre, 'Windows-1252'); ?>
+                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
                     <div class="social">
                         <ul>
                             <li><a href="#" target="_blank"><img src="<?php echo base_url(); ?>images/icon-facebook.png" alt="Facebook" /></a></li>
@@ -95,15 +95,15 @@
                                 <li><a href="#">Centro de Idiomas</a></li>
                                 <li><a href="#">Servicio Externo</a></li>
                                 <li><a href="#">Visitas a Empresas</a></li>
-                                
+
                             </ul>
                         </div>
 
                     </nav>
-                    <!-- #access --> 
+                    <!-- #access -->
                 </header>
                 <!-- #branding -->
-                <?php if ($asesor && $revisor1 && $revisor2 && $jefe) { ?> 
+                <?php if ($asesor && $revisor1 && $revisor2 && $jefe) { ?>
                     <br>
                     <br>
                     <h3 align="center">Participantes de tu proyecto</h3>
@@ -111,38 +111,38 @@
                     <div id="main" class="container-fluid" align="center">
                         <div align="center">
                             <div class="row">
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Asesor</b>
                                 </div>
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Revisor 1</b>
                                 </div>
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Revisor 2</b>
-                                </div> 
+                                </div>
                                 <br>
                             </div>
                             <div class="row">
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Nombre:</b> <?php echo $asesor_nombre .' '. $asesor_apellido; ?>
                                 </div>
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Nombre:</b> <?php echo $revisor1_nombre .' '. $revisor1_apellido; ?>
                                 </div>
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Nombre:</b> <?php echo $revisor2_nombre .' '. $revisor2_apellido; ?>
-                                </div> 
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Correo:</b> <?php echo $asesor_correo; ?>
                                 </div>
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Correo:</b> <?php echo $revisor1_correo; ?>
                                 </div>
-                                <div class="col-sm-4"> 
+                                <div class="col-sm-4">
                                     <b>Correo:</b> <?php echo $revisor2_correo; ?>
-                                </div> 
+                                </div>
                             </div>
                         <?php } else { ?>
                             <br>
@@ -154,30 +154,30 @@
                             <br>
                             <br>
                         <div class="row">
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                             </div>
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                                 <b>Jefe Académico</b>
                             </div>
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                             </div>
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                                 <b>Nombre: </b> <?php echo $jefe_nombre; ?>
                             </div>
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                             </div>
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                                 <b>Correo: </b> <?php echo $jefe_correo; ?>
                             </div>
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-4">
                             </div>
                         </div>
                     </div>

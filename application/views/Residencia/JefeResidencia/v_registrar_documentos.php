@@ -99,7 +99,7 @@
                   ?>
                   <form>
                     <tr>
-                      <td><?= $value->numero_control.' - '.$value->nombre; ?></td>
+                      <td><?= $value->numero_control.' - '.mb_convert_encoding($value->nombre, 'Windows-1252'); ?></td>
                       <td style="text-align: center;">
                         <div class="switch">
                           <label>

@@ -53,11 +53,11 @@
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <header id="branding" role="banner">
-                    <h1 id="site-title"> 
+                    <h1 id="site-title">
                         <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                         <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                    </h1><div class="right-align"> Bienvenido (a): <?php echo $nombre; ?>  
-                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                    </h1><div class="right-align"> Bienvenido (a): <?php echo mb_convert_encoding($nombre, 'Windows-1252'); ?>
+                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
 
                     <div class="social">
                         <ul>
@@ -92,11 +92,11 @@
                                 <li><a href="#">Centro de Idiomas</a></li>
                                 <li><a href="#">Servicio Externo</a></li>
                                 <li><a href="#">Visitas a Empresas</a></li>
-                                
+
                             </ul>
                         </div>
                     </navs>
-                    <!-- #access --> 
+                    <!-- #access -->
                 </header>
                 <!-- #branding -->
                 <div id="main">
@@ -110,9 +110,9 @@
                                         ?>
                                         <li>
                                             <div class="collapsible-header tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?= $item->proyecto_a_desarrollar; ?>"><i class="material-icons">business</i><?= $item->nombre_empresa; ?></div><div class="collapsible-body grey lighten-5">
-                                                <p> 
+                                                <p>
                                                 <ul class="collection">
-                                                    <li class="collection-item grey lighten-2"><i class="material-icons right">content_paste</i> <?= $item->proyecto_a_desarrollar; ?> </li> 
+                                                    <li class="collection-item grey lighten-2"><i class="material-icons right">content_paste</i> <?= $item->proyecto_a_desarrollar; ?> </li>
                                                 </ul>
                                                 <b>&nbsp;&nbsp;Nombre de la empresa: </b> <?= $item->nombre_empresa; ?><br>
                                                 <b>&nbsp;&nbsp;Domicilio de la empresa: </b> <?= $item->domicilio; ?><br>

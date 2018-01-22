@@ -58,11 +58,11 @@
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <header id="branding" role="banner">
-                    <h1 id="site-title"> 
+                    <h1 id="site-title">
                         <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                         <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo $nombre; ?>  
-                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo mb_convert_encoding($nombre, 'Windows-1252'); ?>
+                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
 
                     <div class="social">
                         <ul>
@@ -98,17 +98,17 @@
                                 <li><a href="#">Centro de Idiomas</a></li>
                                 <li><a href="#">Servicio Externo</a></li>
                                 <li><a href="#">Visitas a Empresas</a></li>
-                                
+
                             </ul>
                         </div>
 
                         </nav>
-                        <!-- #access --> 
+                        <!-- #access -->
                 </header>
                 <!-- #branding -->
 
                 <div id="main">
-                    <!--  
+                    <!--
                         AQUI VA EL CONTENIDO DE LA VISTA ()
                     -->
                     <div id="primary">
@@ -118,7 +118,7 @@
                             <img src="<?php echo base_url(); ?>images/Procedimiento_Residencia.jpg"  alt="Procedimiento" />
                             <br>
                             Para mayor información descargar el documento<a href="http://sgc.ittepic.edu.mx/sgc/SGC/01%20ACADEMICO/ITTEPIC-AC-PO-007_RESIDENCIAS_PROFESIONALES/ITTEPIC-AC-PO-007 PROCEDIMIENTO DE RESIDENCIAS PROFESIONALES.doc"> Aquí</a>
-                            
+
                         </div>
                     </div><!-- #primary -->
                 </div><!-- #main -->

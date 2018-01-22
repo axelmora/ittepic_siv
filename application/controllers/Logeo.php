@@ -110,7 +110,6 @@ class Logeo extends CI_Controller {
                 }
               }
               else {
-
               }
             }
 

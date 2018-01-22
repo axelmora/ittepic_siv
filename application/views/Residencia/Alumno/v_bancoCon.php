@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>SIV :: ITTEPIC</title>
         <!-- Bootstrap -->
-        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/> 
+        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.min.js"></script>
 
@@ -19,7 +19,7 @@
 
         <!--<script src="http://code.jquery.com/jquery-latest.js"></script>-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link href="<?php echo base_url(); ?>css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>        
+        <link href="<?php echo base_url(); ?>css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <script src="<?php echo base_url(); ?>js/materialize.js"></script>
         <link href="<?php echo base_url(); ?>css/proceso.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link href="<?php echo base_url(); ?>css/flow.css" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -31,7 +31,7 @@
                 background-color: #F0F0F0;
             }
         </style>
-        <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.7.1.min.js"></script>        
+        <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/ddsmoothmenu.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/html5.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.fitvids.js"></script>
@@ -43,11 +43,11 @@
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <header id="branding" role="banner">
-                    <h1 id="site-title"> 
+                    <h1 id="site-title">
                         <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                         <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                    </h1><div class="right-align"> Bienvenido (a): <?php echo $nombre; ?>  
-                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                    </h1><div class="right-align"> Bienvenido (a): <?php echo mb_convert_encoding($nombre, 'Windows-1252'); ?>
+                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
 
                     <div class="social">
                         <ul>
@@ -87,7 +87,7 @@
                             </ul>
                         </div>
                     </navs>
-                    <!-- #access --> 
+                    <!-- #access -->
                 </header>
                 <!-- #branding -->
                 <div id="main">
@@ -102,8 +102,8 @@
                                             <div class="collapsible-header tooltipped" data-position="bottom" data-delay="50" data-tooltip="<?= $item->nombre_proyecto; ?>"><i class="material-icons">business</i><?= $item->nombre_empresa; ?></div>
                                             <div class="collapsible-body grey lighten-5">
                                                 <ul class="collection">
-                                                    <li class="collection-item grey lighten-2"><i class="material-icons right">content_paste</i> <?= $item->nombre_proyecto; ?> </li> 
-                                                </ul>                                                
+                                                    <li class="collection-item grey lighten-2"><i class="material-icons right">content_paste</i> <?= $item->nombre_proyecto; ?> </li>
+                                                </ul>
                                                 <?php if ($porcentaje_avance >= 80) { ?>
                                                      <label value = "<?= $s = $s + 1; ?>" hidden="true"></label>
                                                     <form class="form-horizontal">
@@ -123,7 +123,7 @@
                                                             <div class="col-xs-5"><b>&nbsp;&nbsp;Residentes requeridos:  </b> <?= $item->residentes_requeridos; ?></div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <div class="col-xs-5"><b>&nbsp;&nbsp;Atención Médica:  </b>&nbsp;&nbsp; 
+                                                            <div class="col-xs-5"><b>&nbsp;&nbsp;Atención Médica:  </b>&nbsp;&nbsp;
                                                                 <select class="form-control" name="atencion_medica<?= $s; ?>" id="atencion_medica<?= $s; ?>" placeholder="Con qué seguro cuentas" required>
                                                                     <option>IMSS</option>
                                                                     <option>ISSSTE</option>
@@ -138,7 +138,7 @@
                                                         </div>
                                                         <?php
                                                         if ($item->periodo == null || $item->periodo == '') {
-                                                            ?>    
+                                                            ?>
                                                             <div class="form-group">
                                                                 <div class="col-xs-5"><b title="Periodo en el que realizarás residencia">&nbsp;&nbsp;Periodo proyectado:  </b>&nbsp;&nbsp;
                                                                     <input type="text"  class="form-control" name="periodo<?= $s; ?>" id="periodo<?= $s; ?>" value="<?php echo set_value('periodo' . $s); ?>" placeholder="Periodo en el que realizarás tu residencia profesional" required />
@@ -159,7 +159,7 @@
                                                                 <div class="col-xs-5"><b>&nbsp;&nbsp;Clave compartida:  </b>&nbsp;&nbsp;
                                                                     <input type="text"  class="form-control" name="clave<?= $s; ?>" id="clave<?= $s; ?>"  placeholder="Clave compartida para seleccionar este proyecto" required />
                                                                 </div>
-                                                            </div>  
+                                                            </div>
                                                             <?php
                                                         }
                                                         if ($item->lugares_disponibles > 0) {
@@ -189,7 +189,7 @@
                                                                 <input type="text" name="disponible<?= $s; ?>" id="disponible<?= $s; ?>" style="visibility: hidden"  value="true">
                                                             <?php } ?>
                                                             <input type="text" name="lugares_d<?= $s; ?>" id="lugares_d<?= $s; ?>"  style="visibility: hidden"  value="<?php echo ($item->lugares_disponibles); ?> ">
-                                                            <input type="text" name="anteproyecto_pk<?= $s; ?>" id="anteproyecto_pk<?= $s; ?>"  style="visibility: hidden"  value=" <?= $item->anteproyecto_pk; ?>">                                                            
+                                                            <input type="text" name="anteproyecto_pk<?= $s; ?>" id="anteproyecto_pk<?= $s; ?>"  style="visibility: hidden"  value=" <?= $item->anteproyecto_pk; ?>">
                                                             </form>
                                                             </div>
                                                             </li>
@@ -226,10 +226,10 @@
                                                     <!-- #colophon -->
                                                     </div><!-- #wrapper -->
                                                     </div> <!-- #page -->
-                                                    <!--<script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>-->               
+                                                    <!--<script src="<?php echo base_url(); ?>js/jquery-3.0.0.min.js"></script>-->
                                                     <!-- Compiled and minified JavaScript -->
                                                     <script type="text/javascript" src="<?php echo base_url(); ?>js/scripts.js"></script>
-                                                    <!--<script src="<?php echo base_url(); ?>js/materialize.js"></script>-->                                                          
+                                                    <!--<script src="<?php echo base_url(); ?>js/materialize.js"></script>-->
                                                     <script type="text/javascript" src="<?php echo base_url(); ?>js/banco_alumno.js"></script>
 
                                                     </body>

@@ -23,17 +23,8 @@ class Inicio extends CI_Controller {
             $data['semestre_cursado'] = $session_data['semestre_cursado'];
             $data['creditos'] = $session_data['creditos'];
             $data['porcentaje_avance'] = $session_data['porcentaje_avance'];
-
-
-
             $numero_control = $data['username'];
-
-
-
             $data['programa'] = $this->m_solicitud->show_programa($numero_control);
-
-
-
             $this->load->view('inicio', $data);
         } else {
             //If no session, redirect to login page
@@ -48,5 +39,4 @@ class Inicio extends CI_Controller {
         session_destroy();
         redirect('logeo', 'refresh');
     }
-
 }

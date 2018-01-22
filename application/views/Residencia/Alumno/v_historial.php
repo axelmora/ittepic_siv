@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <title>SIV :: ITTEPIC</title>
-        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen"> 
+        <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.min.js"></script>
 
         <script src="bootstrap/js/bootstrap.min.js"></script>
-        
+
         <link rel="shortcut icon" href="<?php echo base_url(); ?>images/favicon.png"/>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css" media="all" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/view.css" media="all" />
@@ -65,11 +65,11 @@
         <div id="page" class="hfeed">
             <div id="wrapper">
                 <header id="branding" role="banner">
-                    <h1 id="site-title"> 
+                    <h1 id="site-title">
                         <img src="<?php echo base_url(); ?>images/sep.gif" alt="SIG" width="287" height="86" />
                         <img src="<?php echo base_url(); ?>images/titulo.png" alt="SIG" width="380" height="76" /> <img src="<?php echo base_url(); ?>images/logotecchico.png" alt="SIG" width="76" height="76" />
-                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo $nombre; ?>  
-                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div> 
+                    </h1><div align="right" class="right"> Bienvenido (a): <?php echo mb_convert_encoding($nombre, 'Windows-1252'); ?>
+                        <?= anchor(base_url() . 'index.php/Inicio/logout', '( Cerrar sesión )&nbsp;&nbsp;&nbsp;&nbsp;') ?>  </div>
 
                     <div class="social">
                         <ul>
@@ -105,12 +105,12 @@
                                 <li><a href="#">Centro de Idiomas</a></li>
                                 <li><a href="#">Servicio Externo</a></li>
                                 <li><a href="#">Visitas a Empresas</a></li>
-                                
+
                             </ul>
                         </div>
 
                     </nav>
-                    <!-- #access --> 
+                    <!-- #access -->
                 </header>
                 <!-- #branding -->
 
@@ -123,7 +123,7 @@
                                     <h4>Historial de notificaciones</h4>
                                     <table id="archivo_alumno" class="table table-responsive table-hover">
                                         <thead>
-                                            <tr>                                                
+                                            <tr>
                                                 <th><b>Asunto</b></th>
                                                 <th><b>Fecha</b></th>
                                             </tr>
@@ -139,7 +139,7 @@
                                                 <?php
                                             endforeach;
                                             ?>
-                                        </tbody>                      
+                                        </tbody>
                                     </table>
                                     <br>
                                     <?php
