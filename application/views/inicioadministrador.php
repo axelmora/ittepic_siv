@@ -41,29 +41,17 @@
             <div class="container">
 
                 <br><br>
-                <h3 class="thin header center amber-text darken-1-text">      
+                <h3 class="thin header center amber-text darken-1-text">
                     Sistema Integral de Vinculación <br></h3>
                 <p></p>
                 <p> </p>
-
-
-
                 <br>
                 <div class="row center">
-
                     Administrador - Panel de Mantenimiento
-
                 </div>
-
-
             </div>
         </div>
-
-
         <div class="container">
-
-
-
             <div class="section">
 
                 <!--   Icon Section   -->
@@ -84,9 +72,7 @@
                                     </div>
                                 </div>
                             </div></a>
-
                 </div>
-
                 <a href="<?php echo base_url(); ?>index.php/cm_docentes">
                     <div class="col s12 m5 center">
 
@@ -157,4 +143,3 @@
 
 </body>
 </html>
-

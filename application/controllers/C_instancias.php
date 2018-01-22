@@ -50,16 +50,11 @@ class C_instancias extends CI_Controller {
               $config['first_tag_close'] = '</li>';
               $config['last_tag_open'] = '<li>';
               $config['last_tag_close'] = '</li>';
-
               $config['first_link'] = '&lt;&lt;';
               $config['last_link'] = '&gt;&gt;';
-
-
-
               $this->pagination->initialize($config); //inicializamos la paginación
               //el array con los datos a paginar ya preparados
               $data["instancias"] = $this->m_instancias->total_posts($limit, $this->uri->segment(3));
-
               //cargamos la vista y el array data
               $this->load->view('v_instancias', $data);
           }else {
