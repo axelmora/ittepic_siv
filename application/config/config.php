@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /*ES NECESARIO DEFINIR EL BASE URL CON LA DIRECCION DNS DEL SITIO*/
-$config['base_url'] = 'http://localhost/siv/';
+$config['base_url'] = 'http://siv.ittepic.edu.mx/';
 $config['index_page'] = 'index.php';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';
@@ -12,32 +12,6 @@ $config['subclass_prefix'] = 'MY_';
 $config['composer_autoload'] = FALSE;
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 
-
-/*
-|--------------------------------------------------------------------------
-| Enable Query Strings
-|--------------------------------------------------------------------------
-|
-| By default CodeIgniter uses search-engine friendly segment based URLs:
-| example.com/who/what/where/
-|
-| By default CodeIgniter enables access to the $_GET array.  If for some
-| reason you would like to disable it, set 'allow_get_array' to FALSE.
-|
-| You can optionally enable standard query string based URLs:
-| example.com?who=me&what=something&where=here
-|
-| Options are: TRUE or FALSE (boolean)
-|
-| The other items let you set the query string 'words' that will
-| invoke your controllers and its functions:
-| example.com/index.php?c=controller&m=function
-|
-| Please note that some of the helpers won't work as expected when
-| this feature is enabled, since CodeIgniter is designed primarily to
-| use segment based URLs.
-|
-*/
 $config['allow_get_array'] = TRUE;
 $config['enable_query_strings'] = FALSE;
 $config['controller_trigger'] = 'c';
