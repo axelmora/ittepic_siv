@@ -163,7 +163,7 @@
         <?php if (isset($messages)) { ?>
           <CENTER><p class="col s4 center-align card-panel red white-text">La noticia se ha eliminado</p></CENTER><br>
         <?php } ?>
-        <div class="row"> <a href="<?php echo base_url(); ?>index.php/c_noticias/">< Regresar</a>
+        <div class="row"> <a href="<?php echo base_url(); ?>index.php/c_noticias/"> Regresar</a>
           <div class="section">
             <div class="col s2 left-aling"><div class="input-field">
               <div id="buscador">

@@ -46,10 +46,11 @@
 <body>
   <div class="row">
     <div class="col s12">
-      <form class="grey lighten-2" method="post" action="<?php echo base_url() . "index.php/verifylogin" ?>">
+      <form  class="grey lighten-2" method="post" action="<?php echo base_url() . "index.php/verifylogin" ?>">
         <br>&nbsp;
         <br>&nbsp;
         <div class="rowsa">
+        
           <input class="slide-up" type="text" name="username" size="6" id="username" placeholder="Introduce tu numero de control" /><label  for="actividadgi">&nbsp;&nbsp;&nbsp;Numero de control&nbsp;&nbsp;&nbsp;</label>
         </div>
         <br>&nbsp;

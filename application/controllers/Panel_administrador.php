@@ -24,5 +24,15 @@ class Panel_administrador extends CI_Controller {
             $this->load->view('notienespermisos');
         }
     }
+    public function info_sistema() {
+        if ($this->session->userdata('perfil') == FALSE) {
+            redirect(base_url() . 'index.php/logeo');
+        }
+        if ($this->session->userdata('perfil') == 'administrador') {
+            $this->load->view('admin_info_php');
+        } else {
+            $this->load->view('notienespermisos');
+        }
+    }
 
 }

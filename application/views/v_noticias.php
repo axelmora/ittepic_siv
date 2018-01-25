@@ -159,7 +159,13 @@
         <?php if (isset($messageErrorEditar)) { ?>
           <CENTER><p class="col s4 center-align card-panel red white-text"><?php echo $messageErrorEditar; ?></p></CENTER><br>
         <?php } ?>
-        <div class="row"> <a href="<?php echo base_url(); ?>index.php/">< Regresar</a>
+        <div class="row">
+
+
+<a class="tooltipped" data-position="top" data-delay="50" data-tooltip="Regresar" href="<?php echo base_url(); ?>index.php/" data-tooltip-id="f626313d-06bd-b196-93ed-d8033f9a4cda"><img src="<?php echo base_url(); ?>images/keyboard_return_tiny.png"></a>
+
+          <!-- <a href="<?php echo base_url(); ?>index.php/">Regresar</a> -->
+
           <div class="section">
             <div class="col s2 left-aling"><div class="input-field">
               <div id="buscador">

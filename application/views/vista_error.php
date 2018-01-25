@@ -20,7 +20,7 @@ padding: 0px;
 text-align:center;
 }
 body {
-background-color: #D4D9ED;
+
 }
 .cont_principal {
 position: absolute;
@@ -32,15 +32,12 @@ overflow: hidden;
 position: absolute;
 width: 100%;
 height: 300px;
-top: 50%;
-margin-top:-150px;
 }
 
 .cont_error > h1  {
 font-family: 'Lato', sans-serif;
 font-weight: 400;
 font-size:150px;
-color:#fff;
 position: relative;
 left:-100%;
 transition: all 0.5s;
@@ -52,7 +49,6 @@ font-family: 'Lato', sans-serif;
 font-weight: 300;
 font-size:24px;
 letter-spacing: 5px;
-color:#9294AE;
 position: relative;
 left:100%;
 transition: all 0.5s;
@@ -67,10 +63,11 @@ width:300px;
 height: 120%;
 top:25px;
 right: -340px;
-background-color: #F7D358;
-box-shadow: 0px 0px  60px  20px  rgba(137,100,222,0.5);
+background-color: #FFA042;
+box-shadow: 0px 0px  60px  20px  rgba(255,160,66,0.5);
 -webkit-transition: all 0.5s;
 transition: all 0.5s;
+z-index: -5;
 }
 .cont_aura_2 {
 position:absolute;
@@ -78,11 +75,12 @@ width:100%;
 height: 300px;
 right:-10%;
 bottom:-301px;
-background-color: #F7D358;
-box-shadow: 0px 0px 60px 10px rgba(131, 95, 214, 0.5),0px 0px  20px  0px  rgba(0,0,0,0.1);
+background-color: #FFA042;
+box-shadow: 0px 0px 60px 10px rgba(255,160,66,0.5),0px 0px  20px  0px  rgba(0,0,0,0.1);
 z-index:5;
 transition: all 0.5s;
 -webkit-transition: all 0.5s;
+z-index: -5;
 }
 
 .cont_error_active > .cont_error > h1 {
@@ -149,9 +147,6 @@ transform: rotate(25deg);
 }
 }
 
-
-
-
 @-webkit-keyframes animation_error_2 {
 from { -webkit-transform: rotate(-15deg);
 transform: rotate(-15deg);
@@ -191,6 +186,7 @@ transform: rotate(-20deg);
 <body>
   <div class="cont_principal">
     <div class="cont_error">
+      <img  class="img-fluid" src="http://www.ittepic.edu.mx/images/escudo_itt_200x200.png" height="150" width="150"> <br><br>
       <h1>Oops</h1>
       <p>La pagina que estas buscando no existe.</p>
     </div>
