@@ -22,6 +22,12 @@
                 background-color: #F0F0F0;
             }
         </style>
+        <style media="screen">
+        .collapsible-body p {
+          margin: 0;
+          padding: 0;
+        }
+      </style>
         <!--[if IE 8]>
         <link rel="stylesheet" type="text/css" href="style/css/ie8.css" media="all" />
         <![endif]-->
