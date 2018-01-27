@@ -374,21 +374,51 @@
                       $("#revisores").slideToggle( "fast", function() {
                         $("#eliegirsi_no").val(true);
                         $("#continuar").show();
+                        $('#rfc_revisor1').attr('bandera',"0");
+                        $('#rfc_revisor2').attr('bandera',"0");
+                        $('#rfc_revisor1').attr('nombres', "");
+                        $('#rfc_revisor2').attr('nombres', "");
                       });
                     });
                     $("#revisoresboton2").click(function(){
                       $("#eliegirsi_no").val(false);
-                      $('#rfc_revisor2').val("0");
-                      $('#rfc_revisor1').val("0");
+                      // $('#rfc_revisor2').val("0");
+                      //  $('#rfc_revisor1').val("");
+                      $('#rfc_revisor1').attr('value','0');
+                      $('#rfc_revisor2').attr('value','0');
+
                       $("#revisores").hide();
                       $("#continuar").show();
+
+
+                      $('#rfc_revisor1').attr('bandera',"0");
+                      $('#rfc_revisor2').attr('bandera',"0");
+
+                      $('#rfc_revisor1').attr('nombres', "");
+                      $('#rfc_revisor2').attr('nombres', "");
+
+                      $('#r1').html("");
+                      $('#r2').html("");
                     });
                     $("#cancelar_asignacion").click(function(){
                       $("#eliegirsi_no").val(false);
-                      $('#rfc_revisor2').val(0);
-                      $('#rfc_revisor1').val(0);
+                      // $('#rfc_revisor2').val("0");
+                      // $('#rfc_revisor1').val("0");
                       $("#revisores").hide();
                       $("#continuar").hide();
+
+                      $('#rfc_revisor1').attr('value','0');
+                      $('#rfc_revisor2').attr('value','0');
+
+                      $('#rfc_revisor1').attr('bandera',"0");
+                      $('#rfc_revisor2').attr('bandera',"0");
+
+                      $('#rfc_revisor1').attr('nombres', "");
+                      $('#rfc_revisor2').attr('nombres', "");
+
+                      $('#r1').html("");
+                      $('#r2').html("");
+
                     });
                   });
                   </script>
